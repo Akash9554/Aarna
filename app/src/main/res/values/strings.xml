@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Aarna</string>
+    <string name="admin">Admin</string>
+    <string name="employee">Employee</string>
+    <string name="login">Login</string>
+    <string name="choose_your_type">Choose Your Type</string>
+    <string name="enter_your_id">Enter Your Email</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="enter_your_new_password">Enter New Password</string>
+    <string name="enter_your_new_password_again">Enter New Password Again</string>
+    <string name="or">OR</string>
+    <string name="submit">Submit</string>
+    <string name="username">Username</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="change_password">Change Password</string>
+    <string name="enter_code">Enter Code</string>
+    <string name="profile">Profile</string>
+    <string name="order_list">Order List</string>
+    <string name="product_list">Product List</string>
+    <string name="about_milk">Product `List`</string>
+    <string name="record_list">Record List</string>
+    <string name="customer_list">Customer List</string>
+    <string name="add_new_product_type">Add New Product Type</string>
+    <string name="delivery_man_list">Delivery Man List</string>
+    <string name="milk_1_l">Milk 1 L</string>
+    <string name="product_name">Product Name</string>
+    <string name="enter_product_name">Enter Product Name</string>
+    <string name="product_image">Product Image</string>
+    <string name="save">Save</string>
+    <string name="loading">loading...</string>
+    <string name="add_new_product">Add New Product</string>
+    <string name="select_product_type">Select Product Type</string>
+    <string name="enter_about_product">Enter About Product</string>
+    <string name="enter_product_quantity">Enter Product Quantity</string>
+    <string name="product_quantity">Product Quantity</string>
+    <string name="product_type">Product Type</string>
+
+</resources>

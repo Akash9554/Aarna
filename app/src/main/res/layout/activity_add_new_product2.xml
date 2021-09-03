@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AddNewProductActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60"
+        android:id="@+id/rl_header"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp10"
+            android:id="@+id/iv_back"
+            android:layout_alignParentStart="true"
+            android:src="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_new_product"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_medium"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_below="@+id/rl_header">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:background="@drawable/round_corner_color"
+                android:minHeight="@dimen/dp50">
+
+                <TextView
+                    android:id="@+id/tv_employee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/select_product_type"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+
+            </RelativeLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/rl_login_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp150"
+                app:cardCornerRadius="5dp"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/dp30"
+                android:layout_marginEnd="@dimen/dp30"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/cv_product">
+
+
+                <ImageView
+                    android:padding="@dimen/dp5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@color/colorPrimaryDark"
+                    android:id="@+id/iv_product"
+                    android:layout_centerHorizontal="true" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_below="@+id/cv_product"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:fontFamily="@font/montserrat_medium"
+                android:padding="@dimen/dp5"
+                android:text="@string/product_name"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tv_product_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_product_name"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:fontFamily="@font/montserrat_medium"
+                android:padding="@dimen/dp5"
+                android:text="@string/product_name"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+            <EditText
+                android:id="@+id/et_product_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_product_description"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:backgroundTint="@color/transparent"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="start"
+                android:hint="@string/enter_about_product"
+                android:maxLines="3"
+                android:minHeight="@dimen/dp100"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tv_product_qty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_product_description"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:fontFamily="@font/montserrat_medium"
+                android:padding="@dimen/dp5"
+                android:text="@string/product_quantity"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/et_product_qty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_product_qty"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:backgroundTint="@color/transparent"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="start"
+                android:layout_marginBottom="@dimen/dp20"
+                android:hint="@string/enter_product_quantity"
+                android:maxLines="3"
+                android:minHeight="@dimen/dp100"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_below="@+id/et_product_qty"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:background="@drawable/round_corner_color"
+                android:minHeight="@dimen/dp50">
+
+                <TextView
+                    android:id="@+id/tv_employe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/submit"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

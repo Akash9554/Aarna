@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_weight="1"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp150"
+    android:layout_margin="@dimen/dp15"
+    app:cardCornerRadius="5dp"
+    android:id="@+id/cv_product">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv_product"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dp10"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/iv_all_product" />
+
+            <TextView
+                android:id="@+id/tv_product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp15"
+                android:layout_toEndOf="@+id/iv_product"
+                android:fontFamily="@font/montserrat_regular"
+                android:singleLine="true"
+                android:text="@string/milk_1_l"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product_list"
+                android:id="@+id/tvAmount"
+                android:layout_toEndOf="@+id/iv_product"
+                android:singleLine="true"
+                android:layout_marginTop="@dimen/dp10"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_below="@+id/tv_product_name"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product_list"
+                android:layout_toEndOf="@+id/iv_product"
+                android:id="@+id/tv_description"
+                android:maxLines="3"
+                android:layout_marginTop="@dimen/dp10"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_below="@+id/tvAmount"/>
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>

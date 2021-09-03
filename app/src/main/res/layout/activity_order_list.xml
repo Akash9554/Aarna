@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.OrderListActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:id="@+id/iv_back"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_alignParentStart="true"
+            android:src="@color/white"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order_list"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_medium"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

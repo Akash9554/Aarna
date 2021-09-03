@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".activity.LoginTypeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp220"
+        android:background="@drawable/top_graphic"
+        android:id="@+id/rl_header">
+        <ImageView
+            android:layout_width="@dimen/dp150"
+            android:layout_height="@dimen/dp150"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/dp10"
+            android:src="@drawable/app_logo"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_header">
+
+        <TextView
+            android:id="@+id/tv_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp40"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/choose_your_type"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/dp50"
+            android:id="@+id/rl_admin"
+           android:layout_margin="@dimen/dp30"
+            android:background="@drawable/round_corner"
+            android:layout_below="@+id/tv_header">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/admin"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/tv_admin"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/montserrat_regular"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp15"
+                android:src="@drawable/icon" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/or"
+            android:textSize="16sp"
+            android:layout_below="@+id/rl_admin"
+            android:textColor="@color/white"
+            android:id="@+id/tv_or"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_medium"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_employee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_or"
+            android:layout_marginStart="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp30"
+            android:layout_marginEnd="@dimen/dp30"
+            android:layout_marginBottom="@dimen/dp30"
+            android:background="@drawable/round_corner"
+            android:minHeight="@dimen/dp50">
+
+            <TextView
+                android:id="@+id/tv_employee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/employee"
+                android:textColor="@color/colorPrimary"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp15"
+                android:src="@drawable/icon" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>
