@@ -22,7 +22,13 @@
                 android:layout_marginEnd="@dimen/dp10"
                 android:layout_marginBottom="@dimen/dp10"
                 android:padding="@dimen/dp5"
-                android:src="@drawable/iv_all_product" />
+                android:src="@drawable/milk_product" />
+
+            <ImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:src="@drawable/iv_edit"
+                />
 
             <TextView
                 android:id="@+id/tv_product_name"

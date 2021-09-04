@@ -45,4 +45,22 @@ public interface APIService {
             @Field("user_id") String user_id
     );
 
+    @POST("product_add_edit")
+    @FormUrlEncoded
+    Call<ProductTypeData> getproductaddedit(
+            @Field("user_id") String user_id,
+            @Field("name") String name,
+            @Field("image") String image,
+            @Field("product_type_id") String product_type_id,
+            @Field("description") String description,
+            @Field("qty") String qty
+    );
+
+    @POST("product_type_delete")
+    @FormUrlEncoded
+    Call<ProductTypeData> getproducttypedelete(
+            @Field("user_id") String user_id,
+            @Field("id") String id
+    );
+
 }

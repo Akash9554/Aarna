@@ -87,6 +87,36 @@ public class ApiCall {
         });
     }
 
+    public void product_add_edit(String user_id,String name,String image, String product_type_id,String description,String qty, final IApiCallback iApiCallback){
+        Call<ProductTypeData> call = service.getproductaddedit(user_id,name,image,product_type_id,description,qty);
+        call.enqueue(new Callback<ProductTypeData>() {
+            @Override
+            public void onResponse(Call<ProductTypeData> call, Response<ProductTypeData> response) {
+                iApiCallback.onSuccess("product_add_edit",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<ProductTypeData> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+    public void deleteproducttype( String user_id,String id, final IApiCallback iApiCallback){
+        Call<ProductTypeData> call = service.getproducttypedelete(user_id,id);
+        call.enqueue(new Callback<ProductTypeData>() {
+            @Override
+            public void onResponse(Call<ProductTypeData> call, Response<ProductTypeData> response) {
+                iApiCallback.onSuccess("deleteproducttype",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<ProductTypeData> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
 
 }
 

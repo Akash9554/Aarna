@@ -45,10 +45,10 @@ public class AddProductListAdapter extends RecyclerView.Adapter<AddProductListAd
     }
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
-        holder.tv_product_name.setText(productDataLists.get(position).getName());
+        holder.tv_product_name.setText(productDataLists.get(position).getProductType().getName());
         holder.tvAmount.setText((productDataLists.get(position).getQty().toString())+" Liter");
         holder.tv_description.setText(productDataLists.get(position).getDescription());
-        Glide.with(context).load(productDataLists.get(position).getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_product);
+        Glide.with(context).load(productDataLists.get(position).getProductType().getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_product);
     }
 
     @Override

@@ -28,6 +28,17 @@ public class ProductDataList {
     @SerializedName("created_at")
     @Expose
     private String createdAt;
+    @SerializedName("product_type")
+    @Expose
+    private ProductTypeDetail productType;
+
+    public ProductTypeDetail getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductTypeDetail productType) {
+        this.productType = productType;
+    }
 
     public String getId() {
         return id;

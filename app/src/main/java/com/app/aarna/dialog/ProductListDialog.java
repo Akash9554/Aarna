@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -16,7 +15,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.app.aarna.R;
 import com.app.aarna.adapter.AddProductListTypeAdapter;
-import com.app.aarna.helper.CheckConnection;
 import com.app.aarna.helper.FunctionHelper;
 import com.app.aarna.helper.IApiCallback;
 import com.app.aarna.helper.IRecyclerClickListener;
@@ -37,13 +35,14 @@ public class ProductListDialog extends DialogFragment implements IApiCallback, I
     RecyclerView product_recycler;
     private MyInterface mListener;
     AddProductListTypeAdapter adapter;
-    Context context;
+    static Context conte;
     ArrayList<ProductTypeDataList> productTypeDataLists=new ArrayList<>();
+    String adapter_type="1";
 
     //Creating instance of dialog
     public static ProductListDialog newInstance(Context context, String id) {
         ProductListDialog productListDialog = new ProductListDialog();
-        context=context;
+        conte=context;
         placeId = id;
         return productListDialog;
     }
@@ -61,18 +60,15 @@ public class ProductListDialog extends DialogFragment implements IApiCallback, I
     }
 
     public void setcategoryadapter() {
-        product_recycler.setLayoutManager(new GridLayoutManager(context, 2));
-        adapter = new AddProductListTypeAdapter(context,productTypeDataLists, this);
+        product_recycler.setLayoutManager(new GridLayoutManager(conte, 2));
+        product_recycler.setNestedScrollingEnabled(false);
+        adapter = new AddProductListTypeAdapter(conte,productTypeDataLists, adapter_type,this);
         product_recycler.setAdapter(adapter);
     }
 
     public void getproductlist(){
-        if (CheckConnection.isConnection(context)) {
-            FunctionHelper.disable_user_Intration(context, getString(R.string.loading), getChildFragmentManager());
-            ApiCall.getInstance(context).producttypelist( "1", this);
-        }else {
-            Toast.makeText(context, "please check your internet connection", Toast.LENGTH_SHORT).show();
-        }
+            FunctionHelper.disable_user_Intration(conte, getString(R.string.loading), getChildFragmentManager());
+            ApiCall.getInstance(conte).producttypelist( "1", this);
     }
 
 
@@ -81,13 +77,12 @@ public class ProductListDialog extends DialogFragment implements IApiCallback, I
     //OK button click
     @OnClick(R.id.iv_back)
     void okClicked() {
-        mListener.oncheck("","");
         dismiss();
 
     }
     @Override
     public void onSuccess(Object type, Object data, Object extraData) {
-        FunctionHelper.enableUserIntraction(context);
+        FunctionHelper.enableUserIntraction(conte);
         if (type.equals("producttypelist")) {
             Response<ProductTypeData> response = (Response<ProductTypeData>) data;
             if (response.isSuccessful()) {
@@ -125,6 +120,12 @@ public class ProductListDialog extends DialogFragment implements IApiCallback, I
 
     @Override
     public void clickListener(Object pos, Object data, Object extraData) {
+        int position= (int) pos;
+        String product_name=productTypeDataLists.get(position).getName();
+        String image=productTypeDataLists.get(position).getImage();
+        String id=productTypeDataLists.get(position).getId();
+        mListener.oncheck(product_name,image,id);
+        dismiss();
 
     }
 }

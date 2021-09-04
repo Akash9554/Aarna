@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * For set all data in event list
@@ -29,10 +30,12 @@ public class AddProductListTypeAdapter extends RecyclerView.Adapter<AddProductLi
     Context context;
     IRecyclerClickListener clickListener;
     ArrayList<ProductTypeDataList>productTypeDataLists;
+    String type;
 
-    public AddProductListTypeAdapter(Context context, ArrayList<ProductTypeDataList>productTypeDataLists, IRecyclerClickListener clickListener) {
+    public AddProductListTypeAdapter(Context context, ArrayList<ProductTypeDataList>productTypeDataLists,String type, IRecyclerClickListener clickListener) {
         this.context = context;
         this.productTypeDataLists=productTypeDataLists;
+        this.type=type;
         this.clickListener = clickListener;
     }
     @NonNull
@@ -43,12 +46,15 @@ public class AddProductListTypeAdapter extends RecyclerView.Adapter<AddProductLi
     }
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
+        if (type.equals("1")){
+            holder.iv_delete.setVisibility(View.GONE);
+            holder.iv_edit.setVisibility(View.GONE);
+        }else {
+            holder.iv_delete.setVisibility(View.VISIBLE);
+            holder.iv_edit.setVisibility(View.VISIBLE);
+        }
         holder.tv_product_name.setText(productTypeDataLists.get(position).getName());
         Glide.with(context).load(productTypeDataLists.get(position).getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_product);
-
-
-      /*  holder.tvId.setText(eventLists.get(position).getId());
-        holder.tvzipcode.setText(eventLists.get(position).getZipcode());*/
     }
 
     @Override
@@ -56,15 +62,16 @@ public class AddProductListTypeAdapter extends RecyclerView.Adapter<AddProductLi
         return productTypeDataLists.size();
     }
 
-    /**
-     * for finding all view in adapter
-     */
     class ListViewHolder extends RecyclerView.ViewHolder {
        @BindView(R.id.tv_product_name)
        TextView tv_product_name;
         @BindView(R.id.iv_product)
         ImageView iv_product;
         IRecyclerClickListener clickListener;
+        @BindView(R.id.iv_edit)
+        ImageView iv_edit;
+        @BindView(R.id.iv_delete)
+        ImageView iv_delete;
 
         public ListViewHolder(@NonNull View itemView, IRecyclerClickListener clickListener) {
             super(itemView);
@@ -72,9 +79,19 @@ public class AddProductListTypeAdapter extends RecyclerView.Adapter<AddProductLi
             ButterKnife.bind(this, itemView);
         }
 
-       /* @OnClick(R.id.cardView)
+        @OnClick(R.id.cv_product)
         void getclick() {
-            clickListener.clickListener(getAdapterPosition(), "detail", "");
+            clickListener.clickListener(getAdapterPosition(), "selected_product", "");
         }
-   */ }
+
+        @OnClick(R.id.iv_delete)
+        void get_delete(){
+            clickListener.clickListener(getAdapterPosition(), "delete", "");
+        }
+
+        @OnClick(R.id.iv_edit)
+        void get_edit(){
+            clickListener.clickListener(getAdapterPosition(), "edit_product_type", "");
+        }
+    }
 }

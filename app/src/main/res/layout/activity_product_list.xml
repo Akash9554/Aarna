@@ -33,6 +33,15 @@
 
 </RelativeLayout>
 
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_header"
+        android:id="@+id/product_recycler" />
+
     <ImageView
         android:layout_width="@dimen/dp80"
         android:layout_height="@dimen/dp80"
@@ -41,11 +50,4 @@
         android:id="@+id/iv_add_product"
         android:src="@drawable/ic_baseline_add_circle_24"
         android:layout_alignParentBottom="true"/>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_header"
-        android:id="@+id/product_recycler" />
 </RelativeLayout>

@@ -11,4 +11,5 @@
     <color name="start_color">#22DEDB</color>
     <color name="center_color">#1ACBE6</color>
     <color name="end_color">#13B9F0</color>
+    <color name="semitransparent">#20000000</color>
 </resources>

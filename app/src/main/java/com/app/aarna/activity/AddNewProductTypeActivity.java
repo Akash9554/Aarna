@@ -24,6 +24,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.aarna.R;
@@ -56,12 +57,19 @@ public class AddNewProductTypeActivity extends AppCompatActivity implements IApi
     ImageView iv_product_picture;
     @BindView(R.id.et_product_name)
     EditText et_product_name;
+    @BindView(R.id.tv_employee)
+    TextView tv_employee;
     private String url="";
     public static int  PICK_IMAGE_FROM_CAMERA = 1010;
     private Uri fileUri;
 
     String file_id="";
     String product_name="";
+    String pro_image="";
+    String pro_name="";
+    String pro_type="";
+    String pro_id="";
+
 
 
     String[] permissions = new String[]{
@@ -75,6 +83,20 @@ public class AddNewProductTypeActivity extends AppCompatActivity implements IApi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_product_type);
         ButterKnife.bind(this);
+        Intent intent=getIntent();
+        pro_type=intent.getStringExtra("type");
+        if (pro_type.equals("2")){
+            pro_image=intent.getStringExtra("pro_image");
+            pro_name=intent.getStringExtra("pro_name");
+            pro_id=intent.getStringExtra("id");
+            tv_employee.setText("Edit Product Type");
+            file_id=pro_id;
+            et_product_name.setText(pro_name);
+            Glide.with(this).load(pro_image).apply(new RequestOptions()).centerCrop().into(iv_product_picture);
+
+        }else {
+            tv_employee.setText("Save");
+        }
     }
 
     @OnClick(R.id.iv_back)
@@ -205,7 +227,7 @@ public class AddNewProductTypeActivity extends AppCompatActivity implements IApi
             product_name= et_product_name.getText().toString();
             addtrasactionimage();
         }else {
-
+            Toast.makeText(AddNewProductTypeActivity.this,"Please Select Product Type",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -232,7 +254,6 @@ public class AddNewProductTypeActivity extends AppCompatActivity implements IApi
             if (response.isSuccessful()) {
                 if (response.body().getErrorCode().equals("0")) {
                     Toast.makeText(this, "" + "Successfully Uploaded", Toast.LENGTH_SHORT).show();
-
                     Intent resultIntent = new Intent();
                     setResult(RESULT_OK, resultIntent);
                     finish();

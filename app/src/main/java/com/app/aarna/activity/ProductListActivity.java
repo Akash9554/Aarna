@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.app.aarna.R;
 import com.app.aarna.adapter.AddProductListAdapter;
-import com.app.aarna.helper.CheckConnection;
+
 import com.app.aarna.helper.FunctionHelper;
 import com.app.aarna.helper.IApiCallback;
 import com.app.aarna.helper.IRecyclerClickListener;
@@ -55,13 +55,9 @@ public class ProductListActivity extends AppCompatActivity implements IRecyclerC
     }
 
     public void get_product_list(){
-        if (CheckConnection.isConnection(this)) {
             FunctionHelper.disable_user_Intration(this, getString(R.string.loading), getSupportFragmentManager());
             ApiCall.getInstance(this).product_list(  "1",this);
-        }else {
-            Toast.makeText(this, "please check your internet connection", Toast.LENGTH_SHORT).show();
         }
-    }
 
     @OnClick(R.id.iv_add_product)
     void getadd(){

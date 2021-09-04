@@ -34,5 +34,8 @@
     <string name="enter_product_quantity">Enter Product Quantity</string>
     <string name="product_quantity">Product Quantity</string>
     <string name="product_type">Product Type</string>
+    <string name="are_you_sure_you_want_to_delete_this">Are You Sure You Want To Delete This</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
 
 </resources>
