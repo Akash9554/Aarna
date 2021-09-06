@@ -47,7 +47,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_weight="1"
-                    android:layout_width="@dimen/dp250"
+                    android:layout_width="@dimen/dp220"
                     android:layout_height="@dimen/dp150"
                     android:layout_margin="@dimen/dp15"
                     app:cardCornerRadius="5dp"
@@ -55,7 +55,8 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/round_box_corner_for_mainmenu">
 
                         <ImageView
                             android:padding="@dimen/dp5"
@@ -74,7 +75,7 @@
                             android:singleLine="true"
                             android:layout_marginTop="@dimen/dp10"
                             android:textColor="@color/colorPrimary"
-                            android:fontFamily="@font/montserrat_regular"
+                            android:fontFamily="@font/montserrat_medium"
                             android:layout_below="@+id/iv_product"/>
 
                     </RelativeLayout>
@@ -86,14 +87,15 @@
                 <androidx.cardview.widget.CardView
                     android:layout_weight="1"
                     android:layout_margin="@dimen/dp15"
-                    android:layout_width="@dimen/dp250"
+                    android:layout_width="@dimen/dp220"
                     android:layout_height="@dimen/dp150"
                     app:cardCornerRadius="5dp"
                     android:id="@+id/cv_order_list">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/round_box_corner_for_mainmenu">
 
                         <ImageView
                             android:layout_width="@dimen/dp80"
@@ -112,7 +114,7 @@
                             android:singleLine="true"
                             android:layout_marginTop="@dimen/dp10"
                             android:textColor="@color/colorPrimary"
-                            android:fontFamily="@font/montserrat_regular"
+                            android:fontFamily="@font/montserrat_medium"
                             android:layout_below="@+id/iv_order_list"/>
 
                     </RelativeLayout>
@@ -131,12 +133,13 @@
                 <androidx.cardview.widget.CardView
                     android:layout_weight="1"
                     android:id="@+id/cv_customer_list"
-                    android:layout_width="@dimen/dp250"
+                    android:layout_width="@dimen/dp220"
                     android:layout_height="@dimen/dp150"
                     android:layout_margin="@dimen/dp15"
                     app:cardCornerRadius="5dp">
 
                     <RelativeLayout
+                        android:background="@drawable/round_box_corner_for_mainmenu"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -157,7 +160,7 @@
                             android:singleLine="true"
                             android:layout_marginTop="@dimen/dp10"
                             android:textColor="@color/colorPrimary"
-                            android:fontFamily="@font/montserrat_regular"
+                            android:fontFamily="@font/montserrat_medium"
                             android:layout_below="@+id/iv_customer_list"/>
 
                     </RelativeLayout>
@@ -168,11 +171,12 @@
                     android:layout_weight="1"
                     android:id="@+id/cv_delivery_boy_list"
                     android:layout_margin="@dimen/dp15"
-                    android:layout_width="@dimen/dp250"
+                    android:layout_width="@dimen/dp220"
                     android:layout_height="@dimen/dp150"
                     app:cardCornerRadius="5dp">
 
                     <RelativeLayout
+                        android:background="@drawable/round_box_corner_for_mainmenu"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -193,7 +197,7 @@
                             android:singleLine="true"
                             android:layout_marginTop="@dimen/dp10"
                             android:textColor="@color/colorPrimary"
-                            android:fontFamily="@font/montserrat_regular"
+                            android:fontFamily="@font/montserrat_medium"
                             android:layout_below="@+id/iv_delever_boy"/>
 
                     </RelativeLayout>
@@ -212,12 +216,13 @@
                 <androidx.cardview.widget.CardView
                     android:layout_weight="1"
                     android:id="@+id/cv_profile"
-                    android:layout_width="@dimen/dp250"
+                    android:layout_width="@dimen/dp220"
                     android:layout_height="@dimen/dp150"
                     android:layout_margin="@dimen/dp15"
                     app:cardCornerRadius="5dp">
 
                     <RelativeLayout
+                        android:background="@drawable/round_box_corner_for_mainmenu"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -238,7 +243,7 @@
                             android:singleLine="true"
                             android:layout_marginTop="@dimen/dp10"
                             android:textColor="@color/colorPrimary"
-                            android:fontFamily="@font/montserrat_regular"
+                            android:fontFamily="@font/montserrat_medium"
                             android:layout_below="@+id/iv_profile"/>
 
                     </RelativeLayout>
@@ -249,11 +254,12 @@
                     android:layout_weight="1"
                     android:id="@+id/cv_add_new_product"
                     android:layout_margin="@dimen/dp15"
-                    android:layout_width="@dimen/dp250"
+                    android:layout_width="@dimen/dp220"
                     android:layout_height="@dimen/dp150"
                     app:cardCornerRadius="5dp">
 
                     <RelativeLayout
+                        android:background="@drawable/round_box_corner_for_mainmenu"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -274,7 +280,7 @@
                             android:singleLine="true"
                             android:layout_marginTop="@dimen/dp10"
                             android:textColor="@color/colorPrimary"
-                            android:fontFamily="@font/montserrat_regular"
+                            android:fontFamily="@font/montserrat_medium"
                             android:layout_below="@+id/iv_add_product"/>
 
                     </RelativeLayout>
@@ -296,12 +302,13 @@
                 <androidx.cardview.widget.CardView
                     android:layout_weight="1"
                     android:id="@+id/cv_bill"
-                    android:layout_width="@dimen/dp250"
+                    android:layout_width="@dimen/dp220"
                     android:layout_height="@dimen/dp150"
                     android:layout_margin="@dimen/dp15"
                     app:cardCornerRadius="5dp">
 
                     <RelativeLayout
+                        android:background="@drawable/round_box_corner_for_mainmenu"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -322,7 +329,7 @@
                             android:singleLine="true"
                             android:layout_marginTop="@dimen/dp10"
                             android:textColor="@color/colorPrimary"
-                            android:fontFamily="@font/montserrat_regular"
+                            android:fontFamily="@font/montserrat_medium"
                             android:layout_below="@+id/iv_bill"/>
 
                     </RelativeLayout>
@@ -335,11 +342,12 @@
                     android:layout_weight="1"
                     android:visibility="invisible"
                     android:layout_margin="@dimen/dp15"
-                    android:layout_width="@dimen/dp250"
+                    android:layout_width="@dimen/dp220"
                     android:layout_height="@dimen/dp150"
                     app:cardCornerRadius="5dp">
 
                     <RelativeLayout
+                        android:background="@drawable/round_box_corner_for_mainmenu"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -360,7 +368,7 @@
                             android:singleLine="true"
                             android:layout_marginTop="@dimen/dp10"
                             android:textColor="@color/colorPrimary"
-                            android:fontFamily="@font/montserrat_regular"
+                            android:fontFamily="@font/montserrat_medium"
                             android:layout_below="@+id/iv_or_list"/>
 
                     </RelativeLayout>

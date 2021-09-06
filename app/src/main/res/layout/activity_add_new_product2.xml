@@ -19,7 +19,8 @@
             android:layout_marginStart="@dimen/dp10"
             android:id="@+id/iv_back"
             android:layout_alignParentStart="true"
-            android:src="@color/white"/>
+            android:src="@drawable/back"
+            app:tint="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,6 +102,7 @@
                 android:text="@string/product_name"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="14sp" />
+
             <TextView
                 android:id="@+id/tv_product_description"
                 android:layout_width="wrap_content"
@@ -108,6 +110,7 @@
                 android:layout_below="@+id/tv_product_name"
                 android:layout_marginStart="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp10"
                 android:layout_marginBottom="@dimen/dp10"
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
@@ -115,57 +118,80 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/et_product_description"
+                <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/rl_product_description"
+                android:background="@drawable/round_box_corner_for_edittext"
                 android:layout_below="@+id/tv_product_description"
-                android:layout_marginStart="@dimen/dp20"
-                android:layout_marginEnd="@dimen/dp20"
-                android:backgroundTint="@color/transparent"
-                android:fontFamily="@font/montserrat_regular"
-                android:gravity="start"
-                android:hint="@string/enter_about_product"
-                android:maxLines="3"
-                android:minHeight="@dimen/dp100"
-                android:textColorHint="@color/colorPrimaryDark"
-                android:textSize="14sp" />
+                android:layout_marginStart="@dimen/dp15"
+                android:layout_marginEnd="@dimen/dp15">
+                    <EditText
+                        android:id="@+id/et_product_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp5"
+                        android:padding="@dimen/dp5"
+                        android:backgroundTint="@color/transparent"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="start"
+                        android:hint="@string/enter_about_product"
+                        android:maxLines="3"
+                        android:minHeight="@dimen/dp100"
+                        android:textColorHint="@color/colorPrimaryDark"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+
+
             <TextView
                 android:id="@+id/tv_product_qty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/et_product_description"
+                android:layout_below="@+id/rl_product_description"
                 android:layout_marginStart="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp20"
-                android:layout_marginBottom="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="@string/product_quantity"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/et_product_qty"
+                 <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/rl_product_qty"
+                android:background="@drawable/round_box_corner_for_edittext"
                 android:layout_below="@+id/tv_product_qty"
-                android:layout_marginStart="@dimen/dp20"
-                android:layout_marginEnd="@dimen/dp20"
-                android:layout_marginBottom="@dimen/dp20"
-                android:backgroundTint="@color/transparent"
-                android:fontFamily="@font/montserrat_regular"
-                android:gravity="start"
-                android:hint="@string/enter_product_quantity"
-                android:maxLines="3"
-                android:minHeight="@dimen/dp100"
-                android:textColorHint="@color/colorPrimaryDark"
-                android:textSize="14sp" />
+                android:layout_marginStart="@dimen/dp15"
+                android:layout_marginEnd="@dimen/dp15">
+                     <EditText
+                         android:id="@+id/et_product_qty"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:backgroundTint="@color/transparent"
+                         android:fontFamily="@font/montserrat_regular"
+                         android:gravity="start"
+                         android:padding="@dimen/dp5"
+                         android:layout_margin="@dimen/dp5"
+                         android:hint="@string/enter_product_quantity"
+                         android:maxLines="3"
+                         android:minHeight="@dimen/dp100"
+                         android:textColorHint="@color/colorPrimaryDark"
+                         android:textSize="14sp" />
+
+                 </RelativeLayout>
+
+
 
             <RelativeLayout
                 android:id="@+id/rl_save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/et_product_qty"
+                android:layout_below="@+id/rl_product_qty"
                 android:layout_marginStart="@dimen/dp20"
                 android:layout_marginTop="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp20"

@@ -9,6 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp60"
+        android:id="@+id/rl_header"
         android:background="@color/colorPrimaryDark">
 
         <ImageView
@@ -18,7 +19,8 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dp10"
             android:layout_alignParentStart="true"
-            android:src="@color/white"/>
+            android:src="@drawable/back"
+            app:tint="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -31,5 +33,18 @@
 
     </RelativeLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_header"
+        android:id="@+id/product_recycler" />
 
+    <ImageView
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/dp20"
+        android:id="@+id/iv_add_product"
+        android:src="@drawable/plus__1_"
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

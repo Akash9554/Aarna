@@ -10,7 +10,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/round_box_corner_for_mainmenu">
 
             <ImageView
                 android:id="@+id/iv_product"
@@ -27,41 +28,53 @@
             <ImageView
                 android:layout_width="@dimen/dp20"
                 android:layout_height="@dimen/dp20"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/dp10"
                 android:src="@drawable/iv_edit"
-                />
+                android:id="@+id/iv_edit"/>
+
+            <ImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_marginStart="@dimen/dp10"
+                android:src="@drawable/delete__1_"
+                android:layout_below="@+id/iv_edit"
+                android:id="@+id/iv_delete"/>
 
             <TextView
                 android:id="@+id/tv_product_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp15"
+                android:layout_toStartOf="@+id/iv_edit"
                 android:layout_toEndOf="@+id/iv_product"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_medium"
                 android:singleLine="true"
-                android:text="@string/milk_1_l"
                 android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/product_list"
                 android:id="@+id/tvAmount"
+                android:layout_toStartOf="@+id/iv_edit"
                 android:layout_toEndOf="@+id/iv_product"
                 android:singleLine="true"
                 android:layout_marginTop="@dimen/dp10"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_medium"
                 android:layout_below="@+id/tv_product_name"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/product_list"
                 android:layout_toEndOf="@+id/iv_product"
                 android:id="@+id/tv_description"
                 android:maxLines="3"
+                android:layout_toStartOf="@+id/iv_edit"
                 android:layout_marginTop="@dimen/dp10"
                 android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_medium"
                 android:layout_below="@+id/tvAmount"/>
 
 

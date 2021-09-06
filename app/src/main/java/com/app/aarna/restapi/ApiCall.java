@@ -4,6 +4,7 @@ package com.app.aarna.restapi;
 import android.content.Context;
 
 import com.app.aarna.helper.IApiCallback;
+import com.app.aarna.model.DeliveryBoyResponce;
 import com.app.aarna.model.LoginResponce;
 import com.app.aarna.model.ProductDataResponce;
 import com.app.aarna.model.ProductTypeData;
@@ -87,8 +88,8 @@ public class ApiCall {
         });
     }
 
-    public void product_add_edit(String user_id,String name,String image, String product_type_id,String description,String qty, final IApiCallback iApiCallback){
-        Call<ProductTypeData> call = service.getproductaddedit(user_id,name,image,product_type_id,description,qty);
+    public void product_add_edit(String user_id,String id,String name,String image, String product_type_id,String description,String qty, final IApiCallback iApiCallback){
+        Call<ProductTypeData> call = service.getproductaddedit(user_id,id,name,image,product_type_id,description,qty);
         call.enqueue(new Callback<ProductTypeData>() {
             @Override
             public void onResponse(Call<ProductTypeData> call, Response<ProductTypeData> response) {
@@ -116,6 +117,71 @@ public class ApiCall {
             }
         });
     }
+
+    public void deliveryBoyData( String user_id,String type, final IApiCallback iApiCallback){
+        Call<DeliveryBoyResponce> call = service.deliveryBoyData(user_id,type);
+        call.enqueue(new Callback<DeliveryBoyResponce>() {
+            @Override
+            public void onResponse(Call<DeliveryBoyResponce> call, Response<DeliveryBoyResponce> response) {
+                iApiCallback.onSuccess("deliveryBoyData",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<DeliveryBoyResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+    public void adddeliveryboydata(MultipartBody.Part image, RequestBody name, RequestBody email, RequestBody password, RequestBody phone, RequestBody address, RequestBody type, RequestBody id, final IApiCallback iApiCallback) {
+        Call<DeliveryBoyResponce> call = service.user_add_edit(image,name,email,password,phone,address,type,id);
+
+        call.enqueue(new Callback<DeliveryBoyResponce>() {
+            @Override
+            public void onResponse(Call<DeliveryBoyResponce> call, Response<DeliveryBoyResponce> response) {
+                iApiCallback.onSuccess("deliveryboydata",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<DeliveryBoyResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+
+    public void deletedeliveryboy( String user_id, final IApiCallback iApiCallback){
+        Call<DeliveryBoyResponce> call = service.deletedeliveryboy(user_id);
+        call.enqueue(new Callback<DeliveryBoyResponce>() {
+            @Override
+            public void onResponse(Call<DeliveryBoyResponce> call, Response<DeliveryBoyResponce> response) {
+                iApiCallback.onSuccess("deletedeliveryboy",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<DeliveryBoyResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+    public void deleteproduct(String product_id, String user_id, final IApiCallback iApiCallback){
+        Call<ProductDataResponce> call = service.delete_product(product_id,user_id);
+        call.enqueue(new Callback<ProductDataResponce>() {
+            @Override
+            public void onResponse(Call<ProductDataResponce> call, Response<ProductDataResponce> response) {
+                iApiCallback.onSuccess("delete_product",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<ProductDataResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+
+
 
 
 }

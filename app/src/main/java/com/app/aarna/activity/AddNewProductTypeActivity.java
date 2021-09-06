@@ -104,11 +104,6 @@ public class AddNewProductTypeActivity extends AppCompatActivity implements IApi
         onBackPressed();
     }
 
-    @OnClick(R.id.rl_save)
-    void get_save(){
-
-    }
-
     @OnClick(R.id.iv_product)
     void get_picture(){
         selectImage();

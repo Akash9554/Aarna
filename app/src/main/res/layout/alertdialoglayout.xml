@@ -5,9 +5,8 @@
     android:background="#00000000"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:minWidth="@dimen/dp300"
         style="@style/CardView.Light"
         android:background="@color/semitransparent"
         android:layout_centerInParent="true"
@@ -23,7 +22,7 @@
                 android:layout_width="@dimen/dp100"
                 android:layout_height="@dimen/dp100"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/dp40"
+                android:layout_margin="@dimen/dp30"
                 android:src="@drawable/app_logo"
                 app:tint="@color/colorPrimaryDark" />
 
@@ -32,7 +31,7 @@
                 android:layout_below="@id/ivAlert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_regular"
+                android:fontFamily="@font/montserrat_medium"
                 android:gravity="center"
                 android:textSize="12sp"
                 android:text="@string/are_you_sure_you_want_to_delete_this"
@@ -64,7 +63,7 @@
                         android:minHeight="35dp"
                         android:text="@string/no"
                         android:textSize="12sp"
-                        android:fontFamily="@font/montserrat_regular"
+                        android:fontFamily="@font/montserrat_medium"
                         android:minWidth="@dimen/dp100"
                         android:layout_marginTop="@dimen/dp25"
                         android:layout_marginBottom="@dimen/dp20"
@@ -89,7 +88,7 @@
                         android:minHeight="35dp"
                         android:text="@string/yes"
                         android:textSize="12sp"
-                        android:fontFamily="@font/montserrat_regular"
+                        android:fontFamily="@font/montserrat_medium"
                         android:minWidth="@dimen/dp100"
                         android:layout_marginTop="@dimen/dp25"
                         android:layout_marginBottom="@dimen/dp20"
@@ -99,10 +98,6 @@
 
                 </RelativeLayout>
             </LinearLayout>
-
-
-
-
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

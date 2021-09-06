@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * For set all data in event list
@@ -65,6 +66,10 @@ public class AddProductListAdapter extends RecyclerView.Adapter<AddProductListAd
         @BindView(R.id.iv_product)
         ImageView iv_product;
         IRecyclerClickListener clickListener;
+        @BindView(R.id.iv_edit)
+        ImageView iv_edit;
+        @BindView(R.id.iv_delete)
+        ImageView iv_delete;
 
         public ListViewHolder(@NonNull View itemView, IRecyclerClickListener clickListener) {
             super(itemView);
@@ -72,9 +77,14 @@ public class AddProductListAdapter extends RecyclerView.Adapter<AddProductListAd
             ButterKnife.bind(this, itemView);
         }
 
-       /* @OnClick(R.id.cardView)
-        void getclick() {
-            clickListener.clickListener(getAdapterPosition(), "detail", "");
+        @OnClick(R.id.iv_edit)
+        void get_click_edit() {
+            clickListener.clickListener(getAdapterPosition(), "edit", "");
         }
-   */ }
+
+        @OnClick(R.id.iv_delete)
+        void  get_delete(){
+            clickListener.clickListener(getAdapterPosition(),"delete","");
+        }
+    }
 }

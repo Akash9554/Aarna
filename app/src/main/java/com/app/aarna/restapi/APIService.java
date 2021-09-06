@@ -2,6 +2,7 @@ package com.app.aarna.restapi;
 
 
 
+import com.app.aarna.model.DeliveryBoyResponce;
 import com.app.aarna.model.LoginResponce;
 import com.app.aarna.model.ProductDataResponce;
 import com.app.aarna.model.ProductTypeData;
@@ -49,6 +50,7 @@ public interface APIService {
     @FormUrlEncoded
     Call<ProductTypeData> getproductaddedit(
             @Field("user_id") String user_id,
+            @Field("id") String id,
             @Field("name") String name,
             @Field("image") String image,
             @Field("product_type_id") String product_type_id,
@@ -62,5 +64,37 @@ public interface APIService {
             @Field("user_id") String user_id,
             @Field("id") String id
     );
+
+    @POST("user_list")
+    @FormUrlEncoded
+    Call<DeliveryBoyResponce> deliveryBoyData(
+            @Field("user_id") String user_id,
+            @Field("type") String type
+    );
+
+    @POST("user_add_edit")
+    @Multipart
+    Call<DeliveryBoyResponce> user_add_edit(@Part MultipartBody.Part image,
+                                                @Part("name") RequestBody name,
+                                                @Part("email") RequestBody email,
+                                            @Part("password") RequestBody password,
+                                            @Part("phone") RequestBody phone,
+                                            @Part("address") RequestBody address,
+                                            @Part("type") RequestBody type,
+                                            @Part("id") RequestBody id);
+
+    @POST("user_delete")
+    @FormUrlEncoded
+    Call<DeliveryBoyResponce> deletedeliveryboy(
+            @Field("user_id") String user_id
+    );
+
+    @POST("user_delete")
+    @FormUrlEncoded
+    Call<ProductDataResponce> delete_product(
+            @Field("product_id") String product_id,
+            @Field("user_id") String user_id
+    );
+
 
 }

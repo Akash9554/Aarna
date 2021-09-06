@@ -7,9 +7,12 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/main_screen_back.xml" value="0.1675925925925926" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box.xml" value="0.175" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box_corner.xml" value="0.2203125" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box_corner_for_edittext.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box_corner_for_mainmenu.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box_header_corner.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_corner.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_corner_color.xml" value="0.1953125" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_add_delivery_boy.xml" value="0.22" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_add_new_product.xml" value="0.16" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_add_new_product2.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_add_new_product_type.xml" value="0.18" />
@@ -27,7 +30,8 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/alertdialoglayout.xml" value="0.22" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/custom_loader.xml" value="0.19010416666666666" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/product_list_view.xml" value="0.2" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/delivery_boy_list_view.xml" value="0.75" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/product_list_view.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/productalllistlayout.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/producttypelistdialog.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/xml/provider_paths.xml" value="0.17916666666666667" />

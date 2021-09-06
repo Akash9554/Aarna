@@ -39,9 +39,18 @@ public class AddNewProductActivity extends AppCompatActivity implements MyInterf
     EditText et_product_description;
     @BindView(R.id.et_product_qty)
     EditText et_product_qty;
+    @BindView(R.id.tv_employe)
+    TextView tv_employe;
     String product_name="";
     String product_image="";
     String product_id="";
+    String product_type_id="";
+    String type="";
+    @BindView(R.id.tv_employee)
+    TextView tv_title;
+    String description="";
+    String qty="";
+
 
 
 
@@ -50,6 +59,31 @@ public class AddNewProductActivity extends AppCompatActivity implements MyInterf
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_product2);
         ButterKnife.bind(this);
+        Intent intent=getIntent();
+        type=intent.getStringExtra("type");
+        if (type.equals("2")){
+            tv_employe.setText("Save Change");
+            tv_title.setText("Change Product Type");
+            tv_product_name.setVisibility(View.VISIBLE);
+            cv_product.setVisibility(View.VISIBLE);
+            iv_product.setVisibility(View.VISIBLE);
+            product_id=intent.getStringExtra("id");
+            description=intent.getStringExtra("description");
+            qty=intent.getStringExtra("qty");
+            product_type_id=intent.getStringExtra("product_type_id");
+            product_image=intent.getStringExtra("product_image");
+            product_name=intent.getStringExtra("product_name");
+            et_product_description.setText(description);
+            et_product_qty.setText(qty);
+            tv_product_name.setText(product_name);
+            Glide.with(this).load(product_image).apply(new RequestOptions()).centerCrop().into(iv_product);
+            et_product_description.setSelection(et_product_description. getText(). length());
+            et_product_qty.setSelection(et_product_qty. getText(). length());
+        }else {
+            tv_employe.setText("Save");
+            tv_title.setText("Select Product Type");
+        }
+
     }
 
     @OnClick(R.id.rl_login_btn)
@@ -69,7 +103,7 @@ public class AddNewProductActivity extends AppCompatActivity implements MyInterf
             setToast_message("Please Enter Product Quantity");
         }else {
             FunctionHelper.disable_user_Intration(AddNewProductActivity.this, getString(R.string.loading), getSupportFragmentManager());
-            ApiCall.getInstance(AddNewProductActivity.this).product_add_edit( "1",product_name,product_image,product_id,et_product_description.getText().toString(),et_product_qty.getText().toString(), this);
+            ApiCall.getInstance(AddNewProductActivity.this).product_add_edit( "1",product_id,product_name,product_image,product_type_id,et_product_description.getText().toString(),et_product_qty.getText().toString(), this);
         }
     }
 
@@ -100,7 +134,7 @@ public class AddNewProductActivity extends AppCompatActivity implements MyInterf
         cv_product.setVisibility(View.VISIBLE);
         iv_product.setVisibility(View.VISIBLE);
         tv_product_name.setText(name);
-        product_id=id;
+        product_type_id=id;
         product_name=tv_product_name.getText().toString();
         product_image=image;
         Glide.with(this).load(image).apply(new RequestOptions()).centerCrop().into(iv_product);

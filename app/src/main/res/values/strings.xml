@@ -37,5 +37,17 @@
     <string name="are_you_sure_you_want_to_delete_this">Are You Sure You Want To Delete This</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
+    <string name="add_new_delivery_boy">Add New Delivery Boy</string>
+    <string name="delivery_boy_image">Delivery Boy Image</string>
+    <string name="delivery_boy_name">Delivery Boy Name</string>
+    <string name="enter_delivery_boy_name">Enter Delivery Boy Name</string>
+    <string name="delivery_boy_number">Delivery Boy Number</string>
+    <string name="enter_delivery_boy_number">Enter Delivery Boy Number</string>
+    <string name="delivery_boy_email">Delivery Boy Email</string>
+    <string name="enter_delivery_boy_email">Enter Delivery Boy Email</string>
+    <string name="delivery_boy_password">Delivery Boy Password</string>
+    <string name="enter_delivery_boy_password">Enter Delivery Boy Password</string>
+    <string name="delivery_boy_address">Delivery Boy Address</string>
+    <string name="enter_delivery_boy_address">Enter Delivery Boy Address</string>
 
 </resources>
