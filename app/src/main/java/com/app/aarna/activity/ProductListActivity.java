@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.aarna.R;
@@ -37,6 +39,8 @@ public class ProductListActivity extends AppCompatActivity implements IRecyclerC
     RecyclerView recyclerView;
     ArrayList<ProductDataList> productDataLists = new ArrayList<>();
     String pro_id = "";
+    @BindView(R.id.tv_hint)
+    TextView tv_hint;
 
 
     @Override
@@ -97,8 +101,15 @@ public class ProductListActivity extends AppCompatActivity implements IRecyclerC
             if (response.isSuccessful()) {
                 if (response.body().getErrorCode().equals("0")) {
                     if (!response.body().getData().isEmpty()) {
+                        tv_hint.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
                         productDataLists.clear();
                         productDataLists.addAll(response.body().getData());
+                        adapter.notifyDataSetChanged();
+                    }else{
+                        tv_hint.setVisibility(View.VISIBLE);
+                        recyclerView.setVisibility(View.GONE);
+                        productDataLists.clear();
                         adapter.notifyDataSetChanged();
                     }
                 }

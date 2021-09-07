@@ -33,11 +33,30 @@
 
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_header"
-        android:id="@+id/product_recycler" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_header" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_data_found"
+            android:textColor="@color/black"
+            android:id="@+id/tv_hint"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserrat_regular"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/product_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </RelativeLayout>
+
+
 
     <ImageView
         android:layout_width="@dimen/dp60"

@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
 import com.app.aarna.R;
 import com.app.aarna.adapter.AddProductListTypeAdapter;
 import com.app.aarna.dialog.AlertDialogFragment;
@@ -31,6 +34,8 @@ public class ProductTypeActivity extends AppCompatActivity implements IRecyclerC
     ArrayList<ProductTypeDataList>productTypeDataLists=new ArrayList<>();
     String adapter_type="2";
     String pro_id="";
+    @BindView(R.id.tv_hint)
+    TextView tv_hint;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,8 +90,15 @@ public class ProductTypeActivity extends AppCompatActivity implements IRecyclerC
             if (response.isSuccessful()) {
                 if (response.body().getErrorCode().equals("0")) {
                     if (!response.body().getData().isEmpty()){
+                        tv_hint.setVisibility(View.GONE);
+                        product_type_recyclerView.setVisibility(View.VISIBLE);
                         productTypeDataLists.clear();
                         productTypeDataLists.addAll(response.body().getData());
+                        adapter.notifyDataSetChanged();
+                    }else {
+                        tv_hint.setVisibility(View.VISIBLE);
+                        product_type_recyclerView.setVisibility(View.GONE);
+                        productTypeDataLists.clear();
                         adapter.notifyDataSetChanged();
                     }
 

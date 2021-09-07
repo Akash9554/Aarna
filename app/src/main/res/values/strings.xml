@@ -49,5 +49,6 @@
     <string name="enter_delivery_boy_password">Enter Delivery Boy Password</string>
     <string name="delivery_boy_address">Delivery Boy Address</string>
     <string name="enter_delivery_boy_address">Enter Delivery Boy Address</string>
+    <string name="no_data_found">No Data Found</string>
 
 </resources>

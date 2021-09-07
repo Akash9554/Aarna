@@ -2,6 +2,7 @@ package com.app.aarna.restapi;
 
 
 
+import com.app.aarna.model.CustomerResponce;
 import com.app.aarna.model.DeliveryBoyResponce;
 import com.app.aarna.model.LoginResponce;
 import com.app.aarna.model.ProductDataResponce;
@@ -89,10 +90,23 @@ public interface APIService {
             @Field("user_id") String user_id
     );
 
-    @POST("user_delete")
+    @POST("product_delete")
     @FormUrlEncoded
     Call<ProductDataResponce> delete_product(
             @Field("product_id") String product_id,
+            @Field("user_id") String user_id
+    );
+
+    @POST("user_list")
+    @FormUrlEncoded
+    Call<CustomerResponce> CustomerData(
+            @Field("user_id") String user_id,
+            @Field("type") String type
+    );
+
+    @POST("user_delete")
+    @FormUrlEncoded
+    Call<CustomerResponce> deletecustomer(
             @Field("user_id") String user_id
     );
 

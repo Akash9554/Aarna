@@ -4,6 +4,7 @@ package com.app.aarna.restapi;
 import android.content.Context;
 
 import com.app.aarna.helper.IApiCallback;
+import com.app.aarna.model.CustomerResponce;
 import com.app.aarna.model.DeliveryBoyResponce;
 import com.app.aarna.model.LoginResponce;
 import com.app.aarna.model.ProductDataResponce;
@@ -179,6 +180,39 @@ public class ApiCall {
             }
         });
     }
+
+    public void CustomerData( String user_id,String type, final IApiCallback iApiCallback){
+        Call<CustomerResponce> call = service.CustomerData(user_id,type);
+        call.enqueue(new Callback<CustomerResponce>() {
+            @Override
+            public void onResponse(Call<CustomerResponce> call, Response<CustomerResponce> response) {
+                iApiCallback.onSuccess("customerdata",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<CustomerResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+    public void deleteCustomer( String user_id, final IApiCallback iApiCallback){
+        Call<CustomerResponce> call = service.deletecustomer(user_id);
+        call.enqueue(new Callback<CustomerResponce>() {
+            @Override
+            public void onResponse(Call<CustomerResponce> call, Response<CustomerResponce> response) {
+                iApiCallback.onSuccess("deletecustomer",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<CustomerResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+
+
 
 
 

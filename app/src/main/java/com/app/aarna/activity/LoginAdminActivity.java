@@ -30,6 +30,7 @@ public class LoginAdminActivity extends AppCompatActivity implements IApiCallbac
     EditText et_password;
     @BindView(R.id.et_username)
     EditText et_username;
+    String type;
 
 
     @Override
@@ -37,6 +38,9 @@ public class LoginAdminActivity extends AppCompatActivity implements IApiCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_admin);
         ButterKnife.bind(this);
+        Intent intent=getIntent();
+        type=intent.getStringExtra("type");
+
     }
 
     @OnClick(R.id.tv_forget)
