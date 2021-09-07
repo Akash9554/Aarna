@@ -23,6 +23,7 @@ public class LoginTypeActivity extends AppCompatActivity {
     void getadmin(){
         Intent intent= new Intent(LoginTypeActivity.this,LoginAdminActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("type","1");
         startActivity(intent);
     }
 
@@ -30,6 +31,7 @@ public class LoginTypeActivity extends AppCompatActivity {
     void getemployee(){
         Intent intent= new Intent(LoginTypeActivity.this,LoginAdminActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("type","2");
         startActivity(intent);
     }
 }

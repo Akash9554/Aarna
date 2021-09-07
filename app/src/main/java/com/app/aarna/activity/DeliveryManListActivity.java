@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import com.app.aarna.R;
 import com.app.aarna.adapter.AddDelevieryBoyListAdapter;
@@ -34,6 +36,8 @@ public class DeliveryManListActivity extends AppCompatActivity implements IApiCa
     ArrayList<DeliveryBoyData> deliveryBoyData=new ArrayList<>();
     String type="2";
     String pro_id="";
+    @BindView(R.id.tv_hint)
+    TextView tv_hint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +67,16 @@ public class DeliveryManListActivity extends AppCompatActivity implements IApiCa
             if (response.isSuccessful()) {
                 if (response.body().getErrorCode().equals("0")) {
                     if (!response.body().getData().isEmpty()){
+                        tv_hint.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
                         deliveryBoyData.clear();
                         deliveryBoyData.addAll(response.body().getData());
                         adapter.notifyDataSetChanged();
+                    }else{
+                        tv_hint.setVisibility(View.VISIBLE);
+                        recyclerView.setVisibility(View.GONE);
+                        deliveryBoyData.clear();
+                        deliveryBoyData.addAll(response.body().getData());
                     }
                 }
             }

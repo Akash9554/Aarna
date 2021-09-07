@@ -12,6 +12,7 @@
         android:layout_height="@dimen/dp220"
         android:background="@drawable/top_graphic"
         android:id="@+id/rl_header">
+
         <ImageView
             android:layout_width="@dimen/dp150"
             android:layout_height="@dimen/dp150"
