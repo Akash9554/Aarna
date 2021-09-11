@@ -9,19 +9,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.aarna.R;
 import com.app.aarna.adapter.AddCustomerListAdapter;
-import com.app.aarna.adapter.AddDelevieryBoyListAdapter;
 import com.app.aarna.dialog.AlertDialogFragment;
+import com.app.aarna.dialog.ChooseOrderTypeDialogFragment;
 import com.app.aarna.helper.FunctionHelper;
 import com.app.aarna.helper.IApiCallback;
 import com.app.aarna.helper.IRecyclerClickListener;
 import com.app.aarna.helper.MyInterface;
 import com.app.aarna.model.CustomerData;
 import com.app.aarna.model.CustomerResponce;
-import com.app.aarna.model.DeliveryBoyData;
-import com.app.aarna.model.DeliveryBoyResponce;
 import com.app.aarna.restapi.ApiCall;
 
 import java.util.ArrayList;
@@ -58,7 +57,7 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
 
     public void get_product_list(){
         FunctionHelper.disable_user_Intration(this, getString(R.string.loading), getSupportFragmentManager());
-        ApiCall.getInstance(this).deliveryBoyData(  "1",type,this);
+        ApiCall.getInstance(this).customerData(  "1",type,this);
     }
 
     @Override
@@ -83,7 +82,7 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
                 }
             }
         }else if (type.equals("deletecustomer")){
-            Response<DeliveryBoyResponce> response = (Response<DeliveryBoyResponce>) data;
+            Response<CustomerResponce> response = (Response<CustomerResponce>) data;
             if (response.isSuccessful()) {
                 if (response.body().getErrorCode().equals("0")) {
                     get_product_list();
@@ -123,17 +122,15 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
             String image=customerData.get(position).getImage();
             String id=customerData.get(position).getId();
             String number=customerData.get(position).getPhone();
-            String email=customerData.get(position).getEmail();
             String address=customerData.get(position).getAddress();
-            Intent intent = new Intent(CustomerListActivity.this, AddDeliveryBoyActivity.class);
+            Intent intent = new Intent(CustomerListActivity.this, AddNewCustomerActivity.class);
             intent.putExtra("type", "2");
             intent.putExtra("id", id);
-            intent.putExtra("div_name", name);
-            intent.putExtra("div_image", image);
-            intent.putExtra("div_id", id);
-            intent.putExtra("div_number", number);
-            intent.putExtra("div_email", email);
-            intent.putExtra("div_address", address);
+            intent.putExtra("cus_name", name);
+            intent.putExtra("cus_image", image);
+            intent.putExtra("cus_id", id);
+            intent.putExtra("cus_number", number);
+            intent.putExtra("cus_address", address);
             startActivityForResult(intent, 1);
         }else if (data.equals("delete")){
             int position= (int) pos;
@@ -141,23 +138,30 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
             FragmentManager fm = getSupportFragmentManager();
             AlertDialogFragment editNameDialogFragment = AlertDialogFragment.newInstance();
             editNameDialogFragment.show(fm, "fragment_edit_name");
+        }else if(data.equals("order_type")){
+            FragmentManager fm = getSupportFragmentManager();
+            ChooseOrderTypeDialogFragment chooseOrderTypeDialogFragment = ChooseOrderTypeDialogFragment.newInstance();
+            chooseOrderTypeDialogFragment.show(fm, "fragment_edit_name");
         }
 
     }
 
     @OnClick(R.id.iv_add_product)
     void getadd(){
-        Intent intent = new Intent(CustomerListActivity.this, AddDeliveryBoyActivity.class);
+        Intent intent = new Intent(CustomerListActivity.this, AddNewCustomerActivity.class);
         intent.putExtra("type", "1");
         startActivityForResult(intent, 1);
-
     }
-
     @Override
     public void oncheck(String data, String type, String id) {
         if (data.equals("yes")) {
             FunctionHelper.disable_user_Intration(this, getString(R.string.loading), getSupportFragmentManager());
             ApiCall.getInstance(this).deleteCustomer(pro_id, this);
+        }else if (data.equals("singleday")){
+            Toast.makeText(CustomerListActivity.this, "Single", Toast.LENGTH_SHORT).show();
+        }else if(data.equals("multiday")){
+            Toast.makeText(CustomerListActivity.this, "Multi", Toast.LENGTH_SHORT).show();
+
         }
     }
 }

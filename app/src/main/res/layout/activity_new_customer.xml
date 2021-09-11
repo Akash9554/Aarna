@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".activity.AddNewCustomerActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp60"
+            android:id="@+id/rl_header"
+            android:background="@color/colorPrimaryDark">
+
+            <ImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:id="@+id/iv_back"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/back"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Add New Customer"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_header">
+
+            <TextView
+                android:id="@+id/tv_customer_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:fontFamily="@font/montserrat_medium"
+                android:padding="@dimen/dp5"
+                android:text="Customer Image"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/tv_customer_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp150"
+                app:cardCornerRadius="5dp"
+                android:layout_marginStart="@dimen/dp30"
+                android:layout_marginEnd="@dimen/dp30"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/cv_customer">
+
+
+                <ImageView
+                    android:padding="@dimen/dp5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@color/colorPrimaryDark"
+                    android:id="@+id/iv_customer"
+                    android:layout_centerHorizontal="true" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_customer_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cv_customer"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp10"
+                android:fontFamily="@font/montserrat_medium"
+                android:padding="@dimen/dp5"
+                android:text="Customer Name"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl_customer_name"
+                android:background="@drawable/round_box_corner_for_edittext"
+                android:layout_below="@+id/tv_customer_name"
+                android:layout_marginStart="@dimen/dp15"
+                android:layout_marginEnd="@dimen/dp15">
+                <EditText
+                    android:id="@+id/et_customer_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp5"
+                    android:layout_margin="@dimen/dp5"
+                    android:backgroundTint="@color/transparent"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:gravity="start"
+                    android:hint="Enter Customer Name"
+                    android:maxLines="3"
+                    android:minHeight="@dimen/dp100"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+
+
+            <TextView
+                android:id="@+id/tv_customer_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_customer_name"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp10"
+                android:fontFamily="@font/montserrat_medium"
+                android:padding="@dimen/dp5"
+                android:text="Customer Number"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+              <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl_customer_number"
+                android:background="@drawable/round_box_corner_for_edittext"
+                android:layout_below="@+id/tv_customer_number"
+                android:layout_marginStart="@dimen/dp15"
+                android:layout_marginEnd="@dimen/dp15">
+
+                  <EditText
+                      android:id="@+id/et_customer_number"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:inputType="number"
+                      android:maxLength="10"
+                      android:layout_margin="@dimen/dp5"
+                      android:padding="@dimen/dp5"
+                      android:backgroundTint="@color/transparent"
+                      android:fontFamily="@font/montserrat_regular"
+                      android:gravity="start"
+                      android:hint="Enter Customer Number"
+                      android:maxLines="3"
+                      android:minHeight="@dimen/dp100"
+                      android:textColorHint="@color/colorPrimaryDark"
+                      android:textSize="14sp" />
+
+              </RelativeLayout>
+
+
+
+
+
+            <TextView
+                android:id="@+id/tv_customer_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_customer_number"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp10"
+                android:fontFamily="@font/montserrat_medium"
+                android:padding="@dimen/dp5"
+                android:text="Customer Address"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+              <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rl_customer_address"
+                android:background="@drawable/round_box_corner_for_edittext"
+                android:layout_below="@+id/tv_customer_address"
+                android:layout_marginStart="@dimen/dp15"
+                android:layout_marginEnd="@dimen/dp15">
+
+                  <EditText
+                      android:id="@+id/et_customer_address"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_margin="@dimen/dp5"
+                      android:padding="@dimen/dp5"
+                      android:backgroundTint="@color/transparent"
+                      android:fontFamily="@font/montserrat_regular"
+                      android:gravity="start"
+                      android:hint="Enter Customer Address"
+                      android:maxLines="3"
+                      android:minHeight="@dimen/dp100"
+                      android:textColorHint="@color/colorPrimaryDark"
+                      android:textSize="14sp" />
+
+
+              </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/rl_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_customer_address"
+                android:layout_marginStart="@dimen/dp30"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp30"
+                android:layout_marginBottom="@dimen/dp20"
+                android:background="@drawable/round_corner_color"
+                android:minHeight="@dimen/dp50">
+
+                <TextView
+                    android:id="@+id/tv_employee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/save"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</ScrollView>

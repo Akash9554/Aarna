@@ -50,5 +50,15 @@
     <string name="delivery_boy_address">Delivery Boy Address</string>
     <string name="enter_delivery_boy_address">Enter Delivery Boy Address</string>
     <string name="no_data_found">No Data Found</string>
+    <string name="choose_order_type">Choose Order Type</string>
+    <string name="single_day_order">Single Day Order</string>
+    <string name="multi_day_order">Multi Day Order</string>
+    <string name="place_order">Place Order</string>
+    <string name="add_order">Add Order</string>
+    <string name="select_order_date">Select Order Date</string>
+    <string name="change_date">Change Date</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="customer_number">Customer Number</string>
+
 
 </resources>

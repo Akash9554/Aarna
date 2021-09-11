@@ -110,5 +110,14 @@ public interface APIService {
             @Field("user_id") String user_id
     );
 
+    @POST("user_add_edit")
+    @Multipart
+    Call<CustomerResponce> customer_add_edit(@Part MultipartBody.Part image,
+                                            @Part("name") RequestBody name,
+                                            @Part("phone") RequestBody phone,
+                                            @Part("address") RequestBody address,
+                                            @Part("type") RequestBody type,
+                                            @Part("id") RequestBody id);
+
 
 }

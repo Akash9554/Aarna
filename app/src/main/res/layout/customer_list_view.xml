@@ -13,7 +13,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/round_box_corner_for_mainmenu">
             <ImageView
-                android:id="@+id/iv_delivery_man"
+                android:id="@+id/iv_customer"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:src="@drawable/user_picture" />
@@ -36,11 +36,11 @@
                 android:layout_below="@+id/iv_edit"
                 android:id="@+id/iv_delete"/>
             <TextView
-                android:id="@+id/tv_delivery_man_name"
+                android:id="@+id/tv_customer_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
-                android:layout_below="@+id/iv_delivery_man"
+                android:layout_below="@+id/iv_customer"
                 android:fontFamily="@font/montserrat_medium"
                 android:singleLine="true"
                 android:layout_marginStart="@dimen/dp10"
@@ -54,12 +54,13 @@
                 android:layout_marginTop="@dimen/dp5"
                 android:textColor="@color/colorPrimary"
                 android:fontFamily="@font/montserrat_medium"
-                android:layout_below="@+id/tv_delivery_man_name"/>
+                android:layout_below="@+id/tv_customer_name"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_email"
                 android:maxLines="3"
+                android:visibility="gone"
                 android:layout_marginStart="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp5"
                 android:textColor="@color/colorPrimary"
@@ -76,6 +77,34 @@
                 android:textColor="@color/colorPrimary"
                 android:fontFamily="@font/montserrat_regular"
                 android:layout_below="@+id/tv_email"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_place_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_password">
+
+
+                <TextView
+                    android:id="@+id/tv_multi_day"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginEnd="@dimen/dp20"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:background="@drawable/round_corner_color"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center"
+                    android:minWidth="@dimen/dp100"
+                    android:minHeight="35dp"
+                    android:paddingStart="@dimen/dp20"
+                    android:paddingEnd="@dimen/dp20"
+                    android:text="@string/place_order"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
         </RelativeLayout>
 
 

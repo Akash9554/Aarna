@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        style="@style/CardView.Light"
+        android:background="@color/semitransparent"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="20dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_box_corner">
+
+
+            <ImageView
+                android:id="@+id/ivAlert"
+                android:layout_width="@dimen/dp100"
+                android:layout_height="@dimen/dp100"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/dp30"
+                android:src="@drawable/app_logo"
+                app:tint="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/tvMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivAlert"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp20"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="@string/choose_order_type"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvMsg"
+                android:orientation="horizontal">
+                <RelativeLayout
+                   android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/tv_single_day"
+                        android:paddingStart="@dimen/dp20"
+                        android:paddingEnd="@dimen/dp20"
+                        android:background="@drawable/round_corner_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="35dp"
+                        android:text="@string/single_day_order"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:minWidth="@dimen/dp100"
+                        android:layout_marginTop="@dimen/dp25"
+                        android:layout_marginBottom="@dimen/dp20"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+                <RelativeLayout
+                   android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/tv_multi_day"
+                        android:paddingStart="@dimen/dp20"
+                        android:paddingEnd="@dimen/dp20"
+                        android:background="@drawable/round_corner_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="35dp"
+                        android:text="@string/multi_day_order"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:minWidth="@dimen/dp100"
+                        android:layout_marginTop="@dimen/dp25"
+                        android:layout_marginBottom="@dimen/dp20"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:textColor="@color/white" />
+
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

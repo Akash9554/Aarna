@@ -20,6 +20,9 @@
         android:theme="@style/Theme.Aarna"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.order.AddSingleDayOrderActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.AddDeliveryBoyActivity"
             android:exported="true"
             android:windowSoftInputMode="stateAlwaysHidden" />
@@ -70,18 +73,18 @@
         <activity
             android:name=".activity.LoginAdminActivity"
             android:exported="true"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/SplashTheme" />
+            android:theme="@style/SplashTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".activity.LoginTypeActivity"
             android:exported="true"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/SplashTheme" />
+            android:theme="@style/SplashTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".activity.SplashScreenActivity"
             android:exported="true"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -92,10 +95,14 @@
             android:name=".activity.HomeActivity"
             android:exported="true"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activity.AddNewCustomerActivity"
+            android:exported="true"
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="app.docwin.fileprovider"
+            android:authorities="app.aarna.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

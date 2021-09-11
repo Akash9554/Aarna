@@ -19,7 +19,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,11 +29,13 @@ import com.app.aarna.constants.Constants;
 import com.app.aarna.helper.FunctionHelper;
 import com.app.aarna.helper.Helper;
 import com.app.aarna.helper.IApiCallback;
+import com.app.aarna.model.CustomerResponce;
 import com.app.aarna.model.DeliveryBoyResponce;
-import com.app.aarna.model.ProductTypeData;
 import com.app.aarna.restapi.ApiCall;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+
+
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -51,34 +52,27 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Response;
 
-public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCallback {
-    @BindView(R.id.iv_delivery_boy)
-    ImageView iv_delivery_boy;
-    @BindView(R.id.et_delivery_boy_name)
-    EditText et_delivery_boy_name;
-    @BindView(R.id.et_delivery_boy_number)
-    EditText et_delivery_boy_number;
-    @BindView(R.id.et_delivery_boy_email)
-    EditText et_delivery_boy_email;
-    @BindView(R.id.et_delivery_boy_password)
-    EditText et_delivery_boy_password;
-    @BindView(R.id.tv_delivery_boy_password)
-    TextView tv_delivery_boy_password;
-    @BindView(R.id.et_delivery_boy_address)
-    EditText et_delivery_boy_address;
+
+public class AddNewCustomerActivity extends AppCompatActivity implements IApiCallback {
+    @BindView(R.id.iv_customer)
+    ImageView iv_customer;
+    @BindView(R.id.et_customer_name)
+    EditText et_customer_name;
+    @BindView(R.id.et_customer_number)
+    EditText et_customer_number;
+    @BindView(R.id.et_customer_address)
+    EditText et_customer_address;
     @BindView(R.id.tv_employee)
     TextView tv_employee;
     private String url="";
     public static int  PICK_IMAGE_FROM_CAMERA = 1010;
     private Uri fileUri;
 
-    String dev_name="";
-    String dev_email="";
-    String dev_password="";
-    String dev_phone="";
-    String dev_address="";
-    String dev_type="";
-    String dev_id="";
+    String cus_name="";
+    String cus_phone="";
+    String cus_address="";
+    String cus_type="0";
+    String cus_id="";
     String type="";
 
     String[] permissions = new String[]{
@@ -91,26 +85,18 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_delivery_boy);
+        setContentView(R.layout.activity_new_customer);
         ButterKnife.bind(this);
         Intent intent=getIntent();
          type=intent.getStringExtra("type");
         if (type.equals("2")){
-            et_delivery_boy_email.setEnabled(false);
-            et_delivery_boy_password.setVisibility(View.GONE);
-            tv_delivery_boy_password.setVisibility(View.GONE);
             tv_employee.setText("Save Change");
-            dev_id=intent.getStringExtra("id");
-            et_delivery_boy_address.setText(intent.getStringExtra("div_address"));
-            et_delivery_boy_number.setText(intent.getStringExtra("div_number"));
-            et_delivery_boy_name.setText(intent.getStringExtra("div_name"));
-            et_delivery_boy_email.setText(intent.getStringExtra("div_email"));
-            Glide.with(this).load(intent.getStringExtra("div_image")).apply(new RequestOptions()).centerCrop().into(iv_delivery_boy);
-
-
+            cus_id=intent.getStringExtra("cus_id");
+            et_customer_address.setText(intent.getStringExtra("cus_address"));
+            et_customer_number.setText(intent.getStringExtra("cus_number"));
+            et_customer_name.setText(intent.getStringExtra("cus_name"));
+            Glide.with(this).load(intent.getStringExtra("cus_image")).apply(new RequestOptions()).centerCrop().into(iv_customer);
         }else {
-            et_delivery_boy_password.setVisibility(View.VISIBLE);
-            tv_delivery_boy_password.setVisibility(View.VISIBLE);
             tv_employee.setText("Save");
         }
     }
@@ -119,7 +105,7 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
         onBackPressed();
     }
 
-    @OnClick(R.id.iv_delivery_boy)
+    @OnClick(R.id.iv_customer)
     void get_picture(){
         selectImage();
     }
@@ -127,19 +113,20 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
 
     private void selectImage() {
         if (checkPermissions()) {
+
             final CharSequence[] options = {"Take Photo", "Choose from Gallery", "Cancel"};
-            AlertDialog.Builder builder = new AlertDialog.Builder(AddDeliveryBoyActivity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(AddNewCustomerActivity.this);
             builder.setTitle("Add Photo!");
             builder.setItems(options, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int item) {
                     if (options[item].equals("Take Photo")) {
                         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        fileUri = getOutputMediaFileUri(AddDeliveryBoyActivity.this);
+                        fileUri = getOutputMediaFileUri(AddNewCustomerActivity.this);
                         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
                         startActivityForResult(intent, PICK_IMAGE_FROM_CAMERA);
                     } else if (options[item].equals("Choose from Gallery")) {
-                        Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         startActivityForResult(intent, 2);
                     } else if (options[item].equals("Cancel")) {
@@ -157,7 +144,7 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_FROM_CAMERA && resultCode == RESULT_OK) {
             url = Helper.getImagePathFromInputStreamUri(this, fileUri);
-            Glide.with(this).load(url).apply(new RequestOptions()).centerCrop().into(iv_delivery_boy);
+            Glide.with(this).load(url).apply(new RequestOptions()).centerCrop().into(iv_customer);
         } else if (requestCode == 2 && resultCode == RESULT_OK) {
             Uri selectedImage = data.getData();
             String[] filePath = { MediaStore.Images.Media.DATA };
@@ -167,7 +154,7 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
             String picturePath = c.getString(columnIndex);
             c.close();
             url = picturePath;
-            Glide.with(this).load(picturePath).apply(new RequestOptions()).centerCrop().into(iv_delivery_boy);
+            Glide.with(this).load(picturePath).apply(new RequestOptions()).centerCrop().into(iv_customer);
 
         }else if (resultCode == Activity.RESULT_CANCELED) {
         }
@@ -233,33 +220,17 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
 
     @OnClick(R.id.rl_save)
     void get_add_product(){
-        if (et_delivery_boy_name.getText().toString().equals("")){
-            get_toast("Please Enter Delivery Boy Name");
-        }else if (et_delivery_boy_number.getText().toString().equals("")){
-            get_toast("Please Enter Delivery Boy Number");
-        }else if(et_delivery_boy_email.getText().toString().equals("")){
-            get_toast("Please Enter Delivery Boy Email");
-        }else if(et_delivery_boy_address.getText().toString().equals("")){
-            get_toast("Please Enter Delivery Boy Address");
-        }else if (type.equals("1")){
-            if (et_delivery_boy_password.getText().toString().equals("")){
-            get_toast("Please Enter Delivery Boy Password");
-        }else {
-                dev_name = et_delivery_boy_name.getText().toString();
-                dev_email = et_delivery_boy_email.getText().toString();
-                dev_password = et_delivery_boy_password.getText().toString();
-                dev_phone = et_delivery_boy_number.getText().toString();
-                dev_address = et_delivery_boy_address.getText().toString();
-                dev_type = "2";
-                dev_id = "";
-                addtrasactionimage();
-            }}else {
-            dev_name = et_delivery_boy_name.getText().toString();
-            dev_email = et_delivery_boy_email.getText().toString();
-            dev_password = et_delivery_boy_password.getText().toString();
-            dev_phone = et_delivery_boy_number.getText().toString();
-            dev_address = et_delivery_boy_address.getText().toString();
-            dev_type = "2";
+        if (et_customer_name.getText().toString().equals("")){
+            get_toast("Please Enter Customer Name");
+        }else if (et_customer_number.getText().toString().equals("")){
+            get_toast("Please Enter Customer Number");
+        }else if(et_customer_address.getText().toString().equals("")){
+            get_toast("Please Enter Customer Address");
+        }else{
+            cus_name = et_customer_name.getText().toString();
+            cus_phone = et_customer_number.getText().toString();
+            cus_address = et_customer_address.getText().toString();
+            cus_type = "0";
             addtrasactionimage();
 
         }
@@ -273,27 +244,22 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
             imageData = MultipartBody.Part.createFormData("image", file.getName(), requestFile);
         }
 
-        RequestBody name = RequestBody.create(MediaType.parse("text/plain"), dev_name);
-        RequestBody email = RequestBody.create(MediaType.parse("text/plain"), dev_email);
-        RequestBody password = RequestBody.create(MediaType.parse("text/plain"), dev_password);
-        RequestBody phone = RequestBody.create(MediaType.parse("text/plain"), dev_phone);
-        RequestBody address = RequestBody.create(MediaType.parse("text/plain"), dev_address);
-        RequestBody type = RequestBody.create(MediaType.parse("text/plain"), dev_type);
-        RequestBody id = RequestBody.create(MediaType.parse("text/plain"), dev_id);
+        RequestBody name = RequestBody.create(MediaType.parse("text/plain"), cus_name);
+        RequestBody phone = RequestBody.create(MediaType.parse("text/plain"), cus_phone);
+        RequestBody address = RequestBody.create(MediaType.parse("text/plain"), cus_address);
+        RequestBody type = RequestBody.create(MediaType.parse("text/plain"), cus_type);
+        RequestBody id = RequestBody.create(MediaType.parse("text/plain"), cus_id);
 
         FunctionHelper.disable_user_Intration(this, "Loading..", getSupportFragmentManager());
-        ApiCall.getInstance(this).adddeliveryboydata(imageData, name,email,password,phone,address,type,id, this);
+        ApiCall.getInstance(this).addcustomerdata(imageData, name,phone,address,type,id, this);
 
     }
-
-
-
 
     @Override
     public void onSuccess(Object type, Object data, Object extraData) {
         FunctionHelper.enableUserIntraction(this);
-        if (type.equals("deliveryboydata")) {
-            Response<DeliveryBoyResponce> response = (Response<DeliveryBoyResponce>) data;
+        if (type.equals("customerdata")) {
+            Response<CustomerResponce> response = (Response<CustomerResponce>) data;
             if (response.isSuccessful()) {
                 if (response.body().getErrorCode().equals("0")) {
                     Toast.makeText(this, "" + "Successfully Uploaded", Toast.LENGTH_SHORT).show();
@@ -312,7 +278,6 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
 
     public void get_toast(String message){
         Toast.makeText(this, "" + message, Toast.LENGTH_SHORT).show();
-
     }
 
     
