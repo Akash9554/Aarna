@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_product"
+        android:layout_width="@dimen/dp80"
+        android:layout_height="@dimen/dp80"
+        android:layout_margin="10dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/milk_product" />
+
+    <ImageView
+        android:layout_width="@dimen/dp25"
+        android:layout_height="@dimen/dp25"
+        android:src="@drawable/delete__1_"
+        android:id="@+id/iv_delete"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/dp10"/>
+
+    <TextView
+        android:id="@+id/tv_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/iv_delete"
+        android:layout_toEndOf="@+id/iv_product"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/dp5"
+        android:fontFamily="@font/montserrat_medium"
+        android:singleLine="true"
+        android:text="Milk"
+        android:textColor="@color/colorPrimary" />
+
+    <LinearLayout
+        android:id="@+id/ll_price_per"
+        android:orientation="horizontal"
+        android:layout_toStartOf="@id/iv_delete"
+        android:layout_toEndOf="@+id/iv_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp5"
+        android:layout_below="@+id/tv_product_name">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price - "
+            android:singleLine="true"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/montserrat_medium" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/dp5"
+            android:text="@string/milk_1_l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_qty"
+        android:orientation="horizontal"
+        android:layout_toStartOf="@id/iv_delete"
+        android:layout_toEndOf="@+id/iv_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp5"
+        android:layout_below="@+id/ll_price_per">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Qty - "
+            android:singleLine="true"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/montserrat_medium" />
+
+        <TextView
+            android:id="@+id/tv_qty"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/dp5"
+            android:text="@string/milk_1_l"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_pro"
+        android:orientation="horizontal"
+        android:layout_toEndOf="@+id/iv_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp5"
+        android:layout_below="@+id/ll_qty">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total - "
+            android:singleLine="true"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/montserrat_medium" />
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/dp5"
+            android:text="@string/milk_1_l"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_below="@+id/ll_pro"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/black"/>
+</RelativeLayout>
+

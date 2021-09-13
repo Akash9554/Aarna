@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_weight="1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp20"
+    app:cardCornerRadius="20dp"
+    android:id="@+id/cv_product">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp60"
+            android:id="@+id/rl_header"
+            android:background="@drawable/round_box_header_corner">
+
+            <ImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:id="@+id/iv_back"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/cancel"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Select Product"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_header">
+
+            <RelativeLayout
+                android:id="@+id/rl_select_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:background="@drawable/round_corner_color"
+                android:minHeight="@dimen/dp50">
+
+                <TextView
+                    android:id="@+id/tv_employee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/select_product_type"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+
+            </RelativeLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_below="@+id/rl_select_product"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp100"
+                app:cardCornerRadius="5dp"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/dp30"
+                android:layout_marginEnd="@dimen/dp30"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/cv_product_image">
+
+
+                <ImageView
+                    android:padding="@dimen/dp5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@color/colorPrimaryDark"
+                    android:id="@+id/iv_product"
+                    android:layout_centerHorizontal="true" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cv_product_image"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:fontFamily="@font/montserrat_medium"
+                android:padding="@dimen/dp5"
+                android:layout_centerHorizontal="true"
+                android:text="@string/product_name"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_price_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_product_name"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20">
+
+                <TextView
+                    android:id="@+id/tv_price_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/dp5"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_marginEnd="@dimen/dp5"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:padding="@dimen/dp5"
+                    android:text="Product Price"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_price"
+                    android:backgroundTint="@color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/dp20"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center"
+                    android:padding="@dimen/dp5"
+                    android:hint="Enter Product Price"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_qty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_below="@+id/rl_price_price">
+
+                <TextView
+                    android:id="@+id/tv_product_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   android:layout_margin="@dimen/dp5"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:padding="@dimen/dp5"
+                    android:text="Product Quantity"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    android:layout_marginStart="@dimen/dp30"
+                    android:layout_marginEnd="@dimen/dp30"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/cv_manage_qty">
+
+                    <RelativeLayout
+                        android:layout_marginEnd="@dimen/dp10"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dp50">
+
+                      <ImageView
+                          android:layout_width="@dimen/dp30"
+                          android:layout_height="@dimen/dp30"
+                          android:layout_centerVertical="true"
+                          android:layout_marginStart="@dimen/dp5"
+                          android:layout_marginEnd="@dimen/dp5"
+                          android:id="@+id/iv_minus"
+                          android:gravity="center"
+                          android:src="@drawable/ic_baseline_minimize_24"/>
+
+                        <TextView
+                            android:layout_marginStart="@dimen/dp5"
+                            android:layout_marginEnd="@dimen/dp5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="13"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:layout_toEndOf="@+id/iv_minus"
+                            android:id="@+id/tv_number"
+                            android:textSize="18sp"/>
+
+                        <ImageView
+                            android:layout_marginStart="@dimen/dp5"
+                            android:layout_marginEnd="@dimen/dp5"
+                            android:id="@+id/iv_plus"
+                            android:src="@drawable/ic_baseline_add_24"
+                            android:layout_toEndOf="@+id/tv_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+
+
+
+
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/rl_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_qty"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:background="@drawable/round_corner_color"
+                android:minHeight="@dimen/dp50">
+
+                <TextView
+                    android:id="@+id/tv_employe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Add"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

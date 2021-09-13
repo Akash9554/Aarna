@@ -50,6 +50,8 @@ public class AddCustomerListAdapter extends RecyclerView.Adapter<AddCustomerList
         //holder.tv_email.setText(customerData.get(position).getEmail());
         holder.tv_password.setText(customerData.get(position).getAddress());
         Glide.with(context).load(customerData.get(position).getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_customer);
+
+
     }
 
     @Override
@@ -61,8 +63,6 @@ public class AddCustomerListAdapter extends RecyclerView.Adapter<AddCustomerList
        TextView tv_customer_name;
         @BindView(R.id.tv_number)
         TextView tv_number;
-        @BindView(R.id.tv_email)
-        TextView tv_email;
         @BindView(R.id.tv_password)
         TextView tv_password;
         @BindView(R.id.iv_customer)
@@ -88,10 +88,10 @@ public class AddCustomerListAdapter extends RecyclerView.Adapter<AddCustomerList
         void  get_delete(){
             clickListener.clickListener(getAdapterPosition(),"delete","");
         }
-
         @OnClick(R.id.rl_place_order)
         void getorder(){
             clickListener.clickListener(getAdapterPosition(),"order_type","");
         }
+
     }
 }
