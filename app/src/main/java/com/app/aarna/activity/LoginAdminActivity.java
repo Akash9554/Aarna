@@ -74,14 +74,12 @@ public class LoginAdminActivity extends AppCompatActivity implements IApiCallbac
         if (et_password.getText().equals("")) {
             Toast.makeText(LoginAdminActivity.this,"Please enter password first",Toast.LENGTH_SHORT).show();
         } else {
-
             if (et_password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) {
                 iv_eye_icon.setImageResource(R.drawable.eye_close);
                 et_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             } else {
                 iv_eye_icon.setImageResource(R.drawable.open_eye);
                 et_password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-
             }
             et_password.setSelection(et_password.getText().length());
         }
@@ -110,16 +108,11 @@ public class LoginAdminActivity extends AppCompatActivity implements IApiCallbac
 
             }
         }
-
-
-
     }
 
     @Override
     public void onFailure(Object data) {
         FunctionHelper.enableUserIntraction(this);
-        //Toast.makeText(this,response.message(),Toast.LENGTH_SHORT).show();
-
     }
 
     @OnClick(R.id.iv_back)

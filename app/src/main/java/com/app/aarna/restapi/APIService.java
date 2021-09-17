@@ -8,6 +8,8 @@ import com.app.aarna.model.LoginResponce;
 import com.app.aarna.model.ProductDataResponce;
 import com.app.aarna.model.ProductTypeData;
 import com.app.aarna.model.ProductTypeDataList;
+import com.app.aarna.model.orderlist.OrderlistResponce;
+import com.app.aarna.model.singledayorder.Single_Day_Order_Place_Responce;
 
 
 import okhttp3.MultipartBody;
@@ -119,5 +121,64 @@ public interface APIService {
                                             @Part("type") RequestBody type,
                                             @Part("id") RequestBody id);
 
+    @POST("singleDay_place_order")
+    @FormUrlEncoded
+    Call<Single_Day_Order_Place_Responce> singleDay_place_order(
+            @Field("customer_id") String customer_id,
+            @Field("grand_total") String grand_total,
+            @Field("order_date") String order_date,
+            @Field("product") String product
+    );
+
+    @POST("customer_pay")
+    @FormUrlEncoded
+    Call<Single_Day_Order_Place_Responce> customer_pay(
+            @Field("customer_id") String customer_id,
+            @Field("amount") String amount
+    );
+
+    @POST("singleDay_assigndeliveryBoy_changeStatus")
+    @FormUrlEncoded
+    Call<DeliveryBoyResponce> singleDay_assigndeliveryBoy_changeStatus(
+            @Field("order_id") String order_id,
+            @Field("delivery_boy_id") String delivery_boy_id,
+            @Field("status") String status
+    );
+
+    @POST("multiDay_place_order")
+    @FormUrlEncoded
+    Call<Single_Day_Order_Place_Responce> multiDay_place_order(
+            @Field("customer_id") String customer_id,
+            @Field("grand_total") String grand_total,
+            @Field("order_date") String order_date,
+            @Field("product") String product
+    );
+
+    @POST("multiDay_assigndeliveryBoy_changeStatus")
+    @FormUrlEncoded
+    Call<DeliveryBoyResponce> multiDay_assigndeliveryBoy_changeStatus(
+            @Field("order_id") String order_id,
+            @Field("delivery_boy_id") String delivery_boy_id,
+            @Field("status") String status
+    );
+
+
+    @POST("customer_multiDay_order_set_list")
+    @FormUrlEncoded
+    Call<OrderlistResponce> getOrderlist_customer(
+            @Field("customer_id") String user_id
+    );
+
+    @POST("customer_order_list")
+    @FormUrlEncoded
+    Call<OrderlistResponce> getOrderlist(
+            @Field("customer_id") String user_id
+    );
+
+
+
+
+
 
 }
+

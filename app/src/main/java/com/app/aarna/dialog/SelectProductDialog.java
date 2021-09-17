@@ -28,7 +28,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SelectProductDialog extends DialogFragment implements MyInterface   {
+public class
+
+
+
+SelectProductDialog extends DialogFragment implements MyInterface   {
     static Context context;
     MyInterface mListener;
     @BindView(R.id.cv_product_image)
@@ -48,8 +52,9 @@ public class SelectProductDialog extends DialogFragment implements MyInterface  
     String product_type_id="";
     String product_name="";
     String product_image="";
-    String product_qty="";
+    String product_qty="1";
     String product_price="";
+    String product_grand_price="";
     String enterd_price="";
 
 
@@ -71,17 +76,14 @@ public class SelectProductDialog extends DialogFragment implements MyInterface  
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-
             }
-
             @Override
             public void afterTextChanged(Editable s) {
                 product_price=s.toString();
                 tv_number.setText("1");
+
             }
         });
         return view;

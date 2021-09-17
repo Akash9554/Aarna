@@ -31,6 +31,15 @@ public class DeliveryBoyData {
     @SerializedName("status")
     @Expose
     private String status;
+    private boolean Checked=false;
+
+    public boolean isChecked() {
+        return Checked;
+    }
+
+    public void setChecked(boolean checked) {
+        Checked = checked;
+    }
 
     public String getId() {
         return id;

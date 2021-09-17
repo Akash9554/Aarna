@@ -71,7 +71,6 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
     private String url="";
     public static int  PICK_IMAGE_FROM_CAMERA = 1010;
     private Uri fileUri;
-
     String dev_name="";
     String dev_email="";
     String dev_password="";
@@ -114,6 +113,7 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
             tv_employee.setText("Save");
         }
     }
+
     @OnClick(R.id.iv_back)
     void get_back(){
         onBackPressed();
@@ -152,6 +152,7 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
 
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -190,42 +191,29 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
     }
 
     public static Uri getOutputMediaFileUri(Context context) {
-
         Uri contentUri = FileProvider.getUriForFile(context, "app.aarna.fileprovider", getOutputMediaFile(context));
         return contentUri;
     }
 
     private static File getOutputMediaFile(Context context) {
-        // External sdcard location
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             File mediaStorageDir = new File(context.getExternalFilesDir(null), Constants.IMAGE_DIRECTORY_NAME);
-
-            // Create the storage directory if it does not exist
             if (!mediaStorageDir.exists()) {
                 if (!mediaStorageDir.mkdirs()) {
                     return null;
                 }
             }
-            // Create a media file name
-
             return new File(mediaStorageDir.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
-
         } else {
-
             File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), Constants.IMAGE_DIRECTORY_NAME);
-
-            // Create the storage directory if it does not exist
             if (!mediaStorageDir.exists()) {
                 if (!mediaStorageDir.mkdirs()) {
                     return null;
                 }
             }
-            // Create a media file name
-
             File mediaFile;
             mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
-
             return mediaFile;
         }
     }
@@ -280,14 +268,10 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
         RequestBody address = RequestBody.create(MediaType.parse("text/plain"), dev_address);
         RequestBody type = RequestBody.create(MediaType.parse("text/plain"), dev_type);
         RequestBody id = RequestBody.create(MediaType.parse("text/plain"), dev_id);
-
         FunctionHelper.disable_user_Intration(this, "Loading..", getSupportFragmentManager());
         ApiCall.getInstance(this).adddeliveryboydata(imageData, name,email,password,phone,address,type,id, this);
 
     }
-
-
-
 
     @Override
     public void onSuccess(Object type, Object data, Object extraData) {

@@ -129,7 +129,7 @@ public class AddNewProductActivity extends AppCompatActivity implements MyInterf
     }
 
     @Override
-    public void oncheck(String name, String image,String id) {
+    public void oncheck(String name, String image,String id,String data, String type) {
         tv_product_name.setVisibility(View.VISIBLE);
         cv_product.setVisibility(View.VISIBLE);
         iv_product.setVisibility(View.VISIBLE);
@@ -139,6 +139,8 @@ public class AddNewProductActivity extends AppCompatActivity implements MyInterf
         product_image=image;
         Glide.with(this).load(image).apply(new RequestOptions()).centerCrop().into(iv_product);
     }
+
+
     public void setToast_message(String message){
         Toast.makeText(AddNewProductActivity.this,message,Toast.LENGTH_SHORT).show();
     }

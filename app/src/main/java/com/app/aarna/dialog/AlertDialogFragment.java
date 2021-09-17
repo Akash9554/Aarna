@@ -53,13 +53,13 @@ public class AlertDialogFragment extends DialogFragment {
 
     @OnClick(R.id.tv_yes)
     void okClickedYes(){
-        mListener.oncheck("yes","","");
+        mListener.oncheck("yes","","","","");
         dismiss();
     }
 
     @OnClick(R.id.tv_no)
     void okClickedNo(){
-        mListener.oncheck("no","","");
+        mListener.oncheck("no","","","","");
         dismiss();
     }
     @Override

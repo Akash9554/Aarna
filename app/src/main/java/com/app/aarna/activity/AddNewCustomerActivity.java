@@ -67,7 +67,6 @@ public class AddNewCustomerActivity extends AppCompatActivity implements IApiCal
     private String url="";
     public static int  PICK_IMAGE_FROM_CAMERA = 1010;
     private Uri fileUri;
-
     String cus_name="";
     String cus_phone="";
     String cus_address="";
@@ -100,6 +99,7 @@ public class AddNewCustomerActivity extends AppCompatActivity implements IApiCal
             tv_employee.setText("Save");
         }
     }
+
     @OnClick(R.id.iv_back)
     void get_back(){
         onBackPressed();
@@ -113,7 +113,6 @@ public class AddNewCustomerActivity extends AppCompatActivity implements IApiCal
 
     private void selectImage() {
         if (checkPermissions()) {
-
             final CharSequence[] options = {"Take Photo", "Choose from Gallery", "Cancel"};
             AlertDialog.Builder builder = new AlertDialog.Builder(AddNewCustomerActivity.this);
             builder.setTitle("Add Photo!");
@@ -139,6 +138,7 @@ public class AddNewCustomerActivity extends AppCompatActivity implements IApiCal
 
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -183,36 +183,24 @@ public class AddNewCustomerActivity extends AppCompatActivity implements IApiCal
     }
 
     private static File getOutputMediaFile(Context context) {
-        // External sdcard location
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             File mediaStorageDir = new File(context.getExternalFilesDir(null), Constants.IMAGE_DIRECTORY_NAME);
-
-            // Create the storage directory if it does not exist
             if (!mediaStorageDir.exists()) {
                 if (!mediaStorageDir.mkdirs()) {
                     return null;
                 }
             }
-            // Create a media file name
-
             return new File(mediaStorageDir.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
-
         } else {
-
             File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), Constants.IMAGE_DIRECTORY_NAME);
-
-            // Create the storage directory if it does not exist
             if (!mediaStorageDir.exists()) {
                 if (!mediaStorageDir.mkdirs()) {
                     return null;
                 }
             }
-            // Create a media file name
-
             File mediaFile;
             mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
-
             return mediaFile;
         }
     }
@@ -232,7 +220,6 @@ public class AddNewCustomerActivity extends AppCompatActivity implements IApiCal
             cus_address = et_customer_address.getText().toString();
             cus_type = "0";
             addtrasactionimage();
-
         }
     }
 
@@ -249,10 +236,8 @@ public class AddNewCustomerActivity extends AppCompatActivity implements IApiCal
         RequestBody address = RequestBody.create(MediaType.parse("text/plain"), cus_address);
         RequestBody type = RequestBody.create(MediaType.parse("text/plain"), cus_type);
         RequestBody id = RequestBody.create(MediaType.parse("text/plain"), cus_id);
-
         FunctionHelper.disable_user_Intration(this, "Loading..", getSupportFragmentManager());
         ApiCall.getInstance(this).addcustomerdata(imageData, name,phone,address,type,id, this);
-
     }
 
     @Override

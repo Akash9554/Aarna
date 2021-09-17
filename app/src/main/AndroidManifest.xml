@@ -20,6 +20,9 @@
         android:theme="@style/Theme.Aarna"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.order.SelectDeliveryBoyActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.order.AddSingleDayOrderActivity"
             android:exported="true" />
         <activity

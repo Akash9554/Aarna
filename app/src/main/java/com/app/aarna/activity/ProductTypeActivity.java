@@ -144,7 +144,7 @@ public class ProductTypeActivity extends AppCompatActivity implements IRecyclerC
     }
 
         @Override
-        public void oncheck(String data, String type, String id) {
+        public void oncheck(String data, String type, String id,String img, String pr) {
             if(data.equals("yes")){
                 FunctionHelper.disable_user_Intration(this, getString(R.string.loading), getSupportFragmentManager());
                 ApiCall.getInstance(this).deleteproducttype( user_id,pro_id, this);

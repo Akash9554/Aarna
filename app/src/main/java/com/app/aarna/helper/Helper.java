@@ -42,7 +42,6 @@ import java.util.regex.Pattern;
 public class Helper {
 
     private static CustomLoader animProgressDialog;
-
     public static void disable_user_Intration(Context context, String text, FragmentManager manager) {
         if (!isAppIsInBackground(context)) {
             if (animProgressDialog == null || animProgressDialog.getContext() != context) {

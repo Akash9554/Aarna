@@ -17,7 +17,6 @@ public class RecordListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_record_list);
         ButterKnife.bind(this);
     }
-
     @OnClick(R.id.iv_back)
     void get_back(){
         onBackPressed();

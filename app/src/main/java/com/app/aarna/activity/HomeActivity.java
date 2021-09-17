@@ -5,13 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import com.app.aarna.R;
+import com.app.aarna.dialog.ChooseOrderTypeDialogFragment;
+import com.app.aarna.helper.MyInterface;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements MyInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,14 +22,12 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
     }
+
     @OnClick(R.id.cv_product)
     void get_all_Product(){
         getActivityCall(ProductListActivity.class);
     }
-    @OnClick(R.id.cv_order_list)
-    void get_all_Order(){
-        getActivityCall(OrderListActivity.class);
-    }
+
 
     @OnClick(R.id.cv_customer_list)
     void get_all_Customer_list(){
@@ -59,4 +60,19 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void oncheck(String data, String type, String id, String price, String image) {
+        if(data.equals("singleday")){
+            Intent intent= new Intent(HomeActivity.this,OrderListActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("type","single");
+            startActivity(intent);
+        }else {
+            Intent intent= new Intent(HomeActivity.this,OrderListActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("type","multi");
+            startActivity(intent);
+        }
+
+    }
 }

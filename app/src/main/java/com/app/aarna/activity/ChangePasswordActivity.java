@@ -18,8 +18,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
     @BindView(R.id.et_new_password)
     EditText et_new_password;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

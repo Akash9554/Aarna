@@ -35,7 +35,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
+        android:fillViewport="false"
         android:layout_below="@+id/rv_header">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -66,7 +66,7 @@
                 <RelativeLayout
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:id="@+id/rl_place_order"
+                    android:id="@+id/rl_change_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
@@ -91,19 +91,21 @@
 
                 </RelativeLayout>
 
-                <EditText
-                    android:layout_toStartOf="@+id/rl_place_order"
-                    android:layout_centerVertical="true"
+                <TextView
+                    android:id="@+id/tv_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:editable="false"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/montserrat_regular"
+                    android:layout_centerVertical="true"
                     android:layout_marginStart="@dimen/dp10"
                     android:layout_marginEnd="@dimen/dp10"
+                    android:layout_toStartOf="@+id/rl_change_date"
+                    android:background="@color/transparent"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat_regular"
                     android:text="05-01-1995"
-                    android:focusable="false" />
+                    android:textSize="14sp" />
 
 
 
@@ -125,17 +127,17 @@
                 android:layout_marginStart="@dimen/dp20"/>
 
             <TextView
+                android:id="@+id/tv_cus_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_cus_name_title"
-                android:text="Akash Gupta"
-                android:textColor="@color/black"
-                android:textSize="14sp"
+                android:layout_marginStart="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp10"
-                android:id="@+id/tv_cus_name"
                 android:fontFamily="@font/montserrat_regular"
-                android:layout_marginStart="@dimen/dp20"/>
+                android:text="Akash Gupta"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -151,17 +153,17 @@
                 android:layout_marginStart="@dimen/dp20"/>
 
             <TextView
+                android:id="@+id/tv_cus_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_cus_number_title"
-                android:text="9889899898"
-                android:textColor="@color/black"
-                android:textSize="14sp"
+                android:layout_marginStart="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp10"
-                android:id="@+id/tv_cus_number"
                 android:fontFamily="@font/montserrat_regular"
-                android:layout_marginStart="@dimen/dp20"/>
+                android:text="9889899898"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -185,8 +187,78 @@
                 android:layout_below="@+id/tv_selected_product"
                 android:id="@+id/product_recycler"/>
 
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp5"
+                android:id="@+id/ll_grand_total"
+                android:layout_below="@+id/product_recycler">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total - "
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/montserrat_medium" />
+
+                <TextView
+                    android:id="@+id/tv_total"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:gravity="end"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/montserrat_regular"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_save"
+                android:layout_below="@+id/ll_grand_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:background="@drawable/round_corner_color"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center"
+                    android:minHeight="35dp"
+                    android:text="Save Order"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+
+
+
         </RelativeLayout>
 
     </ScrollView>
+
+    <ImageView
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/dp20"
+        android:id="@+id/iv_add_product"
+        android:src="@drawable/plus__1_"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

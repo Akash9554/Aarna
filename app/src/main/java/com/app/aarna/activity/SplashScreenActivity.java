@@ -42,7 +42,6 @@ public class SplashScreenActivity extends AppCompatActivity {
         Animation animation_top= AnimationUtils.loadAnimation(this, R.anim.top_animation);
         iv_top.setAnimation(animation_top);
 
-
         Animation fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein_animation);
         iv_logo.startAnimation(fadeInAnimation);
 

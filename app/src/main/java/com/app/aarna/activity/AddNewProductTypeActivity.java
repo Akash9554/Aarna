@@ -62,15 +62,12 @@ public class AddNewProductTypeActivity extends AppCompatActivity implements IApi
     private String url="";
     public static int  PICK_IMAGE_FROM_CAMERA = 1010;
     private Uri fileUri;
-
     String file_id="";
     String product_name="";
     String pro_image="";
     String pro_name="";
     String pro_type="";
     String pro_id="";
-
-
 
     String[] permissions = new String[]{
             Manifest.permission.CAMERA,
@@ -93,7 +90,6 @@ public class AddNewProductTypeActivity extends AppCompatActivity implements IApi
             file_id=pro_id;
             et_product_name.setText(pro_name);
             Glide.with(this).load(pro_image).apply(new RequestOptions()).centerCrop().into(iv_product_picture);
-
         }else {
             tv_employee.setText("Save");
         }
@@ -137,6 +133,7 @@ public class AddNewProductTypeActivity extends AppCompatActivity implements IApi
 
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -153,7 +150,6 @@ public class AddNewProductTypeActivity extends AppCompatActivity implements IApi
             c.close();
             url = picturePath;
             Glide.with(this).load(picturePath).apply(new RequestOptions()).centerCrop().into(iv_product_picture);
-
         }else if (resultCode == Activity.RESULT_CANCELED) {
         }
     }
@@ -175,42 +171,29 @@ public class AddNewProductTypeActivity extends AppCompatActivity implements IApi
     }
 
     public static Uri getOutputMediaFileUri(Context context) {
-
-        Uri contentUri = FileProvider.getUriForFile(context, "app.docwin.fileprovider", getOutputMediaFile(context));
+        Uri contentUri = FileProvider.getUriForFile(context, "app.aarna.fileprovider", getOutputMediaFile(context));
         return contentUri;
     }
 
     private static File getOutputMediaFile(Context context) {
-        // External sdcard location
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             File mediaStorageDir = new File(context.getExternalFilesDir(null), Constants.IMAGE_DIRECTORY_NAME);
-
-            // Create the storage directory if it does not exist
             if (!mediaStorageDir.exists()) {
                 if (!mediaStorageDir.mkdirs()) {
                     return null;
                 }
             }
-            // Create a media file name
-
             return new File(mediaStorageDir.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
-
         } else {
-
             File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), Constants.IMAGE_DIRECTORY_NAME);
-
-            // Create the storage directory if it does not exist
             if (!mediaStorageDir.exists()) {
                 if (!mediaStorageDir.mkdirs()) {
                     return null;
                 }
             }
-            // Create a media file name
-
             File mediaFile;
             mediaFile = new File(mediaStorageDir.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
-
             return mediaFile;
         }
     }

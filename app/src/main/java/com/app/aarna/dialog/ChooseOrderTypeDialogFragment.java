@@ -33,13 +33,12 @@ public class ChooseOrderTypeDialogFragment extends DialogFragment {
     ImageView ivAlert;
     private MyInterface mListener;
 
+
     public static ChooseOrderTypeDialogFragment newInstance() {
         ChooseOrderTypeDialogFragment alertDialog = new ChooseOrderTypeDialogFragment();
         return alertDialog;
     }
 
-
-    //Creating view of dialog
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -52,13 +51,13 @@ public class ChooseOrderTypeDialogFragment extends DialogFragment {
 
     @OnClick(R.id.tv_multi_day)
     void okClickedYes(){
-        mListener.oncheck("multiday","","");
+        mListener.oncheck("multiday","","","","");
         dismiss();
     }
 
     @OnClick(R.id.tv_single_day)
     void okClickedNo(){
-        mListener.oncheck("singleday","","");
+        mListener.oncheck("singleday","","","","");
         dismiss();
     }
     @Override
@@ -67,7 +66,6 @@ public class ChooseOrderTypeDialogFragment extends DialogFragment {
         super.onAttach(activity);
     }
 
-    //Detaching listener from dailog
     @Override
     public void onDetach() {
         mListener = null;

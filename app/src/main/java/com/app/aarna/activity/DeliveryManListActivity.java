@@ -19,7 +19,6 @@ import com.app.aarna.helper.IRecyclerClickListener;
 import com.app.aarna.helper.MyInterface;
 import com.app.aarna.model.DeliveryBoyData;
 import com.app.aarna.model.DeliveryBoyResponce;
-import com.app.aarna.model.ProductTypeData;
 import com.app.aarna.restapi.ApiCall;
 
 import java.util.ArrayList;
@@ -38,6 +37,7 @@ public class DeliveryManListActivity extends AppCompatActivity implements IApiCa
     String pro_id="";
     @BindView(R.id.tv_hint)
     TextView tv_hint;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,7 +152,7 @@ public class DeliveryManListActivity extends AppCompatActivity implements IApiCa
     }
 
     @Override
-    public void oncheck(String data, String type, String id) {
+    public void oncheck(String data, String type, String id,String img, String pr) {
         if (data.equals("yes")) {
             FunctionHelper.disable_user_Intration(this, getString(R.string.loading), getSupportFragmentManager());
             ApiCall.getInstance(this).deletedeliveryboy(pro_id, this);

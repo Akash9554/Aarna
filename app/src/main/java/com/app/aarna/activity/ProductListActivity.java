@@ -20,10 +20,8 @@ import com.app.aarna.helper.FunctionHelper;
 import com.app.aarna.helper.IApiCallback;
 import com.app.aarna.helper.IRecyclerClickListener;
 import com.app.aarna.helper.MyInterface;
-import com.app.aarna.model.DeliveryBoyResponce;
 import com.app.aarna.model.ProductDataList;
 import com.app.aarna.model.ProductDataResponce;
-import com.app.aarna.model.ProductTypeData;
 import com.app.aarna.restapi.ApiCall;
 
 import java.util.ArrayList;
@@ -69,8 +67,6 @@ public class ProductListActivity extends AppCompatActivity implements IRecyclerC
         ApiCall.getInstance(this).product_list("1", this);
     }
 
-
-
     @OnClick(R.id.iv_add_product)
     void getadd() {
         Intent intent = new Intent(ProductListActivity.this, AddNewProductActivity.class);
@@ -91,7 +87,6 @@ public class ProductListActivity extends AppCompatActivity implements IRecyclerC
             }
         }
     }
-
 
     @Override
     public void onSuccess(Object type, Object data, Object extraData) {
@@ -129,7 +124,6 @@ public class ProductListActivity extends AppCompatActivity implements IRecyclerC
         FunctionHelper.enableUserIntraction(this);
     }
 
-
     @OnClick(R.id.iv_back)
     void get_back() {
         onBackPressed();
@@ -160,17 +154,14 @@ public class ProductListActivity extends AppCompatActivity implements IRecyclerC
             FragmentManager fm = getSupportFragmentManager();
             AlertDialogFragment editNameDialogFragment = AlertDialogFragment.newInstance();
             editNameDialogFragment.show(fm, "fragment_edit_name");
-
         }
-
     }
 
     @Override
-    public void oncheck(String data, String type, String id) {
+    public void oncheck(String data, String type, String id,String img, String pr) {
         if (data.equals("yes")) {
             FunctionHelper.disable_user_Intration(this, getString(R.string.loading), getSupportFragmentManager());
             ApiCall.getInstance(this).deleteproduct(pro_id, "1", this);
         }
-
     }
 }

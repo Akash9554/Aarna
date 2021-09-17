@@ -47,7 +47,6 @@ public class AddCustomerListAdapter extends RecyclerView.Adapter<AddCustomerList
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
         holder.tv_customer_name.setText(customerData.get(position).getName());
         holder.tv_number.setText(customerData.get(position).getPhone());
-        //holder.tv_email.setText(customerData.get(position).getEmail());
         holder.tv_password.setText(customerData.get(position).getAddress());
         Glide.with(context).load(customerData.get(position).getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_customer);
 
@@ -58,6 +57,7 @@ public class AddCustomerListAdapter extends RecyclerView.Adapter<AddCustomerList
     public int getItemCount() {
         return customerData.size();
     }
+
     class ListViewHolder extends RecyclerView.ViewHolder {
        @BindView(R.id.tv_customer_name)
        TextView tv_customer_name;
@@ -92,6 +92,12 @@ public class AddCustomerListAdapter extends RecyclerView.Adapter<AddCustomerList
         void getorder(){
             clickListener.clickListener(getAdapterPosition(),"order_type","");
         }
+
+        @OnClick(R.id.rl_order_list)
+        void getorderlist(){
+            clickListener.clickListener(getAdapterPosition(),"order_list","");
+        }
+
 
     }
 }

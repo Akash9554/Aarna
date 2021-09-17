@@ -16,16 +16,12 @@ import com.app.aarna.R;
 //Custom Loader
 public class CustomLoader extends DialogFragment {
 
-//    AVLoadingIndicatorView avi;
-
-    //Setting style of Dialog
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NO_TITLE, R.style.LoaderTheme);
     }
 
-    //Creating view of dialog
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

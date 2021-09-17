@@ -4,14 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.app.aarna.R;
+import com.app.aarna.activity.order.AddSingleDayOrderActivity;
 import com.app.aarna.adapter.AddCustomerListAdapter;
 import com.app.aarna.dialog.AlertDialogFragment;
 import com.app.aarna.dialog.ChooseOrderTypeDialogFragment;
@@ -22,9 +20,7 @@ import com.app.aarna.helper.MyInterface;
 import com.app.aarna.model.CustomerData;
 import com.app.aarna.model.CustomerResponce;
 import com.app.aarna.restapi.ApiCall;
-
 import java.util.ArrayList;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -39,6 +35,10 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
     String type="0";
     String pro_id="";
     AddCustomerListAdapter adapter;
+     String cus_id="";
+     String cus_name="";
+     String cus_number="";
+     String Order_status="";
 
 
     @Override
@@ -95,6 +95,7 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
     public void onFailure(Object data) {
         FunctionHelper.enableUserIntraction(this);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -107,7 +108,6 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
             }
         }
     }
-
 
     @OnClick(R.id.iv_back)
     void get_back(){
@@ -139,6 +139,20 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
             AlertDialogFragment editNameDialogFragment = AlertDialogFragment.newInstance();
             editNameDialogFragment.show(fm, "fragment_edit_name");
         }else if(data.equals("order_type")){
+            int position= (int) pos;
+            Order_status="place";
+            cus_name=customerData.get(position).getName();
+            cus_id=customerData.get(position).getId();
+            cus_number=customerData.get(position).getPhone();
+            FragmentManager fm = getSupportFragmentManager();
+            ChooseOrderTypeDialogFragment chooseOrderTypeDialogFragment = ChooseOrderTypeDialogFragment.newInstance();
+            chooseOrderTypeDialogFragment.show(fm, "fragment_edit_name");
+        }else if(data.equals("order_list")){
+            int position= (int) pos;
+            Order_status="list";
+            cus_name=customerData.get(position).getName();
+            cus_id=customerData.get(position).getId();
+            cus_number=customerData.get(position).getPhone();
             FragmentManager fm = getSupportFragmentManager();
             ChooseOrderTypeDialogFragment chooseOrderTypeDialogFragment = ChooseOrderTypeDialogFragment.newInstance();
             chooseOrderTypeDialogFragment.show(fm, "fragment_edit_name");
@@ -152,15 +166,46 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
         intent.putExtra("type", "1");
         startActivityForResult(intent, 1);
     }
+
+
     @Override
-    public void oncheck(String data, String type, String id) {
+    public void oncheck(String data, String type, String id,String price, String image) {
         if (data.equals("yes")) {
             FunctionHelper.disable_user_Intration(this, getString(R.string.loading), getSupportFragmentManager());
             ApiCall.getInstance(this).deleteCustomer(pro_id, this);
         }else if (data.equals("singleday")){
-            Toast.makeText(CustomerListActivity.this, "Single", Toast.LENGTH_SHORT).show();
+            if (Order_status.equals("place")){
+                Intent intent = new Intent(CustomerListActivity.this, AddSingleDayOrderActivity.class);
+                intent.putExtra("type", "1");
+                intent.putExtra("id",cus_id);
+                intent.putExtra("name",cus_name);
+                intent.putExtra("number",cus_number);
+                startActivityForResult(intent, 1);
+            }else {
+                Intent intent = new Intent(CustomerListActivity.this, OrderListActivity.class);
+                intent.putExtra("type", "1");
+                intent.putExtra("id",cus_id);
+                intent.putExtra("name",cus_name);
+                intent.putExtra("number",cus_number);
+                startActivityForResult(intent, 1);
+            }
+
         }else if(data.equals("multiday")){
-            Toast.makeText(CustomerListActivity.this, "Multi", Toast.LENGTH_SHORT).show();
+            if (Order_status.equals("place")){
+                Intent intent = new Intent(CustomerListActivity.this, AddSingleDayOrderActivity.class);
+                intent.putExtra("type", "2");
+                intent.putExtra("id",cus_id);
+                intent.putExtra("name",cus_name);
+                intent.putExtra("number",cus_number);
+                startActivityForResult(intent, 1);
+            }else {
+                Intent intent = new Intent(CustomerListActivity.this, OrderListActivity.class);
+                intent.putExtra("type", "2");
+                intent.putExtra("id",cus_id);
+                intent.putExtra("name",cus_name);
+                intent.putExtra("number",cus_number);
+                startActivityForResult(intent, 1);
+            }
 
         }
     }

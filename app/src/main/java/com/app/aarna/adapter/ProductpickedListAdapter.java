@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.aarna.R;
 import com.app.aarna.helper.IRecyclerClickListener;
 import com.app.aarna.model.CustomerData;
+import com.app.aarna.model.singledayorder.SelectedProductByOwner;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
@@ -28,10 +29,12 @@ import butterknife.OnClick;
  */
 public class ProductpickedListAdapter extends RecyclerView.Adapter<ProductpickedListAdapter.ListViewHolder> {
     Context context;
+    ArrayList<SelectedProductByOwner>selectedProductByOwners;
     IRecyclerClickListener clickListener;
 
-    public ProductpickedListAdapter(Context context, IRecyclerClickListener clickListener) {
+    public ProductpickedListAdapter(Context context, ArrayList<SelectedProductByOwner>selectedProductByOwners, IRecyclerClickListener clickListener) {
         this.context = context;
+        this.selectedProductByOwners=selectedProductByOwners;
         this.clickListener = clickListener;
     }
     @NonNull
@@ -42,18 +45,16 @@ public class ProductpickedListAdapter extends RecyclerView.Adapter<Productpicked
     }
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
-        /*holder.tv_customer_name.setText(customerData.get(position).getName());
-        holder.tv_number.setText(customerData.get(position).getPhone());
-        //holder.tv_email.setText(customerData.get(position).getEmail());
-        holder.tv_password.setText(customerData.get(position).getAddress());
-        Glide.with(context).load(customerData.get(position).getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_customer);
-
-*/
+        holder.tv_product_name.setText(selectedProductByOwners.get(position).getPro_name());
+        holder.tv_price.setText(selectedProductByOwners.get(position).getPro_price()+""+"/per piece");
+        holder.tv_qty.setText(selectedProductByOwners.get(position).getPro_qty());
+        holder.tv_total.setText(selectedProductByOwners.get(position).getPro_total());
+        Glide.with(context).load(selectedProductByOwners.get(position).getPro_image()).apply(new RequestOptions()).circleCrop().into(holder.iv_product);
     }
 
     @Override
     public int getItemCount() {
-        return 2;
+        return selectedProductByOwners.size();
     }
     class ListViewHolder extends RecyclerView.ViewHolder {
        @BindView(R.id.tv_product_name)
@@ -67,6 +68,8 @@ public class ProductpickedListAdapter extends RecyclerView.Adapter<Productpicked
         IRecyclerClickListener clickListener;
         @BindView(R.id.iv_delete)
         ImageView iv_delete;
+        @BindView(R.id.iv_product)
+        ImageView iv_product;
 
         public ListViewHolder(@NonNull View itemView, IRecyclerClickListener clickListener) {
             super(itemView);

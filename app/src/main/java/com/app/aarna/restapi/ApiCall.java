@@ -10,6 +10,8 @@ import com.app.aarna.model.LoginResponce;
 import com.app.aarna.model.ProductDataResponce;
 import com.app.aarna.model.ProductTypeData;
 import com.app.aarna.model.ProductTypeDataList;
+import com.app.aarna.model.orderlist.OrderlistResponce;
+import com.app.aarna.model.singledayorder.Single_Day_Order_Place_Responce;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -227,6 +229,116 @@ public class ApiCall {
         });
     }
 
+    public void singleDay_place_order( String customer_id,String grand_total,String order_date,String product, final IApiCallback iApiCallback){
+        Call<Single_Day_Order_Place_Responce> call = service.singleDay_place_order(customer_id,grand_total,order_date,product);
+        call.enqueue(new Callback<Single_Day_Order_Place_Responce>() {
+            @Override
+            public void onResponse(Call<Single_Day_Order_Place_Responce> call, Response<Single_Day_Order_Place_Responce> response) {
+                iApiCallback.onSuccess("singleDay_place_order",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<Single_Day_Order_Place_Responce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+    public void customer_pay( String customer_id,String amount, final IApiCallback iApiCallback){
+        Call<Single_Day_Order_Place_Responce> call = service.customer_pay(customer_id,amount);
+        call.enqueue(new Callback<Single_Day_Order_Place_Responce>() {
+            @Override
+            public void onResponse(Call<Single_Day_Order_Place_Responce> call, Response<Single_Day_Order_Place_Responce> response) {
+                iApiCallback.onSuccess("customer_pay",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<Single_Day_Order_Place_Responce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+
+    public void singleDay_assigndeliveryBoy_changeStatus( String order_id,String delivery_boy_id,String status, final IApiCallback iApiCallback){
+        Call<DeliveryBoyResponce> call = service.singleDay_assigndeliveryBoy_changeStatus(order_id,delivery_boy_id,status);
+        call.enqueue(new Callback<DeliveryBoyResponce>() {
+            @Override
+            public void onResponse(Call<DeliveryBoyResponce> call, Response<DeliveryBoyResponce> response) {
+                iApiCallback.onSuccess("singleDay_assigndeliveryBoy_changeStatus",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<DeliveryBoyResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+
+    public void multiDay_place_order( String customer_id,String grand_total,String order_date,String product, final IApiCallback iApiCallback){
+        Call<Single_Day_Order_Place_Responce> call = service.multiDay_place_order(customer_id,grand_total,order_date,product);
+        call.enqueue(new Callback<Single_Day_Order_Place_Responce>() {
+            @Override
+            public void onResponse(Call<Single_Day_Order_Place_Responce> call, Response<Single_Day_Order_Place_Responce> response) {
+                iApiCallback.onSuccess("singleDay_place_order",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<Single_Day_Order_Place_Responce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+    public void multiDay_assigndeliveryBoy_changeStatus( String order_id,String delivery_boy_id,String status, final IApiCallback iApiCallback){
+        Call<DeliveryBoyResponce> call = service.multiDay_assigndeliveryBoy_changeStatus(order_id,delivery_boy_id,status);
+        call.enqueue(new Callback<DeliveryBoyResponce>() {
+            @Override
+            public void onResponse(Call<DeliveryBoyResponce> call, Response<DeliveryBoyResponce> response) {
+                iApiCallback.onSuccess("singleDay_assigndeliveryBoy_changeStatus",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<DeliveryBoyResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+    public void customer_multi_order_list( String customer_id, final IApiCallback iApiCallback){
+        Call<OrderlistResponce> call = service.getOrderlist_customer(customer_id);
+        call.enqueue(new Callback<OrderlistResponce>() {
+            @Override
+            public void onResponse(Call<OrderlistResponce> call, Response<OrderlistResponce> response) {
+                iApiCallback.onSuccess("orderlist",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<OrderlistResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+    public void customer_order_list( String customer_id, final IApiCallback iApiCallback){
+        Call<OrderlistResponce> call = service.getOrderlist(customer_id);
+        call.enqueue(new Callback<OrderlistResponce>() {
+            @Override
+            public void onResponse(Call<OrderlistResponce> call, Response<OrderlistResponce> response) {
+                iApiCallback.onSuccess("orderlist",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<OrderlistResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+
+
+
 
 
 
@@ -237,6 +349,7 @@ public class ApiCall {
 
 
 }
+
 
 
 

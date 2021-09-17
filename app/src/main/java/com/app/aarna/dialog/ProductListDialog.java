@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import retrofit2.Response;
 
-//Check-in Dialog
+
 public class ProductListDialog extends DialogFragment implements IApiCallback, IRecyclerClickListener {
     public static String placeId;
     @BindView(R.id.product_recycler)
@@ -124,7 +124,7 @@ public class ProductListDialog extends DialogFragment implements IApiCallback, I
         String product_name=productTypeDataLists.get(position).getName();
         String image=productTypeDataLists.get(position).getImage();
         String id=productTypeDataLists.get(position).getId();
-        mListener.oncheck(product_name,image,id);
+        mListener.oncheck(product_name,image,id,"selectpro","");
         dismiss();
 
     }
