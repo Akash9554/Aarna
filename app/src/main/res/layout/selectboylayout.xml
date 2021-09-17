@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp15"
+    app:cardCornerRadius="5dp"
+    android:id="@+id/cv_product">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/round_box_corner_for_mainmenu">
+
+
+        <ImageView
+            android:id="@+id/iv_delivery_man"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:src="@drawable/milk_product" />
+
+
+        <TextView
+            android:id="@+id/tv_delivery_man_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_below="@+id/iv_delivery_man"
+            android:fontFamily="@font/montserrat_medium"
+            android:singleLine="true"
+            android:layout_marginStart="@dimen/dp10"
+            android:textColor="@color/colorPrimary" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_number"
+            android:singleLine="true"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_below="@+id/tv_delivery_man_name"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_email"
+            android:maxLines="3"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_below="@+id/tv_number"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_password"
+            android:maxLines="3"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_below="@+id/tv_email"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:id="@+id/rl_checked"
+            android:visibility="gone"
+            android:background="@color/semitransparent">
+            <ImageView
+                android:layout_width="@dimen/dp100"
+                android:layout_height="@dimen/dp100"
+                android:layout_centerInParent="true"
+                android:src="@drawable/iv_checked"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

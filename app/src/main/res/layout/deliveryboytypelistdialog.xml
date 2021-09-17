@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/round_box_corner">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60"
+        android:id="@+id/rl_header"
+        android:background="@drawable/round_box_header_corner">
+
+        <ImageView
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:id="@+id/iv_back"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/cancel"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Select Delivery Boy To Assign Order"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/product_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginBottom="@dimen/dp20"
+        android:layout_below="@+id/rl_header" />
+
+    <RelativeLayout
+        android:layout_below="@+id/product_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginEnd="@dimen/dp20">
+
+
+        <TextView
+            android:id="@+id/tv_single_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp25"
+            android:layout_marginBottom="@dimen/dp20"
+            android:background="@drawable/round_corner_color"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:minWidth="@dimen/dp100"
+            android:minHeight="35dp"
+            android:text="Done"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

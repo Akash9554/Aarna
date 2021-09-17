@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp15"
+    app:cardCornerRadius="5dp"
+    android:id="@+id/cv_product">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/round_box_corner_for_mainmenu">
+
+
+        <ImageView
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/dp10"
+            android:src="@drawable/iv_edit"
+            android:id="@+id/iv_edit"/>
+
+        <ImageView
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_marginStart="@dimen/dp10"
+            android:src="@drawable/delete__1_"
+            android:layout_below="@+id/iv_edit"
+            android:id="@+id/iv_delete"/>
+
+        <RelativeLayout
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_toStartOf="@+id/iv_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rl_customer_name">
+
+            <TextView
+            android:id="@+id/tv_customer_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Customer Name : "
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvCusName"
+                android:layout_toEndOf="@+id/tv_customer_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginStart="@dimen/dp5"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_toStartOf="@+id/iv_edit"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_below="@+id/rl_customer_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rl_customer_number">
+
+            <TextView
+                android:id="@+id/tv_customer_number_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customer Number : "
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvCusNum"
+                android:layout_toEndOf="@+id/tv_customer_number_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginStart="@dimen/dp5"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_toStartOf="@+id/iv_edit"
+            android:layout_below="@+id/rl_customer_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:id="@+id/rl_customer_address">
+
+            <TextView
+                android:id="@+id/tv_customer_address_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customer Address : "
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvCusAdd"
+                android:layout_toEndOf="@+id/tv_customer_address_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginStart="@dimen/dp5"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:id="@+id/tv_product"
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_marginEnd="@dimen/dp5"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_below="@+id/rl_customer_address"
+            android:text="Products : "/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginEnd="@dimen/dp5"
+            android:layout_below="@+id/tv_product"
+            android:layout_toEndOf="@+id/tv_product"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/product_recycler"/>
+
+        <RelativeLayout
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rl_price"
+            android:layout_below="@+id/product_recycler">
+
+            <TextView
+                android:id="@+id/tv_price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total : "
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvOrderAmount"
+                android:layout_toEndOf="@+id/tv_price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginStart="@dimen/dp5"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:id="@+id/iv_product"
+            android:layout_below="@+id/rl_price"
+            android:layout_margin="@dimen/dp5"/>
+
+        <RelativeLayout
+            android:layout_toEndOf="@+id/iv_product"
+            android:layout_marginEnd="@dimen/dp5"
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_below="@+id/rl_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rl_assigned">
+
+            <TextView
+                android:id="@+id/tv_assigned_boy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assigned Boy : : "
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvDevBoy"
+                android:layout_toEndOf="@+id/tv_assigned_boy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginStart="@dimen/dp5"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_toEndOf="@+id/iv_product"
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_marginEnd="@dimen/dp5"
+            android:layout_below="@+id/rl_assigned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp5"
+            android:id="@+id/rl_boy_number">
+
+            <TextView
+                android:id="@+id/tv_boy_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number : "
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvdevboyNum"
+                android:layout_toEndOf="@+id/tv_boy_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginStart="@dimen/dp5"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_toEndOf="@+id/iv_product"
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_marginEnd="@dimen/dp5"
+            android:layout_below="@+id/rl_boy_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp5"
+            android:id="@+id/rl_order_data">
+
+            <TextView
+                android:id="@+id/tv_order_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Date : "
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvorderdate"
+                android:layout_toEndOf="@+id/tv_order_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:layout_marginStart="@dimen/dp5"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="14sp"/>
+
+
+        </RelativeLayout>
+
+
+</RelativeLayout>
+</androidx.cardview.widget.CardView>

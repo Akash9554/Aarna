@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp2">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_price"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp5">
+
+        <ImageView
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:id="@+id/iv_product"
+            android:layout_margin="@dimen/dp5"/>
+
+        <TextView
+           android:layout_toEndOf="@+id/iv_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvProname"
+            android:layout_marginTop="@dimen/dp5"
+            android:singleLine="true"
+            android:layout_marginStart="@dimen/dp30"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="14sp"/>
+
+
+    <RelativeLayout
+        android:layout_below="@+id/tvProname"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_toEndOf="@+id/iv_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp5"
+        android:id="@+id/rl_assigned">
+
+        <TextView
+            android:id="@+id/tv_assigned_boy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="@dimen/dp50"
+            android:text="Qty : "
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_toEndOf="@+id/tv_assigned_boy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvqty"
+            android:singleLine="true"
+            android:layout_marginStart="@dimen/dp5"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/rl_assigned"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/iv_product"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp5"
+        android:id="@+id/rl_boy_number">
+
+        <TextView
+            android:id="@+id/tv_boy_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price : "
+            android:minWidth="@dimen/dp50"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_toEndOf="@+id/tv_boy_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvprice"
+            android:singleLine="true"
+            android:layout_marginStart="@dimen/dp5"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_toEndOf="@+id/iv_product"
+        android:layout_below="@+id/rl_boy_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp5"
+        android:id="@+id/rl_total_price">
+
+        <TextView
+            android:id="@+id/tv_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total : "
+            android:minWidth="@dimen/dp50"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_toEndOf="@+id/tv_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvtotal"
+            android:singleLine="true"
+            android:layout_marginStart="@dimen/dp5"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>
