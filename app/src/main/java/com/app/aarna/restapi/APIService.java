@@ -8,6 +8,7 @@ import com.app.aarna.model.LoginResponce;
 import com.app.aarna.model.ProductDataResponce;
 import com.app.aarna.model.ProductTypeData;
 import com.app.aarna.model.ProductTypeDataList;
+import com.app.aarna.model.deliverylist.DeliveryBoyOrderResponce;
 import com.app.aarna.model.orderlist.OrderlistResponce;
 import com.app.aarna.model.singledayorder.Single_Day_Order_Place_Responce;
 
@@ -174,6 +175,13 @@ public interface APIService {
     Call<OrderlistResponce> getOrderlist(
             @Field("customer_id") String user_id
     );
+
+    @POST("deliveryboy_order_list")
+    @FormUrlEncoded
+    Call<DeliveryBoyOrderResponce> getdeliveryboyorderlist(
+            @Field("delivery_boy_id") String user_id
+    );
+
 
 
 

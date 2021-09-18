@@ -98,7 +98,7 @@ public class OrderListActivity extends AppCompatActivity implements IRecyclerCli
                     if (!response.body().getData().isEmpty()) {
                         orderListData.clear();
                         orderListData.addAll(response.body().getData());
-                        orderedListAdapter.notifyDataSetChanged();;
+                        orderedListAdapter.notifyDataSetChanged();
                     }
                 }
             }

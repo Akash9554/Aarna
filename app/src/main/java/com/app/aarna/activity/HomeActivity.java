@@ -41,7 +41,7 @@ public class HomeActivity extends AppCompatActivity implements MyInterface {
 
     @OnClick(R.id.cv_profile)
     void get_all_Profile(){
-        getActivityCall(ProfileDetailActivity.class);
+        getActivityCall(CustomerHomeActivity.class);
     }
 
     @OnClick(R.id.cv_add_new_product)

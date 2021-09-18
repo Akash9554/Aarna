@@ -28,9 +28,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * For set all data in event list
- */
 public class OrderedListAdapter extends RecyclerView.Adapter<OrderedListAdapter.ListViewHolder> implements IRecyclerClickListener {
     Context context;
     IRecyclerClickListener clickListener;
@@ -41,12 +38,14 @@ public class OrderedListAdapter extends RecyclerView.Adapter<OrderedListAdapter.
         this.orderListData=orderListData;
         this.clickListener = clickListener;
     }
+
     @NonNull
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.orderdetaillayout, parent, false);
         return new ListViewHolder(view, clickListener);
     }
+
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
           ArrayList<ProductOrder>productOrders=new ArrayList<>();
@@ -120,6 +119,14 @@ public class OrderedListAdapter extends RecyclerView.Adapter<OrderedListAdapter.
 
     @OnClick(R.id.iv_delete)
     void getdelete(){
+
+
+
+
+
+
+
+
 
     }
 

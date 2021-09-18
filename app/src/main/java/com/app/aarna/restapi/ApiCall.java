@@ -10,6 +10,7 @@ import com.app.aarna.model.LoginResponce;
 import com.app.aarna.model.ProductDataResponce;
 import com.app.aarna.model.ProductTypeData;
 import com.app.aarna.model.ProductTypeDataList;
+import com.app.aarna.model.deliverylist.DeliveryBoyOrderResponce;
 import com.app.aarna.model.orderlist.OrderlistResponce;
 import com.app.aarna.model.singledayorder.Single_Day_Order_Place_Responce;
 
@@ -335,6 +336,22 @@ public class ApiCall {
             }
         });
     }
+
+    public void deliveryboy_order_list( String customer_id, final IApiCallback iApiCallback){
+        Call<DeliveryBoyOrderResponce> call = service.getdeliveryboyorderlist(customer_id);
+        call.enqueue(new Callback<DeliveryBoyOrderResponce>() {
+            @Override
+            public void onResponse(Call<DeliveryBoyOrderResponce> call, Response<DeliveryBoyOrderResponce> response) {
+                iApiCallback.onSuccess("deliveryorderlist",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<DeliveryBoyOrderResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
 
 
 
