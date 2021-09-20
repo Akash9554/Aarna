@@ -140,8 +140,15 @@ SelectProductDialog extends DialogFragment implements MyInterface   {
 
     @OnClick(R.id.rl_save)
     void getsave(){
-        mListener.oncheck(product_type_id,product_name,product_image,product_qty,product_price);
-        dismiss();
+        if (TextUtils.isEmpty(et_price.getText().toString())){
+            Toast.makeText(getContext(), "please enter product price", Toast.LENGTH_SHORT).show();
+        }else if (TextUtils.isEmpty(product_name)) {
+            Toast.makeText(getContext(), "please enter select product", Toast.LENGTH_SHORT).show();
+        }else {
+
+            mListener.oncheck(product_type_id, product_name, product_image, product_qty, product_price);
+            dismiss();
+        }
     }
 
     @OnClick(R.id.rl_select_product)

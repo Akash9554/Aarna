@@ -135,7 +135,6 @@
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp10"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Akash Gupta"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -161,7 +160,6 @@
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp10"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="9889899898"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 

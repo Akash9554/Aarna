@@ -2,12 +2,14 @@ package com.app.aarna.restapi;
 
 
 
+import com.app.aarna.model.CustomerPaymentResponce;
 import com.app.aarna.model.CustomerResponce;
 import com.app.aarna.model.DeliveryBoyResponce;
 import com.app.aarna.model.LoginResponce;
 import com.app.aarna.model.ProductDataResponce;
 import com.app.aarna.model.ProductTypeData;
 import com.app.aarna.model.ProductTypeDataList;
+import com.app.aarna.model.ProfileResponce;
 import com.app.aarna.model.deliverylist.DeliveryBoyOrderResponce;
 import com.app.aarna.model.orderlist.OrderlistResponce;
 import com.app.aarna.model.singledayorder.Single_Day_Order_Place_Responce;
@@ -50,17 +52,16 @@ public interface APIService {
             @Field("user_id") String user_id
     );
 
+
     @POST("product_add_edit")
-    @FormUrlEncoded
-    Call<ProductTypeData> getproductaddedit(
-            @Field("user_id") String user_id,
-            @Field("id") String id,
-            @Field("name") String name,
-            @Field("image") String image,
-            @Field("product_type_id") String product_type_id,
-            @Field("description") String description,
-            @Field("qty") String qty
-    );
+    @Multipart
+    Call<ProductTypeData> getproductaddedit(@Part MultipartBody.Part image,
+                                                @Part("user_id") RequestBody user_id,
+                                                @Part("id") RequestBody id,
+                                            @Part("name") RequestBody name,
+                                            @Part("product_type_id") RequestBody product_type_id,
+                                            @Part("description") RequestBody description,
+                                            @Part("qty") RequestBody qty);
 
     @POST("product_type_delete")
     @FormUrlEncoded
@@ -181,6 +182,21 @@ public interface APIService {
     Call<DeliveryBoyOrderResponce> getdeliveryboyorderlist(
             @Field("delivery_boy_id") String user_id
     );
+
+    @POST("get_profile")
+    @FormUrlEncoded
+    Call<ProfileResponce> getprofile(
+            @Field("user_id") String user_id
+    );
+
+
+    @POST("customer_pay_list")
+    @FormUrlEncoded
+    Call<CustomerPaymentResponce> customer_pay_list(
+            @Field("customer_id") String customer_id
+    );
+
+
 
 
 

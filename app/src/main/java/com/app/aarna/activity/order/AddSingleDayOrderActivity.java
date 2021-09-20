@@ -8,11 +8,14 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.app.aarna.R;
 import com.app.aarna.adapter.ProductpickedListAdapter;
+import com.app.aarna.dialog.AllProductListDialog;
 import com.app.aarna.dialog.AlreadyPayByCustomerTypeDialogFragment;
 import com.app.aarna.dialog.SelectProductDialog;
 import com.app.aarna.helper.FunctionHelper;
@@ -45,7 +48,9 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
     TextView tv_cus_number;
     @BindView(R.id.tv_total)
     TextView tv_total;
-    SelectProductDialog selectProductDialog=new SelectProductDialog();
+    @BindView(R.id.ll_grand_total)
+    LinearLayout ll_grand_total;
+    AllProductListDialog selectProductDialog=new AllProductListDialog();
     private DatePicker datePicker;
     private Calendar calendar;
     private int year, month, day;
@@ -59,14 +64,12 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
     String order_type="";
     AlreadyPayByCustomerTypeDialogFragment alreadyPayByCustomerTypeDialogFragment= new AlreadyPayByCustomerTypeDialogFragment();
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_single_day_order);
         ButterKnife.bind(this);
+        ll_grand_total.setVisibility(View.GONE);
         Intent intent=getIntent();
         cus_id=intent.getStringExtra("id");
         cus_name=intent.getStringExtra("name");
@@ -95,11 +98,16 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
     @OnClick(R.id.iv_add_product)
     void getadd(){
         FragmentManager fm = getSupportFragmentManager();
-        selectProductDialog = SelectProductDialog.newInstance(AddSingleDayOrderActivity.this,"1");
+        selectProductDialog = AllProductListDialog.newInstance(AddSingleDayOrderActivity.this,"1");
         selectProductDialog.show(fm, "fragment_edit_name");
     }
     @Override
     public void clickListener(Object pos, Object data, Object extraData) {
+        if(data.equals("delete")){
+            int position= (int) pos;
+            selectedProductByOwners.remove(position);
+            productpickedListAdapter.notifyDataSetChanged();
+        }
 
     }
     @OnClick(R.id.rl_change_date)
@@ -133,6 +141,7 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
                     total_price=total_price + single_price;
                 }
             }
+            ll_grand_total.setVisibility(View.VISIBLE);
             grand_total= String.valueOf(total_price);
             tv_total.setText(grand_total);
         }

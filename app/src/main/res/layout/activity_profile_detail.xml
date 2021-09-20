@@ -9,6 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp60"
+        android:id="@+id/rl_header"
         android:background="@color/colorPrimaryDark">
 
         <ImageView
@@ -29,6 +30,263 @@
             android:textColor="@color/white"
             android:layout_centerInParent="true"
             android:fontFamily="@font/montserrat_medium"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-80dp"
+            android:layout_marginBottom="@dimen/dp40">
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <RelativeLayout
+                        android:id="@+id/rl_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/dp100">
+                        <RelativeLayout
+                            android:layout_width="180dp"
+                            android:layout_height="180dp">
+                            <RelativeLayout
+                                android:layout_width="@dimen/dp150"
+                                android:layout_height="@dimen/dp150"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true">
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/cv_profile"
+                                    style="@style/Base.CardView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    app:cardCornerRadius="55dp"
+                                    app:cardElevation="@dimen/dp2"
+                                    app:cardUseCompatPadding="true">
+                                    <ImageView
+                                        android:id="@+id/iv_profile"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        android:layout_margin="@dimen/dp2"
+                                        android:src="@drawable/camera3x" />
+                                </androidx.cardview.widget.CardView>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:id="@+id/rlProfile"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:backgroundTint="@color/colorPrimaryDark"
+                                android:background="@drawable/work_bg"
+                                android:layout_margin="@dimen/dp30">
+
+                                <ImageView
+                                    android:layout_width="@dimen/dp5"
+                                    android:layout_height="@dimen/dp5"
+                                    android:background="@color/white"
+                                    android:layout_centerInParent="true"/>
+                            </RelativeLayout>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_below="@+id/rl_profile"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp20">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="@dimen/dp50"
+                                    android:padding="@dimen/dp15">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Name"
+                                        android:textColor="@color/black"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginStart="@dimen/dp5"
+                                        android:layout_marginEnd="@dimen/dp5" />
+
+                                    <EditText
+                                        android:layout_width="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:id="@+id/etName"
+                                        android:singleLine="true"
+                                        android:maxLines="1"
+                                        android:layout_centerVertical="true"
+                                      
+                                        android:background="@null"
+                                        tools:text="Ujjawal Arya"
+                                      
+                                        android:minWidth="@dimen/dp100"
+                                        />
+
+                                </RelativeLayout>
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp1"
+                                    android:layout_marginStart="@dimen/dp15"
+                                    android:layout_marginEnd="@dimen/dp15"
+                                    android:background="@color/black" />
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="@dimen/dp50"
+                                    android:padding="@dimen/dp15">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Email"
+                                        android:textColor="@color/black"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginStart="@dimen/dp5"
+                                        android:layout_marginEnd="@dimen/dp5" />
+
+                                    <EditText
+                                        android:layout_width="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:id="@+id/etEmail"
+                                        android:singleLine="true"
+                                        android:maxLines="1"
+                                        android:layout_centerVertical="true"
+                                        android:background="@null"
+                                        tools:text="Ujjawal Arya"
+                                        android:minWidth="@dimen/dp100" />
+
+                                </RelativeLayout>
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp1"
+                                    android:layout_marginStart="@dimen/dp15"
+                                    android:layout_marginEnd="@dimen/dp15"
+                                    android:background="@color/black" />
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="@dimen/dp50"
+                                    android:padding="@dimen/dp15">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Address"
+                                        android:textColor="@color/black"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginStart="@dimen/dp5"
+                                        android:layout_marginEnd="@dimen/dp5" />
+
+                                    <EditText
+                                        android:layout_width="wrap_content"
+                                        android:minWidth="@dimen/dp100"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:singleLine="true"
+                                        android:maxLines="1"
+                                        android:inputType="textEmailAddress"
+                                        android:id="@+id/etAddres"
+                                        android:layout_centerVertical="true"
+                                        android:background="@null"
+                                        tools:text="ua@moffee.in" />
+
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp1"
+                                    android:layout_marginStart="@dimen/dp15"
+                                    android:layout_marginEnd="@dimen/dp15"
+                                    android:background="@color/black"
+                                    android:layout_marginTop="@dimen/dp2"
+                                    android:layout_marginBottom="@dimen/dp2"/>
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp50"
+                                    android:minHeight="@dimen/dp50"
+                                    android:padding="@dimen/dp15">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:textColor="@color/black"
+                                        android:layout_marginStart="@dimen/dp5"
+                                        android:layout_marginEnd="@dimen/dp5"
+                                        android:text="Phone" />
+                                    <EditText
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerVertical="true"
+                                        android:id="@+id/etPhone"
+                                        android:singleLine="true"
+                                        android:maxLines="1"
+                                        android:inputType="number"
+                                        android:background="@null"
+                                        tools:text="98878798998" />
+                                    
+                                </RelativeLayout>
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp1"
+                                    android:layout_marginStart="@dimen/dp15"
+                                    android:layout_marginEnd="@dimen/dp15"
+                                    android:background="@color/black"
+                                    android:layout_marginTop="@dimen/dp2"
+                                    android:layout_marginBottom="@dimen/dp2"/>
+
+                                <RelativeLayout
+                                    android:id="@+id/rl_save"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dp30"
+                                    android:layout_marginTop="@dimen/dp20"
+                                    android:layout_marginEnd="@dimen/dp30"
+                                    android:layout_marginBottom="@dimen/dp20"
+                                    android:background="@drawable/round_corner_color"
+                                    android:minHeight="@dimen/dp50">
+
+                                    <TextView
+                                        android:id="@+id/tv_employee"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:text="@string/save"
+                                        android:textColor="@color/white"
+                                        android:textSize="16sp" />
+                                </RelativeLayout>
+
+
+                            </LinearLayout>
+                        </RelativeLayout>
+                </RelativeLayout>
+            </androidx.core.widget.NestedScrollView>
+        </RelativeLayout>
+
+
 
     </RelativeLayout>
 

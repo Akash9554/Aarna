@@ -85,9 +85,9 @@
                 android:layout_below="@+id/tv_password">
                 <RelativeLayout
                     android:id="@+id/rl_order_list"
-                    android:layout_width="150dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dp20">
+                    android:layout_marginStart="@dimen/dp10">
 
 
                     <TextView
@@ -104,8 +104,8 @@
                 </RelativeLayout>
                 <RelativeLayout
                     android:id="@+id/rl_place_order"
-                    android:layout_width="150dp"
-                    android:layout_marginEnd="@dimen/dp20"
+                    android:layout_width="120dp"
+                    android:layout_marginEnd="@dimen/dp10"
                     android:layout_alignParentEnd="true"
                     android:layout_height="wrap_content">
 

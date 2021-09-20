@@ -4,12 +4,14 @@ package com.app.aarna.restapi;
 import android.content.Context;
 
 import com.app.aarna.helper.IApiCallback;
+import com.app.aarna.model.CustomerPaymentResponce;
 import com.app.aarna.model.CustomerResponce;
 import com.app.aarna.model.DeliveryBoyResponce;
 import com.app.aarna.model.LoginResponce;
 import com.app.aarna.model.ProductDataResponce;
 import com.app.aarna.model.ProductTypeData;
 import com.app.aarna.model.ProductTypeDataList;
+import com.app.aarna.model.ProfileResponce;
 import com.app.aarna.model.deliverylist.DeliveryBoyOrderResponce;
 import com.app.aarna.model.orderlist.OrderlistResponce;
 import com.app.aarna.model.singledayorder.Single_Day_Order_Place_Responce;
@@ -92,8 +94,12 @@ public class ApiCall {
         });
     }
 
-    public void product_add_edit(String user_id,String id,String name,String image, String product_type_id,String description,String qty, final IApiCallback iApiCallback){
-        Call<ProductTypeData> call = service.getproductaddedit(user_id,id,name,image,product_type_id,description,qty);
+
+
+    public void product_add_edit(MultipartBody.Part image, RequestBody user_id,RequestBody id,RequestBody name, RequestBody product_type_id
+            ,RequestBody description,RequestBody qty, final IApiCallback iApiCallback) {
+        Call<ProductTypeData> call = service.getproductaddedit(image,user_id,id,name,product_type_id,description,qty);
+
         call.enqueue(new Callback<ProductTypeData>() {
             @Override
             public void onResponse(Call<ProductTypeData> call, Response<ProductTypeData> response) {
@@ -351,6 +357,38 @@ public class ApiCall {
             }
         });
     }
+
+
+    public void get_profile( String customer_id, final IApiCallback iApiCallback){
+        Call<ProfileResponce> call = service.getprofile(customer_id);
+        call.enqueue(new Callback<ProfileResponce>() {
+            @Override
+            public void onResponse(Call<ProfileResponce> call, Response<ProfileResponce> response) {
+                iApiCallback.onSuccess("profile",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<ProfileResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
+    public void customer_pay_list( String user_id, final IApiCallback iApiCallback){
+        Call<CustomerPaymentResponce> call = service.customer_pay_list(user_id);
+        call.enqueue(new Callback<CustomerPaymentResponce>() {
+            @Override
+            public void onResponse(Call<CustomerPaymentResponce> call, Response<CustomerPaymentResponce> response) {
+                iApiCallback.onSuccess("customerdata",response,null);
+            }
+
+            @Override
+            public void onFailure(Call<CustomerPaymentResponce> call, Throwable t) {
+                iApiCallback.onFailure("" + t.getMessage());
+            }
+        });
+    }
+
 
 
 

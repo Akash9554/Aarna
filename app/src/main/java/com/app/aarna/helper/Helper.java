@@ -294,36 +294,6 @@ public class Helper {
     }
 
 
-    public static String timeFormatter(String providedDate, String expectedFormat, String oldFormat) {
-
-        DateFormat formatter = new SimpleDateFormat(oldFormat, Locale.ENGLISH);
-
-        try {
-
-            formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-            Date formattedDate = formatter.parse(providedDate);
-            formatter.setTimeZone(TimeZone.getDefault());
-            String cretaedDate = formatter.format(formattedDate);
-
-            SimpleDateFormat dateFormat = new SimpleDateFormat(oldFormat, Locale.ENGLISH);
-            Date date = null;
-            String convertedDate = null;
-            try {
-                date = dateFormat.parse(cretaedDate);
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(expectedFormat);
-                convertedDate = simpleDateFormat.format(date);
-            } catch (Exception e) {
-
-                e.printStackTrace();
-                return convertedDate;
-            }
-           return  convertedDate;
-
-        } catch (ParseException e) {
-            e.printStackTrace();
-           return providedDate;
-        }
-    }
 
 
 
@@ -445,6 +415,41 @@ public class Helper {
         }
         return null;
     }
+
+
+    public static String timeFormatter(String providedDate, String expectedFormat, String oldFormat) {
+
+        DateFormat formatter = new SimpleDateFormat(oldFormat, Locale.ENGLISH);
+
+        try {
+
+            formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
+            Date formattedDate = formatter.parse(providedDate);
+            formatter.setTimeZone(TimeZone.getDefault());
+            String cretaedDate = formatter.format(formattedDate);
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat(oldFormat, Locale.ENGLISH);
+            Date date = null;
+            String convertedDate = null;
+            try {
+                date = dateFormat.parse(cretaedDate);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat(expectedFormat);
+                convertedDate = simpleDateFormat.format(date);
+            } catch (Exception e) {
+
+                e.printStackTrace();
+                return convertedDate;
+            }
+            return  convertedDate;
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return providedDate;
+        }
+    }
+
+
+
 
 
 

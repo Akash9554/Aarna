@@ -136,12 +136,16 @@ public class ProductListActivity extends AppCompatActivity implements IRecyclerC
             String description = productDataLists.get(position).getDescription();
             String qty = productDataLists.get(position).getQty();
             String id = productDataLists.get(position).getId();
+            String pro_iamge=productDataLists.get(position).getImage();
+            String pro_name=productDataLists.get(position).getName();
             String product_image = productDataLists.get(position).getProductType().getImage();
             String product_name = productDataLists.get(position).getProductType().getName();
             String product_type_id = productDataLists.get(position).getProductType().getId();
             Intent intent = new Intent(ProductListActivity.this, AddNewProductActivity.class);
             intent.putExtra("type", "2");
             intent.putExtra("id", id);
+            intent.putExtra("pro_iamge", pro_iamge);
+            intent.putExtra("pro_name", pro_name);
             intent.putExtra("description", description);
             intent.putExtra("qty", qty);
             intent.putExtra("product_image", product_image);

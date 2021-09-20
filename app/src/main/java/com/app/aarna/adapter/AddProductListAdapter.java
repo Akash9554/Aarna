@@ -46,10 +46,12 @@ public class AddProductListAdapter extends RecyclerView.Adapter<AddProductListAd
     }
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
-        holder.tv_product_name.setText(productDataLists.get(position).getProductType().getName());
+        holder.tv_product_name.setText(productDataLists.get(position).getName());
         holder.tvAmount.setText((productDataLists.get(position).getQty().toString())+" Liter");
         holder.tv_description.setText(productDataLists.get(position).getDescription());
-        Glide.with(context).load(productDataLists.get(position).getProductType().getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_product);
+        Glide.with(context).load(productDataLists.get(position).getProductType().getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_product_type);
+        holder.tv_type.setText(productDataLists.get(position).getProductType().getName());
+        Glide.with(context).load(productDataLists.get(position).getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_product);
     }
 
     @Override
@@ -70,6 +72,10 @@ public class AddProductListAdapter extends RecyclerView.Adapter<AddProductListAd
         ImageView iv_edit;
         @BindView(R.id.iv_delete)
         ImageView iv_delete;
+        @BindView(R.id.tv_type)
+        TextView tv_type;
+        @BindView(R.id.iv_product_type)
+        ImageView iv_product_type;
 
         public ListViewHolder(@NonNull View itemView, IRecyclerClickListener clickListener) {
             super(itemView);

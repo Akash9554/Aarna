@@ -145,6 +145,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_medium"
                     android:gravity="center"
+                    android:inputType="number"
                     android:hint="Product Price"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
@@ -225,13 +226,6 @@
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
             </RelativeLayout>
-
-
-
-
-
-
-
 
 
             <RelativeLayout
