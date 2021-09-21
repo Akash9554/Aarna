@@ -49,7 +49,7 @@ public class ProductpickedListAdapter extends RecyclerView.Adapter<Productpicked
         holder.tv_price.setText(selectedProductByOwners.get(position).getPro_price()+""+"/per piece");
         holder.tv_qty.setText(selectedProductByOwners.get(position).getPro_qty());
         holder.tv_total.setText(selectedProductByOwners.get(position).getPro_total());
-        Glide.with(context).load(selectedProductByOwners.get(position).getPro_image()).apply(new RequestOptions()).circleCrop().into(holder.iv_product);
+        Glide.with(context).load(selectedProductByOwners.get(position).getPro_image()).placeholder(R.drawable.place_holder).apply(new RequestOptions()).circleCrop().into(holder.iv_product);
     }
 
     @Override

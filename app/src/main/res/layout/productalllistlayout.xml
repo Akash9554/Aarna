@@ -18,8 +18,9 @@
             android:id="@+id/iv_product"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp80"
+            android:scaleType="fitXY"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/milk_product" />
+            android:src="@drawable/place_holder" />
         <ImageView
             android:layout_width="@dimen/dp25"
             android:layout_height="@dimen/dp25"

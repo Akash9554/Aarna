@@ -22,7 +22,8 @@
                 android:layout_marginEnd="@dimen/dp10"
                 android:layout_marginBottom="@dimen/dp10"
                 android:padding="@dimen/dp5"
-                android:src="@drawable/milk_product" />
+                android:scaleType="fitXY"
+                android:src="@drawable/place_holder" />
 
             <ImageView
                 android:layout_width="@dimen/dp20"
@@ -45,12 +46,14 @@
             <ImageView
                 android:id="@+id/iv_product_type"
                 android:layout_width="120dp"
-                android:layout_height="@dimen/dp50"
+                android:padding="@dimen/dp5"
+                android:layout_height="@dimen/dp60"
                 android:layout_below="@+id/iv_product"
-                android:layout_marginStart="@dimen/dp5"
+                android:layout_marginStart="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp5"
-                android:layout_marginEnd="@dimen/dp5"
-                android:src="@color/black"
+                android:layout_marginEnd="@dimen/dp10"
+                android:scaleType="fitXY"
+                android:src="@drawable/place_holder"
                 android:layout_marginBottom="@dimen/dp5" />
 
             <RelativeLayout

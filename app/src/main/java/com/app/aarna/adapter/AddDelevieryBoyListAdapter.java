@@ -50,7 +50,7 @@ public class AddDelevieryBoyListAdapter extends RecyclerView.Adapter<AddDelevier
         holder.tv_number.setText(deliveryBoyData.get(position).getPhone());
         holder.tv_email.setText(deliveryBoyData.get(position).getEmail());
         holder.tv_password.setText(deliveryBoyData.get(position).getAddress());
-        Glide.with(context).load(deliveryBoyData.get(position).getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_delivery_man);
+        Glide.with(context).load(deliveryBoyData.get(position).getImage()).apply(new RequestOptions()).centerCrop().placeholder(R.drawable.place_holder).into(holder.iv_delivery_man);
     }
 
     @Override

@@ -2,6 +2,7 @@
 package com.app.aarna.adapter;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,11 +34,13 @@ public class OrderedListAdapter extends RecyclerView.Adapter<OrderedListAdapter.
     Context context;
     IRecyclerClickListener clickListener;
     ArrayList<OrderListData>orderListData;
+    String order_type;
 
-    public OrderedListAdapter(Context context,ArrayList<OrderListData>orderListData, IRecyclerClickListener clickListener) {
+    public OrderedListAdapter(Context context,ArrayList<OrderListData>orderListData,String type, IRecyclerClickListener clickListener) {
         this.context = context;
         this.orderListData=orderListData;
         this.clickListener = clickListener;
+        this.order_type=type;
     }
 
     @NonNull
@@ -48,6 +52,23 @@ public class OrderedListAdapter extends RecyclerView.Adapter<OrderedListAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
+        if (order_type.equals("1")){
+            if (orderListData.get(position).getStatus().equals("0")){
+                holder.cv_product.setVisibility(View.VISIBLE);
+                holder.iv_delete.setVisibility(View.VISIBLE);
+                holder.iv_edit.setVisibility(View.VISIBLE);
+            }else if (orderListData.get(position).getStatus().equals("1")){
+                holder.cv_product.setVisibility(View.GONE);
+            }
+        }else {
+            if (orderListData.get(position).getStatus().equals("0")){
+                holder.cv_product.setVisibility(View.GONE);
+            }else if (orderListData.get(position).getStatus().equals("1")){
+                holder.cv_product.setVisibility(View.VISIBLE);
+                holder.iv_delete.setVisibility(View.GONE);
+                holder.iv_edit.setVisibility(View.GONE);
+            }
+        }
           ArrayList<ProductOrder>productOrders=new ArrayList<>();
           productOrders.addAll(orderListData.get(position).getProductList());
           setcategoryadapter(holder.product_recycler,productOrders);
@@ -58,7 +79,7 @@ public class OrderedListAdapter extends RecyclerView.Adapter<OrderedListAdapter.
           holder.tvdevboyNum.setText(orderListData.get(position).getDeliveryBoyDetail().getPhone());
           holder.tvOrderAmount.setText(orderListData.get(position).getGrandTotal());
           holder.tvorderdate.setText(orderListData.get(position).getOrderDate());
-          Glide.with(context).load(orderListData.get(position).getDeliveryBoyDetail().getImage()).apply(new RequestOptions()).circleCrop().into(holder.iv_product);
+          Glide.with(context).load(orderListData.get(position).getDeliveryBoyDetail().getImage()).placeholder(R.drawable.place_holder).apply(new RequestOptions()).circleCrop().into(holder.iv_product);
 
     }
 
@@ -92,6 +113,12 @@ public class OrderedListAdapter extends RecyclerView.Adapter<OrderedListAdapter.
         IRecyclerClickListener clickListener;
         @BindView(R.id.product_recycler)
         public RecyclerView product_recycler;
+        @BindView(R.id.cv_product)
+        CardView cv_product;
+        @BindView(R.id.iv_delete)
+        ImageView iv_delete;
+        @BindView(R.id.iv_edit)
+        ImageView iv_edit;
 
 
         public ListViewHolder(@NonNull View itemView, IRecyclerClickListener clickListener) {
@@ -99,6 +126,12 @@ public class OrderedListAdapter extends RecyclerView.Adapter<OrderedListAdapter.
             this.clickListener = clickListener;
             ButterKnife.bind(this, itemView);
         }
+
+        @OnClick(R.id.iv_edit)
+        void edit(){
+            clickListener.clickListener(getAdapterPosition(),"edit","");
+        }
+
 
     }
 
@@ -112,23 +145,7 @@ public class OrderedListAdapter extends RecyclerView.Adapter<OrderedListAdapter.
         OrderedProductListAdapter orderedProductListAdapter = new OrderedProductListAdapter(context,productOrders,this);
         recyclerView.setAdapter(orderedProductListAdapter);
     }
-    @OnClick(R.id.iv_edit)
-    void getedit(){
 
-    }
-
-    @OnClick(R.id.iv_delete)
-    void getdelete(){
-
-
-
-
-
-
-
-
-
-    }
 
 
 

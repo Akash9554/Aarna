@@ -192,14 +192,14 @@
                         android:layout_height="@dimen/dp50">
 
                       <ImageView
-                          android:layout_width="@dimen/dp30"
-                          android:layout_height="@dimen/dp30"
+                          android:layout_width="@dimen/dp20"
+                          android:layout_height="@dimen/dp20"
                           android:layout_centerVertical="true"
                           android:layout_marginStart="@dimen/dp5"
                           android:layout_marginEnd="@dimen/dp5"
                           android:id="@+id/iv_minus"
                           android:gravity="center"
-                          android:src="@drawable/ic_baseline_minimize_24"/>
+                          android:src="@drawable/minusbtn"/>
 
                         <TextView
                             android:layout_marginStart="@dimen/dp5"
@@ -218,10 +218,10 @@
                             android:layout_marginStart="@dimen/dp5"
                             android:layout_marginEnd="@dimen/dp5"
                             android:id="@+id/iv_plus"
-                            android:src="@drawable/ic_baseline_add_24"
+                            android:src="@drawable/plusbtn"
                             android:layout_toEndOf="@+id/tv_number"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_centerVertical="true" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>

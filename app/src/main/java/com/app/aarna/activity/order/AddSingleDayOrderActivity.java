@@ -22,6 +22,7 @@ import com.app.aarna.helper.FunctionHelper;
 import com.app.aarna.helper.IApiCallback;
 import com.app.aarna.helper.IRecyclerClickListener;
 import com.app.aarna.helper.MyInterface;
+import com.app.aarna.model.orderlist.OrderListData;
 import com.app.aarna.model.singledayorder.SelectedProductByOwner;
 import com.app.aarna.model.singledayorder.Single_Day_Order_Place_Responce;
 import com.app.aarna.restapi.ApiCall;
@@ -50,7 +51,7 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
     TextView tv_total;
     @BindView(R.id.ll_grand_total)
     LinearLayout ll_grand_total;
-    AllProductListDialog selectProductDialog=new AllProductListDialog();
+    SelectProductDialog selectProductDialog=new SelectProductDialog();
     private DatePicker datePicker;
     private Calendar calendar;
     private int year, month, day;
@@ -62,6 +63,8 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
     String grand_total="";
     String order_date="";
     String order_type="";
+    String order_from="";
+    ArrayList<OrderListData>orderListData=new ArrayList<>();
     AlreadyPayByCustomerTypeDialogFragment alreadyPayByCustomerTypeDialogFragment= new AlreadyPayByCustomerTypeDialogFragment();
 
     @Override
@@ -69,20 +72,26 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_single_day_order);
         ButterKnife.bind(this);
-        ll_grand_total.setVisibility(View.GONE);
         Intent intent=getIntent();
-        cus_id=intent.getStringExtra("id");
-        cus_name=intent.getStringExtra("name");
-        cus_number=intent.getStringExtra("number");
-        order_type=intent.getStringExtra("type");
-        tv_cus_name.setText(cus_name);
-        tv_cus_number.setText(cus_number);
+        order_from=intent.getStringExtra("order_type");
+        if (order_from.equals("add")){
+            ll_grand_total.setVisibility(View.GONE);
+            cus_id=intent.getStringExtra("id");
+            cus_name=intent.getStringExtra("name");
+            cus_number=intent.getStringExtra("number");
+            order_type=intent.getStringExtra("type");
+            tv_cus_name.setText(cus_name);
+            tv_cus_number.setText(cus_number);
+            setcategoryadapter();
+        }else {
+            orderListData= (ArrayList<OrderListData>) getIntent().getExtras().getSerializable("list");
+        }
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year, month+1, day);
-        setcategoryadapter();
+
 
     }
     public void setcategoryadapter() {
@@ -98,7 +107,7 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
     @OnClick(R.id.iv_add_product)
     void getadd(){
         FragmentManager fm = getSupportFragmentManager();
-        selectProductDialog = AllProductListDialog.newInstance(AddSingleDayOrderActivity.this,"1");
+        selectProductDialog = SelectProductDialog.newInstance(AddSingleDayOrderActivity.this,"1");
         selectProductDialog.show(fm, "fragment_edit_name");
     }
     @Override
@@ -116,16 +125,16 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
     }
     @Override
     public void oncheck(String name, String image, String id, String qty, String price) {
-        if(qty.equals("selectpro")) {
+        if (qty.equals("selectpro")) {
             selectProductDialog.oncheck(id, name, image, "", "");
-        }else{
-            String product_id=name;
-            String product_name=image;
-            String product_image=id;
-            String product_qty=qty;
-            String product_total=price;
-            String product_price= String.valueOf((Integer.parseInt(product_total)/Integer.parseInt(product_qty)));
-            SelectedProductByOwner pro_list=new SelectedProductByOwner();
+        } else {
+            String product_id = name;
+            String product_name = image;
+            String product_image = id;
+            String product_qty = qty;
+            String product_total = price;
+            String product_price = String.valueOf((Integer.parseInt(product_total) / Integer.parseInt(product_qty)));
+            SelectedProductByOwner pro_list = new SelectedProductByOwner();
             pro_list.setPro_id(product_id);
             pro_list.setPro_name(product_name);
             pro_list.setPro_image(product_image);
@@ -134,15 +143,15 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
             pro_list.setPro_total(product_total);
             selectedProductByOwners.add(pro_list);
             productpickedListAdapter.notifyDataSetChanged();
-            total_price=0;
-            if (!(selectedProductByOwners.isEmpty())){
-                for (int i=0;i<selectedProductByOwners.size();i++){
-                    int single_price=Integer.parseInt(selectedProductByOwners.get(i).getPro_total());
-                    total_price=total_price + single_price;
+            total_price = 0;
+            if (!(selectedProductByOwners.isEmpty())) {
+                for (int i = 0; i < selectedProductByOwners.size(); i++) {
+                    int single_price = Integer.parseInt(selectedProductByOwners.get(i).getPro_total());
+                    total_price = total_price + single_price;
                 }
             }
             ll_grand_total.setVisibility(View.VISIBLE);
-            grand_total= String.valueOf(total_price);
+            grand_total = String.valueOf(total_price);
             tv_total.setText(grand_total);
         }
     }
@@ -189,10 +198,10 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
             Response<Single_Day_Order_Place_Responce> response = (Response<Single_Day_Order_Place_Responce>) data;
             if (response.isSuccessful()) {
                 if (response.body().getErrorCode().equals("0")) {
-                    String id=response.body().getData().get(0).getCustomerId();
+                    String id=response.body().getData().get(0).getId();
                     Toast.makeText(this, "" + "Order placed successfully", Toast.LENGTH_SHORT).show();
                     FragmentManager fm = getSupportFragmentManager();
-                    alreadyPayByCustomerTypeDialogFragment = alreadyPayByCustomerTypeDialogFragment.newInstance(AddSingleDayOrderActivity.this,id,order_type);
+                    alreadyPayByCustomerTypeDialogFragment = alreadyPayByCustomerTypeDialogFragment.newInstance(AddSingleDayOrderActivity.this,id,order_type,grand_total);
                     alreadyPayByCustomerTypeDialogFragment.show(fm, "fragment_edit_name");
                 }
             }

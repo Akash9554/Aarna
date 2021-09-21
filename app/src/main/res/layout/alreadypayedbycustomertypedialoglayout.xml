@@ -39,7 +39,7 @@
                 android:layout_marginRight="@dimen/dp20"
                 android:fontFamily="@font/montserrat_medium"
                 android:gravity="center"
-                android:text="Bill Paied By Customer"
+                android:text="Bill Amount"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 

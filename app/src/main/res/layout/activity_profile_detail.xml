@@ -186,6 +186,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:minHeight="@dimen/dp50"
+                                    android:id="@+id/rl_email"
                                     android:padding="@dimen/dp15">
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -256,6 +257,111 @@
                                     android:background="@color/black"
                                     android:layout_marginTop="@dimen/dp2"
                                     android:layout_marginBottom="@dimen/dp2"/>
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp50"
+                                    android:minHeight="@dimen/dp50"
+                                    android:padding="@dimen/dp15">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:textColor="@color/black"
+                                        android:layout_marginStart="@dimen/dp5"
+                                        android:layout_marginEnd="@dimen/dp5"
+                                        android:text="Total Bill" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerVertical="true"
+                                        android:id="@+id/tv_amount"
+                                        android:singleLine="true"
+                                        android:maxLines="1"
+                                        android:textColor="@color/black"
+                                        tools:text="98878798998" />
+
+                                </RelativeLayout>
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp1"
+                                    android:layout_marginStart="@dimen/dp15"
+                                    android:layout_marginEnd="@dimen/dp15"
+                                    android:background="@color/black"
+                                    android:layout_marginTop="@dimen/dp2"
+                                    android:layout_marginBottom="@dimen/dp2"/>
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp50"
+                                    android:minHeight="@dimen/dp50"
+                                    android:padding="@dimen/dp15">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:textColor="@color/black"
+                                        android:layout_marginStart="@dimen/dp5"
+                                        android:layout_marginEnd="@dimen/dp5"
+                                        android:text="Amount Paid" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:textColor="@color/black"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerVertical="true"
+                                        android:id="@+id/tv_amountPaid"
+                                        android:singleLine="true"
+                                        android:maxLines="1"
+                                        tools:text="98878798998" />
+
+                                </RelativeLayout>
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp1"
+                                    android:layout_marginStart="@dimen/dp15"
+                                    android:layout_marginEnd="@dimen/dp15"
+                                    android:background="@color/black"
+                                    android:layout_marginTop="@dimen/dp2"
+                                    android:layout_marginBottom="@dimen/dp2"/>
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp50"
+                                    android:minHeight="@dimen/dp50"
+                                    android:padding="@dimen/dp15">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:textColor="@color/black"
+                                        android:layout_marginStart="@dimen/dp5"
+                                        android:layout_marginEnd="@dimen/dp5"
+                                        android:text="Left Ammount" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="end"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_centerVertical="true"
+                                        android:id="@+id/tv_left_amount"
+                                        android:singleLine="true"
+                                        android:maxLines="1"
+                                        android:textColor="@color/black"
+                                        tools:text="98878798998" />
+
+                                </RelativeLayout>
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/dp1"
+                                    android:layout_marginStart="@dimen/dp15"
+                                    android:layout_marginEnd="@dimen/dp15"
+                                    android:background="@color/black"
+                                    android:layout_marginTop="@dimen/dp2"
+                                    android:layout_marginBottom="@dimen/dp2"/>
 
                                 <RelativeLayout
                                     android:id="@+id/rl_save"
@@ -264,6 +370,7 @@
                                     android:layout_marginStart="@dimen/dp30"
                                     android:layout_marginTop="@dimen/dp20"
                                     android:layout_marginEnd="@dimen/dp30"
+                                    android:visibility="gone"
                                     android:layout_marginBottom="@dimen/dp20"
                                     android:background="@drawable/round_corner_color"
                                     android:minHeight="@dimen/dp50">
@@ -275,6 +382,66 @@
                                         android:layout_centerInParent="true"
                                         android:fontFamily="@font/montserrat_regular"
                                         android:text="@string/save"
+                                        android:textColor="@color/white"
+                                        android:textSize="16sp" />
+                                </RelativeLayout>
+                                <RelativeLayout
+                                    android:id="@+id/rl_order_detail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dp30"
+                                    android:layout_marginTop="@dimen/dp5"
+                                    android:layout_marginEnd="@dimen/dp30"
+                                    android:layout_marginBottom="@dimen/dp5"
+                                    android:background="@drawable/round_corner_color"
+                                    android:minHeight="@dimen/dp50">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:text="Order Detail"
+                                        android:textColor="@color/white"
+                                        android:textSize="16sp" />
+                                </RelativeLayout>
+                                <RelativeLayout
+                                    android:id="@+id/rl_pay_bill"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dp30"
+                                    android:layout_marginTop="@dimen/dp5"
+                                    android:layout_marginEnd="@dimen/dp30"
+                                    android:layout_marginBottom="@dimen/dp5"
+                                    android:background="@drawable/round_corner_color"
+                                    android:minHeight="@dimen/dp50">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:text="Pay Bill"
+                                        android:textColor="@color/white"
+                                        android:textSize="16sp" />
+                                </RelativeLayout>
+                                <RelativeLayout
+                                    android:id="@+id/rl_paid_amount_detail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dp30"
+                                    android:layout_marginTop="@dimen/dp5"
+                                    android:layout_marginEnd="@dimen/dp30"
+                                    android:layout_marginBottom="@dimen/dp5"
+                                    android:background="@drawable/round_corner_color"
+                                    android:minHeight="@dimen/dp50">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:fontFamily="@font/montserrat_regular"
+                                        android:text="Already Paid Ammount Detail"
                                         android:textColor="@color/white"
                                         android:textSize="16sp" />
                                 </RelativeLayout>

@@ -54,7 +54,7 @@ public class AddProductListTypeAdapter extends RecyclerView.Adapter<AddProductLi
             holder.iv_edit.setVisibility(View.VISIBLE);
         }
         holder.tv_product_name.setText(productTypeDataLists.get(position).getName());
-        Glide.with(context).load(productTypeDataLists.get(position).getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_product);
+        Glide.with(context).load(productTypeDataLists.get(position).getImage()).placeholder(R.drawable.place_holder).apply(new RequestOptions()).centerCrop().into(holder.iv_product);
     }
 
     @Override

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.fragment.app.FragmentManager;
 
 import android.Manifest;
 import android.app.Activity;
@@ -18,14 +19,22 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.aarna.R;
+import com.app.aarna.activity.order.AddSingleDayOrderActivity;
 import com.app.aarna.constants.Constants;
+import com.app.aarna.dialog.AlreadyPayByCustomerTypeDialogFragment;
+import com.app.aarna.dialog.ChooseOrderTypeDialogFragment;
 import com.app.aarna.helper.FunctionHelper;
 import com.app.aarna.helper.Helper;
 import com.app.aarna.helper.IApiCallback;
+import com.app.aarna.helper.MyInterface;
 import com.app.aarna.model.ProfileResponce;
 import com.app.aarna.model.deliverylist.DeliveryBoyOrderResponce;
 import com.app.aarna.restapi.ApiCall;
@@ -44,7 +53,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import retrofit2.Response;
 
-public class ProfileDetailActivity extends AppCompatActivity implements IApiCallback {
+public class ProfileDetailActivity extends AppCompatActivity implements IApiCallback , MyInterface {
     @BindView(R.id.etName)
     EditText etName;
     @BindView(R.id.etEmail)
@@ -58,6 +67,27 @@ public class ProfileDetailActivity extends AppCompatActivity implements IApiCall
     public static int  PICK_IMAGE_FROM_CAMERA = 1010;
     private Uri fileUri;
     String url="";
+    String cus_id="";
+    String activity_type="";
+    @BindView(R.id.rlProfile)
+    RelativeLayout rlProfile;
+    @BindView(R.id.rl_email)
+    RelativeLayout rl_email;
+    @BindView(R.id.rl_save)
+    RelativeLayout rl_save;
+    @BindView(R.id.tv_left_amount)
+    TextView tv_left_amount;
+    @BindView(R.id.tv_amountPaid)
+    TextView tv_amountPaid;
+    @BindView(R.id.tv_amount)
+    TextView tv_amount;
+    String cus_name="";
+    String cus_number="";
+    String advance_amount="";
+    String left_amount="";
+    String total_amount="";
+    AlreadyPayByCustomerTypeDialogFragment alreadyPayByCustomerTypeDialogFragment= new AlreadyPayByCustomerTypeDialogFragment();
+
 
     String[] permissions = new String[]{
             Manifest.permission.CAMERA,
@@ -69,11 +99,19 @@ public class ProfileDetailActivity extends AppCompatActivity implements IApiCall
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_detail);
         ButterKnife.bind(this);
+        Intent intent=new Intent();
+        cus_id=intent.getStringExtra("cus_id");
+        activity_type=intent.getStringExtra("activity_type");
+        if (activity_type.equals("2")){
+            rlProfile.setVisibility(View.GONE);
+            rl_email.setVisibility(View.GONE);
+            rl_save.setVisibility(View.GONE);
+        }
         getprofile();
     }
     public void getprofile(){
         FunctionHelper.disable_user_Intration(this, getString(R.string.loading), getSupportFragmentManager());
-        ApiCall.getInstance(this).get_profile("1", this);
+        ApiCall.getInstance(this).get_profile(cus_id, this);
     }
 
     @Override
@@ -87,6 +125,15 @@ public class ProfileDetailActivity extends AppCompatActivity implements IApiCall
                     etAddres.setText(response.body().getData().get(0).getAddress());
                     etName.setText(response.body().getData().get(0).getName());
                     etPhone.setText(response.body().getData().get(0).getPhone());
+                    tv_left_amount.setText(response.body().getData().get(0).getLeftAmount());
+                    tv_amount.setText(response.body().getData().get(0).getTotalAmount());
+                    tv_amountPaid.setText(response.body().getData().get(0).getAdvanceAmount());
+                    cus_name=response.body().getData().get(0).getName();
+                    cus_number=response.body().getData().get(0).getPhone();
+                    total_amount=response.body().getData().get(0).getTotalAmount();
+                    left_amount=response.body().getData().get(0).getLeftAmount();
+                    advance_amount=response.body().getData().get(0).getAdvanceAmount();
+
 
                 }
             }
@@ -194,6 +241,54 @@ public class ProfileDetailActivity extends AppCompatActivity implements IApiCall
             return mediaFile;
         }
     }
+
+    @OnClick(R.id.rl_order_detail)
+    void getorderdetail(){
+        FragmentManager fm = getSupportFragmentManager();
+        ChooseOrderTypeDialogFragment chooseOrderTypeDialogFragment = ChooseOrderTypeDialogFragment.newInstance();
+        chooseOrderTypeDialogFragment.show(fm, "fragment_edit_name");
+    }
+
+    @OnClick(R.id.rl_pay_bill)
+    void getpay(){
+        FragmentManager fm = getSupportFragmentManager();
+        alreadyPayByCustomerTypeDialogFragment = alreadyPayByCustomerTypeDialogFragment.newInstance(ProfileDetailActivity.this,cus_id,"Profile",left_amount);
+        alreadyPayByCustomerTypeDialogFragment.show(fm, "fragment_edit_name");
+    }
+
+    @OnClick(R.id.rl_paid_amount_detail)
+    void getpaidAmountdetail(){
+        Intent intent = new Intent(ProfileDetailActivity.this, PaymentHistoryActivity.class);
+        intent.putExtra("type", "1");
+        intent.putExtra("id",cus_id);
+        intent.putExtra("advance_amount",advance_amount);
+        intent.putExtra("left_amount",left_amount);
+        intent.putExtra("total_amount",total_amount);
+        startActivity(intent);
+    }
+
+    @Override
+    public void oncheck(String data, String type, String id,String price, String image) {
+         if (data.equals("singleday")){
+                Intent intent = new Intent(ProfileDetailActivity.this, OrderListActivity.class);
+                intent.putExtra("type", "1");
+                intent.putExtra("id",cus_id);
+                intent.putExtra("name",cus_name);
+                intent.putExtra("number",cus_number);
+                startActivityForResult(intent, 1);
+            } else if(data.equals("multiday")){
+                Intent intent = new Intent(ProfileDetailActivity.this, OrderListActivity.class);
+                intent.putExtra("type", "2");
+                intent.putExtra("id",cus_id);
+                intent.putExtra("name",cus_name);
+                intent.putExtra("number",cus_number);
+                startActivityForResult(intent, 1);
+            }else if (data.equals("success")){
+             getprofile();
+         }
+
+        }
+
 
 
 

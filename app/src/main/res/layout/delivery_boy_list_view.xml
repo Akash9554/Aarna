@@ -16,7 +16,7 @@
                 android:id="@+id/iv_delivery_man"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:src="@drawable/milk_product" />
+                android:src="@drawable/avatar" />
             <ImageView
                 android:layout_width="@dimen/dp20"
                 android:layout_height="@dimen/dp20"

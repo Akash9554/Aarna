@@ -14,7 +14,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/milk_product" />
+        android:scaleType="fitXY"
+        android:src="@drawable/place_holder" />
 
     <ImageView
         android:layout_width="@dimen/dp25"

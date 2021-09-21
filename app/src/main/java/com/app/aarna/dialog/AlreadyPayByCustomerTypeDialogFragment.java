@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -36,15 +37,19 @@ public class AlreadyPayByCustomerTypeDialogFragment extends DialogFragment imple
     static String id;
      static Context contexts;
     private MyInterface mListener;
-    String amount="";
     static String order_types;
+    @BindView(R.id.tvMsg)
+    TextView tvMsg;
+    static String Amount_pay;
+    String entered_amount="";
 
 
-    public AlreadyPayByCustomerTypeDialogFragment newInstance(Context context, String order_id, String order) {
+    public AlreadyPayByCustomerTypeDialogFragment newInstance(Context context, String order_id, String order,String Amount) {
         AlreadyPayByCustomerTypeDialogFragment alertDialog = new AlreadyPayByCustomerTypeDialogFragment();
         contexts=context;
         id=order_id;
         order_types=order;
+        Amount_pay=Amount;
         return alertDialog;
     }
 
@@ -55,6 +60,7 @@ public class AlreadyPayByCustomerTypeDialogFragment extends DialogFragment imple
         getDialog().setCancelable(false);
         View view = inflater.inflate(R.layout.alreadypayedbycustomertypedialoglayout, container, false);
         ButterKnife.bind(this, view);
+        tvMsg.setText("Total Amount To Pay"+" "+Amount_pay);
         return view;
     }
 
@@ -65,9 +71,9 @@ public class AlreadyPayByCustomerTypeDialogFragment extends DialogFragment imple
         if (TextUtils.isEmpty(et_amount.getText().toString())) {
             Toast.makeText(contexts, "" + "Please enter amount", Toast.LENGTH_SHORT).show();
         } else {
-            amount=et_amount.getText().toString();
+            entered_amount=et_amount.getText().toString();
             FunctionHelper.disable_user_Intration(contexts, getString(R.string.loading), getChildFragmentManager());
-            ApiCall.getInstance(contexts).customer_pay(id, amount, this);
+            ApiCall.getInstance(contexts).customer_pay(id, entered_amount, this);
         }
     }
 
@@ -90,13 +96,18 @@ public class AlreadyPayByCustomerTypeDialogFragment extends DialogFragment imple
             Response<Single_Day_Order_Place_Responce> response = (Response<Single_Day_Order_Place_Responce>) data;
             if (response.isSuccessful()) {
                 if (response.body().getErrorCode().equals("0")) {
-                    Toast.makeText(contexts, "" + "Order placed successfully", Toast.LENGTH_SHORT).show();
-                    Intent intent= new Intent(contexts, SelectDeliveryBoyActivity.class);
-                    intent.putExtra("id",id);
-                    intent.putExtra("order_types",order_types);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    dismiss();
+                    if (order_types.equals("Profile")){
+                        mListener.oncheck("success","","","","");
+                        dismiss();
+                    }else {
+                        Toast.makeText(contexts, "" + "Order placed successfully", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(contexts, SelectDeliveryBoyActivity.class);
+                        intent.putExtra("id", id);
+                        intent.putExtra("order_types", order_types);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                        dismiss();
+                    }
                 }
             }
         }

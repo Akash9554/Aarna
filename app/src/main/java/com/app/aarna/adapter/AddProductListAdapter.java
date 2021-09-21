@@ -32,11 +32,13 @@ public class AddProductListAdapter extends RecyclerView.Adapter<AddProductListAd
     Context context;
     IRecyclerClickListener clickListener;
     ArrayList<ProductDataList>productDataLists;
+    String type;
 
-    public AddProductListAdapter(Context context,ArrayList<ProductDataList>productDataLists, IRecyclerClickListener clickListener) {
+    public AddProductListAdapter(Context context,ArrayList<ProductDataList>productDataLists, String type,IRecyclerClickListener clickListener) {
         this.context = context;
         this.productDataLists=productDataLists;
         this.clickListener = clickListener;
+        this.type=type;
     }
     @NonNull
     @Override
@@ -46,12 +48,19 @@ public class AddProductListAdapter extends RecyclerView.Adapter<AddProductListAd
     }
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
+        if (type.equals("2")){
+            holder.iv_delete.setVisibility(View.GONE);
+            holder.iv_edit.setVisibility(View.GONE);
+        }else {
+            holder.iv_delete.setVisibility(View.VISIBLE);
+            holder.iv_edit.setVisibility(View.VISIBLE);
+        }
         holder.tv_product_name.setText(productDataLists.get(position).getName());
         holder.tvAmount.setText((productDataLists.get(position).getQty().toString())+" Liter");
         holder.tv_description.setText(productDataLists.get(position).getDescription());
-        Glide.with(context).load(productDataLists.get(position).getProductType().getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_product_type);
+        Glide.with(context).load(productDataLists.get(position).getProductType().getImage()).placeholder(R.drawable.place_holder).apply(new RequestOptions()).centerCrop().into(holder.iv_product_type);
         holder.tv_type.setText(productDataLists.get(position).getProductType().getName());
-        Glide.with(context).load(productDataLists.get(position).getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_product);
+        Glide.with(context).load(productDataLists.get(position).getImage()).apply(new RequestOptions()).centerCrop().placeholder(R.drawable.place_holder).into(holder.iv_product);
     }
 
     @Override
@@ -91,6 +100,11 @@ public class AddProductListAdapter extends RecyclerView.Adapter<AddProductListAd
         @OnClick(R.id.iv_delete)
         void  get_delete(){
             clickListener.clickListener(getAdapterPosition(),"delete","");
+        }
+
+        @OnClick(R.id.cv_product)
+        void getclick() {
+            clickListener.clickListener(getAdapterPosition(), "selected_product", "");
         }
     }
 }

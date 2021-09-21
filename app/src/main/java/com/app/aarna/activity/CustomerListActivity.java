@@ -153,9 +153,11 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
             cus_name=customerData.get(position).getName();
             cus_id=customerData.get(position).getId();
             cus_number=customerData.get(position).getPhone();
-            FragmentManager fm = getSupportFragmentManager();
-            ChooseOrderTypeDialogFragment chooseOrderTypeDialogFragment = ChooseOrderTypeDialogFragment.newInstance();
-            chooseOrderTypeDialogFragment.show(fm, "fragment_edit_name");
+            Intent intent = new Intent(CustomerListActivity.this, ProfileDetailActivity.class);
+            intent.putExtra("activity_type", "2");
+            intent.putExtra("cus_id",cus_id);
+            startActivity(intent);
+
         }
 
     }
@@ -194,6 +196,7 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
             if (Order_status.equals("place")){
                 Intent intent = new Intent(CustomerListActivity.this, AddSingleDayOrderActivity.class);
                 intent.putExtra("type", "2");
+                intent.putExtra("order_type","add");
                 intent.putExtra("id",cus_id);
                 intent.putExtra("name",cus_name);
                 intent.putExtra("number",cus_number);
@@ -202,6 +205,7 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
                 Intent intent = new Intent(CustomerListActivity.this, OrderListActivity.class);
                 intent.putExtra("type", "2");
                 intent.putExtra("id",cus_id);
+                intent.putExtra("order_type","add");
                 intent.putExtra("name",cus_name);
                 intent.putExtra("number",cus_number);
                 startActivityForResult(intent, 1);

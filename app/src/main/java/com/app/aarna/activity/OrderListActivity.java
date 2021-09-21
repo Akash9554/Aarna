@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.app.aarna.R;
+import com.app.aarna.activity.order.AddSingleDayOrderActivity;
 import com.app.aarna.adapter.AddCustomerListAdapter;
 import com.app.aarna.adapter.OrderedListAdapter;
 import com.app.aarna.helper.FunctionHelper;
@@ -19,6 +21,7 @@ import com.app.aarna.model.orderlist.OrderListData;
 import com.app.aarna.model.orderlist.OrderlistResponce;
 import com.app.aarna.restapi.ApiCall;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -34,15 +37,21 @@ public class OrderListActivity extends AppCompatActivity implements IRecyclerCli
     @BindView(R.id.product_recycler)
     RecyclerView product_recycler;
     OrderedListAdapter orderedListAdapter;
-    String customer_id="19";
+    String customer_id="21";
     ArrayList<OrderListData>orderListData=new ArrayList<>();
     String type="";
+    @BindView(R.id.rl_delivery)
+    RelativeLayout rl_delivery;
+
+    String order_type="1";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_list);
         ButterKnife.bind(this);
+        view_delivery.setVisibility(View.GONE);
         Intent intent=getIntent();
         type= intent.getStringExtra("type");
         setcategoryadapter();
@@ -68,7 +77,7 @@ public class OrderListActivity extends AppCompatActivity implements IRecyclerCli
                 return false;
             }
         });
-        orderedListAdapter = new OrderedListAdapter(this,orderListData,this);
+        orderedListAdapter = new OrderedListAdapter(this,orderListData,order_type,this);
         product_recycler.setAdapter(orderedListAdapter);
     }
 
@@ -85,7 +94,30 @@ public class OrderListActivity extends AppCompatActivity implements IRecyclerCli
 
     @Override
     public void clickListener(Object pos, Object data, Object extraData) {
+        if (data.equals("edit")){
+            int position= (int) pos;
+            Intent intent = new Intent(OrderListActivity.this, AddSingleDayOrderActivity.class);
+            intent.putExtra("list", (Serializable) orderListData.get(position));
+            intent.putExtra("order_type","edit");
+            startActivity(intent);
 
+        }
+    }
+
+    @OnClick(R.id.rl_pending)
+    void getpendind(){
+        order_type="1";
+        view_pending.setVisibility(View.VISIBLE);
+        view_delivery.setVisibility(View.GONE);
+        setcategoryadapter();
+    }
+
+    @OnClick(R.id.rl_delivery)
+    void getdelivery(){
+        order_type="2";
+        view_pending.setVisibility(View.GONE);
+        view_delivery.setVisibility(View.VISIBLE);
+        setcategoryadapter();
     }
 
     @Override

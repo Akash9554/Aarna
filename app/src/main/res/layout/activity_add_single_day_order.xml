@@ -251,12 +251,15 @@
     </ScrollView>
 
     <ImageView
+        android:id="@+id/iv_add_product"
         android:layout_width="@dimen/dp60"
         android:layout_height="@dimen/dp60"
         android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/dp20"
-        android:id="@+id/iv_add_product"
-        android:src="@drawable/plus__1_"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginEnd="@dimen/dp20"
+        android:layout_marginBottom="@dimen/dp20"
+        android:src="@drawable/plus__1_" />
 
 </RelativeLayout>

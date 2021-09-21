@@ -39,6 +39,7 @@ public class ProductListActivity extends AppCompatActivity implements IRecyclerC
     String pro_id = "";
     @BindView(R.id.tv_hint)
     TextView tv_hint;
+    String type="1";
 
 
     @Override
@@ -58,7 +59,7 @@ public class ProductListActivity extends AppCompatActivity implements IRecyclerC
             }
         };
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        adapter = new AddProductListAdapter(this, productDataLists, this);
+        adapter = new AddProductListAdapter(this, productDataLists,type, this);
         recyclerView.setAdapter(adapter);
     }
 

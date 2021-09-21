@@ -16,7 +16,7 @@
                 android:id="@+id/iv_customer"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:src="@drawable/user_picture" />
+                android:src="@drawable/avatar" />
             <ImageView
                 android:layout_width="@dimen/dp20"
                 android:layout_height="@dimen/dp20"
@@ -97,7 +97,7 @@
                         android:fontFamily="@font/montserrat_medium"
                         android:gravity="center"
                         android:minHeight="35dp"
-                        android:text="Order List"
+                        android:text="Profile"
                         android:textColor="@color/white"
                         android:textSize="12sp" />
 

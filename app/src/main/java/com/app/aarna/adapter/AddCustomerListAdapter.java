@@ -48,7 +48,7 @@ public class AddCustomerListAdapter extends RecyclerView.Adapter<AddCustomerList
         holder.tv_customer_name.setText(customerData.get(position).getName());
         holder.tv_number.setText(customerData.get(position).getPhone());
         holder.tv_password.setText(customerData.get(position).getAddress());
-        Glide.with(context).load(customerData.get(position).getImage()).apply(new RequestOptions()).centerCrop().into(holder.iv_customer);
+        Glide.with(context).load(customerData.get(position).getImage()).apply(new RequestOptions()).centerCrop().placeholder(R.drawable.place_holder).into(holder.iv_customer);
 
 
     }

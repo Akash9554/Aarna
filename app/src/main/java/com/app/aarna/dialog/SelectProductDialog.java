@@ -145,7 +145,6 @@ SelectProductDialog extends DialogFragment implements MyInterface   {
         }else if (TextUtils.isEmpty(product_name)) {
             Toast.makeText(getContext(), "please enter select product", Toast.LENGTH_SHORT).show();
         }else {
-
             mListener.oncheck(product_type_id, product_name, product_image, product_qty, product_price);
             dismiss();
         }
@@ -154,7 +153,7 @@ SelectProductDialog extends DialogFragment implements MyInterface   {
     @OnClick(R.id.rl_select_product)
     void getproducttype(){
         FragmentManager fm = getChildFragmentManager();
-        ProductListDialog editNameDialogFragment = ProductListDialog.newInstance(getContext(), "1");
+        AllProductListDialog editNameDialogFragment = AllProductListDialog.newInstance(getContext(), "1");
         editNameDialogFragment.show(fm, "fragment_edit_name");
     }
 

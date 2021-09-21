@@ -47,7 +47,7 @@ public class OrderedProductListAdapter extends RecyclerView.Adapter<OrderedProdu
         holder.tvprice.setText(productOrders.get(position).getPrice());
         holder.tvqty.setText(productOrders.get(position).getQty());
         holder.tvtotal.setText(productOrders.get(position).getTotalPrice());
-        Glide.with(context).load(productOrders.get(position).getProductDetail().getImage()).apply(new RequestOptions()).circleCrop().into(holder.iv_product);
+        Glide.with(context).load(productOrders.get(position).getProductDetail().getImage()).placeholder(R.drawable.place_holder).apply(new RequestOptions()).circleCrop().into(holder.iv_product);
 
     }
 
