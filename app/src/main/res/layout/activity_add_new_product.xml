@@ -13,8 +13,8 @@
         android:background="@color/colorPrimaryDark">
 
         <ImageView
-            android:layout_width="@dimen/dp20"
-            android:layout_height="@dimen/dp20"
+            android:layout_width="@dimen/dp15"
+            android:layout_height="@dimen/dp15"
             android:id="@+id/iv_back"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dp10"
@@ -29,7 +29,7 @@
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/add_new_product_type"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
     </RelativeLayout>
 
@@ -40,7 +40,7 @@
             android:layout_alignParentEnd="true"
             android:layout_margin="@dimen/dp20"
             android:id="@+id/iv_add_product"
-            android:src="@drawable/plus__1_"
+            android:src="@drawable/plus"
             android:layout_alignParentBottom="true"/>
 
         <RelativeLayout

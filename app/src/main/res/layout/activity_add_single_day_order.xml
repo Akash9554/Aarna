@@ -22,8 +22,8 @@
             android:textColor="@color/white"/>
 
         <ImageView
-            android:layout_width="@dimen/dp20"
-            android:layout_height="@dimen/dp20"
+            android:layout_width="@dimen/dp15"
+            android:layout_height="@dimen/dp15"
             android:src="@drawable/back"
             android:layout_marginStart="@dimen/dp10"
             android:layout_centerVertical="true"
@@ -46,7 +46,7 @@
                 android:text="@string/select_order_date"
                 android:textSize="14sp"
                 android:id="@+id/tv_order_date"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:fontFamily="@font/montserrat_regular"
                 android:layout_marginTop="@dimen/dp10"
                 android:layout_marginStart="@dimen/dp20"/>
@@ -60,7 +60,7 @@
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginTop="@dimen/dp10"
                 android:layout_marginBottom="@dimen/dp10"
-                android:background="@drawable/round_box_corner_for_mainmenu"
+                android:background="@drawable/round_box_profile_th"
                 android:minHeight="@dimen/dp50">
 
                 <RelativeLayout
@@ -78,8 +78,8 @@
                         android:layout_marginTop="@dimen/dp5"
                         android:layout_marginEnd="@dimen/dp20"
                         android:layout_marginBottom="@dimen/dp5"
-                        android:background="@drawable/round_corner_color"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:background="@drawable/round_box_profile"
+                        android:fontFamily="@font/montserrat_regular"
                         android:gravity="center"
                         android:minWidth="@dimen/dp100"
                         android:minHeight="35dp"
@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rl_date"
                 android:text="@string/customer_name"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp10"
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_cus_name"
                 android:text="@string/customer_number"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp10"
@@ -172,8 +172,8 @@
                 android:textSize="14sp"
                 android:id="@+id/tv_selected_product"
                 android:fontFamily="@font/montserrat_regular"
-                android:text="Product List"
-                android:textColor="@color/colorPrimaryDark" />
+                android:text="Product List "
+                android:textColor="@color/black" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_marginStart="@dimen/dp20"
@@ -202,7 +202,7 @@
                     android:layout_height="wrap_content"
                     android:text="Total - "
                     android:singleLine="true"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/black"
                     android:fontFamily="@font/montserrat_medium" />
 
                 <TextView
@@ -233,10 +233,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp5"
                     android:layout_marginBottom="@dimen/dp5"
-                    android:background="@drawable/round_corner_color"
+                    android:background="@drawable/round_box_profile"
                     android:fontFamily="@font/montserrat_medium"
                     android:gravity="center"
-                    android:minHeight="35dp"
+                    android:minHeight="45dp"
                     android:text="Save Order"
                     android:textColor="@color/white"
                     android:textSize="12sp" />
@@ -252,14 +252,14 @@
 
     <ImageView
         android:id="@+id/iv_add_product"
-        android:layout_width="@dimen/dp60"
-        android:layout_height="@dimen/dp60"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/dp20"
         android:layout_marginTop="@dimen/dp20"
         android:layout_marginEnd="@dimen/dp20"
         android:layout_marginBottom="@dimen/dp20"
-        android:src="@drawable/plus__1_" />
+        android:src="@drawable/plus" />
 
 </RelativeLayout>

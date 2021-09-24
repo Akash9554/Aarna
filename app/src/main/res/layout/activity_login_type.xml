@@ -36,7 +36,7 @@
             android:fontFamily="@font/montserrat_medium"
             android:text="@string/choose_your_type"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"

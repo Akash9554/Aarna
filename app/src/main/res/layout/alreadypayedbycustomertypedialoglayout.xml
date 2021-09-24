@@ -10,17 +10,17 @@
         style="@style/CardView.Light"
         android:background="@color/semitransparent"
         android:layout_centerInParent="true"
-        app:cardCornerRadius="20dp">
+        app:cardCornerRadius="10dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/round_box_corner">
+            android:background="@drawable/round_box_profile_sec">
 
 
             <ImageView
                 android:id="@+id/ivAlert"
-                android:layout_width="@dimen/dp80"
-                android:layout_height="@dimen/dp80"
+                android:layout_width="@dimen/dp120"
+                android:layout_height="@dimen/dp120"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp20"
@@ -41,7 +41,7 @@
                 android:gravity="center"
                 android:text="Bill Amount"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <RelativeLayout
                 android:id="@+id/rl_amount"
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvMsg"
                 android:layout_margin="@dimen/dp20"
-                android:background="@drawable/round_box_corner">
+                android:background="@drawable/round_box_profile_sec">
                 <EditText
                     android:id="@+id/et_amount"
                     android:layout_width="match_parent"
@@ -58,6 +58,9 @@
                     android:textColorHint="@color/black"
                     android:textColor="@color/black"
                     android:textSize="14sp"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:inputType="number"
                     android:gravity="center"
                     android:backgroundTint="@color/transparent"
                     android:background="@color/transparent"
@@ -71,21 +74,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp20"
-                    android:layout_marginEnd="@dimen/dp20">
+                    android:layout_marginEnd="@dimen/dp20"
+                    android:layout_marginBottom="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/round_box_profile">
 
 
                     <TextView
                         android:id="@+id/tv_single_day"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/dp50"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/dp25"
-                        android:layout_marginBottom="@dimen/dp20"
-                        android:background="@drawable/round_corner_color"
                         android:fontFamily="@font/montserrat_medium"
                         android:gravity="center"
-                        android:minWidth="@dimen/dp100"
-                        android:minHeight="35dp"
                         android:text="Done"
                         android:textColor="@color/white"
                         android:textSize="12sp" />

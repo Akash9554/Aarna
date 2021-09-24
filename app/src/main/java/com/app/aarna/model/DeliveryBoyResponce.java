@@ -16,6 +16,8 @@ public class DeliveryBoyResponce {
     @Expose
     private ArrayList<DeliveryBoyData> data = null;
 
+
+
     public String getErrorCode() {
         return errorCode;
     }

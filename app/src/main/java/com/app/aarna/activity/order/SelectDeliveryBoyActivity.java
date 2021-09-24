@@ -107,7 +107,7 @@ public class SelectDeliveryBoyActivity extends AppCompatActivity implements IRec
         if (order_types.equals("1")){
             ApiCall.getInstance(this).singleDay_assigndeliveryBoy_changeStatus( placeId,delivery_boy_id,"0",this);
         }else {
-            ApiCall.getInstance(this).multiDay_assigndeliveryBoy_changeStatus( placeId,delivery_boy_id,"0",this);
+            ApiCall.getInstance(this).multiDay_assigndeliveryBoy_changeStatus( placeId,delivery_boy_id,this);
         }
     }
 

@@ -22,6 +22,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import com.app.aarna.R;
 import com.app.aarna.helper.MyInterface;
+import com.app.aarna.model.singledayorder.SelectedProductByOwner;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import butterknife.BindView;
@@ -49,6 +50,8 @@ SelectProductDialog extends DialogFragment implements MyInterface   {
     ImageView iv_plus;
     @BindView(R.id.et_price)
     EditText et_price;
+    @BindView(R.id.tv_employe)
+    TextView tv_employe;
     String product_type_id="";
     String product_name="";
     String product_image="";
@@ -56,10 +59,15 @@ SelectProductDialog extends DialogFragment implements MyInterface   {
     String product_price="";
     String product_grand_price="";
     String enterd_price="";
+    static SelectedProductByOwner selectedProductByOwner;
+    static String enterType="";
 
 
-    public static SelectProductDialog newInstance(Context conte, String id) {
+    public static SelectProductDialog newInstance(Context conte,String enter_type, SelectedProductByOwner selectedProduct) {
         SelectProductDialog productListDialog = new SelectProductDialog();
+        selectedProductByOwner=selectedProduct;
+        enterType=enter_type;
+        context=conte;
         return productListDialog;
     }
 
@@ -70,7 +78,24 @@ SelectProductDialog extends DialogFragment implements MyInterface   {
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
         View view = inflater.inflate(R.layout.selectproductdialoglayout, container, false);
         ButterKnife.bind(this, view);
-        tv_number.setText("1");
+        if (enterType.equals("edit")){
+            tv_employe.setText("Save Change");
+            cv_product_image.setVisibility(View.VISIBLE);
+            tv_product_name.setVisibility(View.VISIBLE);
+            Glide.with(context).load(selectedProductByOwner.getPro_image()).apply(new RequestOptions()).centerCrop().placeholder(R.drawable.place_holder).into(iv_product);
+            tv_product_name.setText(selectedProductByOwner.getPro_name());
+            tv_number.setText(selectedProductByOwner.getPro_qty());
+            et_price.setText(selectedProductByOwner.getPro_total());
+            product_name=selectedProductByOwner.getPro_name();
+            product_type_id=selectedProductByOwner.getPro_id();
+            product_image="";
+            product_qty=selectedProductByOwner.getPro_qty();
+            product_price=selectedProductByOwner.getPro_total();
+        }else{
+            tv_employe.setText("Add Product");
+            tv_number.setText("1");
+        }
+
         et_price.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

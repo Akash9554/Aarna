@@ -17,8 +17,8 @@
             android:background="@color/colorPrimaryDark">
 
             <ImageView
-                android:layout_width="@dimen/dp20"
-                android:layout_height="@dimen/dp20"
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"
                 android:id="@+id/iv_back"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dp10"
@@ -33,7 +33,7 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:text="@string/add_new_delivery_boy"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
@@ -53,7 +53,7 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="@string/delivery_boy_image"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <androidx.cardview.widget.CardView
@@ -65,13 +65,11 @@
                 android:layout_marginEnd="@dimen/dp30"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/cv_delivery_boy">
-
-
                 <ImageView
                     android:padding="@dimen/dp5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@color/colorPrimaryDark"
+                    android:src="@drawable/avatar"
                     android:id="@+id/iv_delivery_boy"
                     android:layout_centerHorizontal="true" />
 
@@ -89,14 +87,14 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="@string/delivery_boy_name"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rl_delivery_boy_name"
-                android:background="@drawable/round_box_corner_for_edittext"
+                android:background="@drawable/round_box_profile_th"
                 android:layout_below="@+id/tv_delivery_boy_name"
                 android:layout_marginStart="@dimen/dp15"
                 android:layout_marginEnd="@dimen/dp15">
@@ -109,10 +107,12 @@
                     android:backgroundTint="@color/transparent"
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="start"
+                    android:singleLine="true"
+                    android:maxLines="1"
                     android:hint="@string/enter_delivery_boy_name"
-                    android:maxLines="3"
-                    android:minHeight="@dimen/dp100"
-                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textColor="@color/black"
+                    android:minHeight="@dimen/dp30"
+                    android:textColorHint="@color/black"
                     android:textSize="14sp" />
             </RelativeLayout>
 
@@ -130,14 +130,14 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="@string/delivery_boy_number"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
               <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rl_delivery_boy_number"
-                android:background="@drawable/round_box_corner_for_edittext"
+                android:background="@drawable/round_box_profile_th"
                 android:layout_below="@+id/tv_delivery_boy_number"
                 android:layout_marginStart="@dimen/dp15"
                 android:layout_marginEnd="@dimen/dp15">
@@ -146,17 +146,22 @@
                       android:id="@+id/et_delivery_boy_number"
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
-                      android:inputType="number"
-                      android:maxLength="10"
-                      android:layout_margin="@dimen/dp5"
-                      android:padding="@dimen/dp5"
+                      android:layout_marginStart="@dimen/dp5"
+                      android:layout_marginTop="@dimen/dp5"
+                      android:layout_marginEnd="@dimen/dp5"
+                      android:layout_marginBottom="@dimen/dp5"
                       android:backgroundTint="@color/transparent"
                       android:fontFamily="@font/montserrat_regular"
                       android:gravity="start"
                       android:hint="@string/enter_delivery_boy_number"
-                      android:maxLines="3"
-                      android:minHeight="@dimen/dp100"
-                      android:textColorHint="@color/colorPrimaryDark"
+                      android:inputType="number"
+                      android:maxLength="10"
+                      android:maxLines="1"
+                      android:minHeight="@dimen/dp30"
+                      android:padding="@dimen/dp5"
+                      android:singleLine="true"
+                      android:textColor="@color/black"
+                      android:textColorHint="@color/black"
                       android:textSize="14sp" />
 
               </RelativeLayout>
@@ -174,14 +179,14 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="@string/delivery_boy_email"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rl_delivery_boy_email"
-                android:background="@drawable/round_box_corner_for_edittext"
+                android:background="@drawable/round_box_profile_th"
                 android:layout_below="@+id/tv_delivery_boy_email"
                 android:layout_marginStart="@dimen/dp15"
                 android:layout_marginEnd="@dimen/dp15">
@@ -192,13 +197,15 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/dp5"
                     android:padding="@dimen/dp5"
+                    android:singleLine="true"
                     android:backgroundTint="@color/transparent"
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="start"
                     android:hint="@string/enter_delivery_boy_email"
-                    android:maxLines="3"
-                    android:minHeight="@dimen/dp100"
-                    android:textColorHint="@color/colorPrimaryDark"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:minHeight="@dimen/dp30"
+                    android:textColorHint="@color/black"
                     android:textSize="14sp" />
 
 
@@ -219,14 +226,14 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="@string/delivery_boy_address"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
               <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rl_delivery_boy_address"
-                android:background="@drawable/round_box_corner_for_edittext"
+                android:background="@drawable/round_box_profile_th"
                 android:layout_below="@+id/tv_delivery_boy_address"
                 android:layout_marginStart="@dimen/dp15"
                 android:layout_marginEnd="@dimen/dp15">
@@ -242,8 +249,9 @@
                       android:gravity="start"
                       android:hint="@string/enter_delivery_boy_address"
                       android:maxLines="3"
-                      android:minHeight="@dimen/dp100"
-                      android:textColorHint="@color/colorPrimaryDark"
+                      android:textColor="@color/black"
+                      android:minHeight="@dimen/dp30"
+                      android:textColorHint="@color/black"
                       android:textSize="14sp" />
 
 
@@ -263,14 +271,14 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="@string/delivery_boy_password"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
               <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rl_delivery_boy_password"
-                android:background="@drawable/round_box_corner_for_edittext"
+                android:background="@drawable/round_box_profile_th"
                 android:layout_below="@+id/tv_delivery_boy_password"
                 android:layout_marginStart="@dimen/dp15"
                 android:layout_marginEnd="@dimen/dp15">
@@ -282,13 +290,15 @@
                       android:layout_height="wrap_content"
                       android:layout_margin="@dimen/dp5"
                       android:padding="@dimen/dp5"
+                      android:singleLine="true"
                       android:backgroundTint="@color/transparent"
                       android:fontFamily="@font/montserrat_regular"
                       android:gravity="start"
                       android:hint="@string/enter_delivery_boy_password"
-                      android:maxLines="3"
-                      android:minHeight="@dimen/dp100"
-                      android:textColorHint="@color/colorPrimaryDark"
+                      android:maxLines="1"
+                      android:textColor="@color/black"
+                      android:minHeight="@dimen/dp30"
+                      android:textColorHint="@color/black"
                       android:textSize="14sp" />
 
               </RelativeLayout>
@@ -305,7 +315,7 @@
                 android:layout_marginTop="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp30"
                 android:layout_marginBottom="@dimen/dp20"
-                android:background="@drawable/round_corner_color"
+                android:background="@drawable/round_box_profile"
                 android:minHeight="@dimen/dp50">
 
                 <TextView
@@ -313,7 +323,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:fontFamily="@font/montserrat_regular"
+                    android:fontFamily="@font/montserrat_medium"
                     android:text="@string/save"
                     android:textColor="@color/white"
                     android:textSize="16sp" />

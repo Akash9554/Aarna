@@ -83,5 +83,10 @@ public class ProductpickedListAdapter extends RecyclerView.Adapter<Productpicked
             clickListener.clickListener(getAdapterPosition(),"delete","");
         }
 
+        @OnClick(R.id.iv_edit)
+        void getedit(){
+            clickListener.clickListener(getAdapterPosition(),"edit","");
+        }
+
     }
 }

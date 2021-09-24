@@ -64,6 +64,11 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
     String order_date="";
     String order_type="";
     String order_from="";
+    int position_data;
+    String order_id="";
+    int selected_pro;
+    String type_build="edit";
+
     ArrayList<OrderListData>orderListData=new ArrayList<>();
     AlreadyPayByCustomerTypeDialogFragment alreadyPayByCustomerTypeDialogFragment= new AlreadyPayByCustomerTypeDialogFragment();
 
@@ -72,9 +77,11 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_single_day_order);
         ButterKnife.bind(this);
+        setcategoryadapter();
         Intent intent=getIntent();
         order_from=intent.getStringExtra("order_type");
         if (order_from.equals("add")){
+            type_build="add";
             ll_grand_total.setVisibility(View.GONE);
             cus_id=intent.getStringExtra("id");
             cus_name=intent.getStringExtra("name");
@@ -82,18 +89,58 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
             order_type=intent.getStringExtra("type");
             tv_cus_name.setText(cus_name);
             tv_cus_number.setText(cus_number);
-            setcategoryadapter();
+
         }else {
-            orderListData= (ArrayList<OrderListData>) getIntent().getExtras().getSerializable("list");
+            type_build="edit";
+            Gson gson = new Gson();
+            String stringLocation = intent.getStringExtra("mylist");
+            if(stringLocation != null) {
+                Type type = new TypeToken<ArrayList<OrderListData>>() {
+                }.getType();
+                orderListData = gson.fromJson(stringLocation, type);
+                position_data = Integer.parseInt(intent.getStringExtra("position"));
+                cus_id = orderListData.get(position_data).getCustomerId();
+                cus_name = orderListData.get(position_data).getCustomerDetail().getName();
+                cus_number = orderListData.get(position_data).getCustomerDetail().getPhone();
+                order_type = orderListData.get(position_data).getOrderType();
+                tv_cus_name.setText(cus_name);
+                tv_cus_number.setText(cus_number);
+                tv_total.setText(orderListData.get(position_data).getGrandTotal());
+                order_id = orderListData.get(position_data).getId();
+                String date=orderListData.get(position_data).getOrderDate();
+                ll_grand_total.setVisibility(View.VISIBLE);
+
+                for (int i = 0; i < orderListData.get(position_data).getProductList().size(); i++) {
+                    SelectedProductByOwner selectedProductByOwner = new SelectedProductByOwner();
+                    selectedProductByOwner.setPro_id(orderListData.get(position_data).getId());
+                    selectedProductByOwner.setPro_total(orderListData.get(position_data).getProductList().get(i).getTotalPrice());
+                    selectedProductByOwner.setPro_price(orderListData.get(position_data).getProductList().get(i).getPrice());
+                    selectedProductByOwner.setPro_qty(orderListData.get(position_data).getProductList().get(i).getQty());
+                    selectedProductByOwner.setPro_image(orderListData.get(position_data).getProductList().get(i).getProductDetail().getImage());
+                    selectedProductByOwner.setPro_name(orderListData.get(position_data).getProductList().get(i).getProductDetail().getName());
+                    selectedProductByOwners.add(selectedProductByOwner);
+                }
+            }
+            productpickedListAdapter.notifyDataSetChanged();
+            total_price = 0;
+            if (!(selectedProductByOwners.isEmpty())) {
+                for (int i = 0; i < selectedProductByOwners.size(); i++) {
+                    int single_price = Integer.parseInt(selectedProductByOwners.get(i).getPro_total());
+                    total_price = total_price + single_price;
+                }
+                ll_grand_total.setVisibility(View.VISIBLE);
+                grand_total = String.valueOf(total_price);
+                tv_total.setText(grand_total);
+            }
         }
+
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year, month+1, day);
-
-
     }
+
     public void setcategoryadapter() {
         product_recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false ){
             @Override
@@ -104,18 +151,41 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
         productpickedListAdapter = new ProductpickedListAdapter(this,selectedProductByOwners,this);
         product_recycler.setAdapter(productpickedListAdapter);
     }
+
     @OnClick(R.id.iv_add_product)
     void getadd(){
+        order_from="add";
+        SelectedProductByOwner selectedProductByOwner=new SelectedProductByOwner();
         FragmentManager fm = getSupportFragmentManager();
-        selectProductDialog = SelectProductDialog.newInstance(AddSingleDayOrderActivity.this,"1");
+        selectProductDialog = SelectProductDialog.newInstance(AddSingleDayOrderActivity.this,"add",selectedProductByOwner);
         selectProductDialog.show(fm, "fragment_edit_name");
     }
     @Override
     public void clickListener(Object pos, Object data, Object extraData) {
         if(data.equals("delete")){
+            order_from="edit";
             int position= (int) pos;
             selectedProductByOwners.remove(position);
             productpickedListAdapter.notifyDataSetChanged();
+            total_price = 0;
+            if (!(selectedProductByOwners.isEmpty())) {
+                for (int i = 0; i < selectedProductByOwners.size(); i++) {
+                    int single_price = Integer.parseInt(selectedProductByOwners.get(i).getPro_total());
+                    total_price = total_price + single_price;
+                }
+                ll_grand_total.setVisibility(View.VISIBLE);
+                grand_total = String.valueOf(total_price);
+                tv_total.setText(grand_total);
+            }
+        }else if(data.equals("edit")){
+            order_from="edit";
+            int position= (int) pos;
+            selected_pro=position;
+            SelectedProductByOwner selectedProductByOwner=new SelectedProductByOwner();
+            selectedProductByOwner=selectedProductByOwners.get(position);
+            FragmentManager fm = getSupportFragmentManager();
+            selectProductDialog = SelectProductDialog.newInstance(AddSingleDayOrderActivity.this,"edit",selectedProductByOwner);
+            selectProductDialog.show(fm, "fragment_edit_name");
         }
 
     }
@@ -127,7 +197,12 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
     public void oncheck(String name, String image, String id, String qty, String price) {
         if (qty.equals("selectpro")) {
             selectProductDialog.oncheck(id, name, image, "", "");
-        } else {
+        } else if(order_from.equals("add")){
+            if (type_build.equals("edit")){
+                order_from="edit";
+            }else {
+                order_from="add";
+            }
             String product_id = name;
             String product_name = image;
             String product_image = id;
@@ -153,8 +228,50 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
             ll_grand_total.setVisibility(View.VISIBLE);
             grand_total = String.valueOf(total_price);
             tv_total.setText(grand_total);
+        }else {
+            String product_name = image;
+            String product_image = id;
+            String product_id = name;
+            String product_qty = qty;
+            String product_total = price;
+            String product_price = String.valueOf((Integer.parseInt(product_total) / Integer.parseInt(product_qty)));
+            SelectedProductByOwner pro_list=new SelectedProductByOwner();
+            if (selectedProductByOwners.isEmpty()){
+                if (!product_image.equals("")) {
+                    //pro_list.setPro_name(product_name);
+                    //pro_list.setPro_image(product_image);
+                }
+                pro_list.setPro_id(product_id);
+                pro_list.setPro_qty(product_qty);
+                pro_list.setPro_total(product_total);
+                pro_list.setPro_price(product_price);
+                selectedProductByOwners.add(pro_list);
+                productpickedListAdapter.notifyDataSetChanged();
+            }else {
+                pro_list = selectedProductByOwners.get(selected_pro);
+                if (!product_image.equals("")) {
+                    //pro_list.setPro_name(product_name);
+                    //pro_list.setPro_image(product_image);
+                }
+                pro_list.setPro_id(product_id);
+                pro_list.setPro_qty(product_qty);
+                pro_list.setPro_total(product_total);
+                pro_list.setPro_price(product_price);
+                selectedProductByOwners.set(selected_pro, pro_list);
+                productpickedListAdapter.notifyDataSetChanged();
+            }
+                total_price = 0;
+                if (!(selectedProductByOwners.isEmpty())) {
+                    for (int i = 0; i < selectedProductByOwners.size(); i++) {
+                        int single_price = Integer.parseInt(selectedProductByOwners.get(i).getPro_total());
+                        total_price = total_price + single_price;
+                    }
+                }
+                ll_grand_total.setVisibility(View.VISIBLE);
+                grand_total = String.valueOf(total_price);
+                tv_total.setText(grand_total);
+            }
         }
-    }
     private void showDate(int year, int month, int day) {
         tv_date.setText(new StringBuilder().append(day).append("-").append(month).append("-").append(year));
         order_date= String.valueOf(new StringBuilder().append(year).append("-").append(month).append("-").append(day));
@@ -185,9 +302,9 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
             String product = new Gson().toJson(selectedProductByOwners, type);
             FunctionHelper.disable_user_Intration(this, getString(R.string.loading), getSupportFragmentManager());
             if (order_type.equals("1")){
-                ApiCall.getInstance(this).singleDay_place_order(  cus_id,grand_total,order_date,product,this);
+                ApiCall.getInstance(this).singleDay_place_order(  cus_id,grand_total,order_date,product,order_id,this);
             }else {
-                ApiCall.getInstance(this).multiDay_place_order(  cus_id,grand_total,order_date,product,this);
+                ApiCall.getInstance(this).multiDay_place_order(  cus_id,grand_total,order_date,product,order_id,this);
             }
         }
     }
@@ -200,9 +317,15 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
                 if (response.body().getErrorCode().equals("0")) {
                     String id=response.body().getData().get(0).getId();
                     Toast.makeText(this, "" + "Order placed successfully", Toast.LENGTH_SHORT).show();
-                    FragmentManager fm = getSupportFragmentManager();
-                    alreadyPayByCustomerTypeDialogFragment = alreadyPayByCustomerTypeDialogFragment.newInstance(AddSingleDayOrderActivity.this,id,order_type,grand_total);
-                    alreadyPayByCustomerTypeDialogFragment.show(fm, "fragment_edit_name");
+                    if (order_from.equals("edit")){
+                        Intent resultIntent = new Intent();
+                        setResult(RESULT_OK, resultIntent);
+                        finish();
+                    }else {
+                        FragmentManager fm = getSupportFragmentManager();
+                        alreadyPayByCustomerTypeDialogFragment = alreadyPayByCustomerTypeDialogFragment.newInstance(AddSingleDayOrderActivity.this, id, cus_id, order_type, grand_total);
+                        alreadyPayByCustomerTypeDialogFragment.show(fm, "fragment_edit_name");
+                    }
                 }
             }
         }
@@ -212,4 +335,10 @@ public class AddSingleDayOrderActivity extends AppCompatActivity implements IRec
         FunctionHelper.enableUserIntraction(this);
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent resultIntent = new Intent();
+        setResult(RESULT_OK, resultIntent);
+        finish();
+    }
 }

@@ -17,8 +17,8 @@
             android:background="@color/colorPrimaryDark">
 
             <ImageView
-                android:layout_width="@dimen/dp20"
-                android:layout_height="@dimen/dp20"
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"
                 android:id="@+id/iv_back"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dp10"
@@ -33,7 +33,7 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Add New Customer"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
@@ -53,7 +53,7 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="Customer Image"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <androidx.cardview.widget.CardView
@@ -71,7 +71,7 @@
                     android:padding="@dimen/dp5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@color/colorPrimaryDark"
+                    android:src="@drawable/avatar"
                     android:id="@+id/iv_customer"
                     android:layout_centerHorizontal="true" />
 
@@ -89,14 +89,14 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="Customer Name"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rl_customer_name"
-                android:background="@drawable/round_box_corner_for_edittext"
+                android:background="@drawable/round_box_profile_th"
                 android:layout_below="@+id/tv_customer_name"
                 android:layout_marginStart="@dimen/dp15"
                 android:layout_marginEnd="@dimen/dp15">
@@ -110,9 +110,11 @@
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="start"
                     android:hint="Enter Customer Name"
-                    android:maxLines="3"
-                    android:minHeight="@dimen/dp100"
-                    android:textColorHint="@color/colorPrimaryDark"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:minHeight="@dimen/dp30"
+                    android:textColorHint="@color/black"
                     android:textSize="14sp" />
             </RelativeLayout>
 
@@ -130,14 +132,14 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="Customer Number"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
               <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rl_customer_number"
-                android:background="@drawable/round_box_corner_for_edittext"
+                android:background="@drawable/round_box_profile_th"
                 android:layout_below="@+id/tv_customer_number"
                 android:layout_marginStart="@dimen/dp15"
                 android:layout_marginEnd="@dimen/dp15">
@@ -156,18 +158,15 @@
                       android:hint="Enter Customer Number"
                       android:inputType="number"
                       android:maxLength="10"
-                      android:maxLines="3"
-                      android:minHeight="@dimen/dp100"
+                      android:maxLines="1"
+                      android:singleLine="true"
+                      android:minHeight="@dimen/dp30"
                       android:padding="@dimen/dp5"
-                      android:textColorHint="@color/colorPrimaryDark"
+                      android:textColor="@color/black"
+                      android:textColorHint="@color/black"
                       android:textSize="14sp" />
 
               </RelativeLayout>
-
-
-
-
-
             <TextView
                 android:id="@+id/tv_customer_address"
                 android:layout_width="wrap_content"
@@ -180,14 +179,14 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="Customer Address"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
               <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rl_customer_address"
-                android:background="@drawable/round_box_corner_for_edittext"
+                android:background="@drawable/round_box_profile_th"
                 android:layout_below="@+id/tv_customer_address"
                 android:layout_marginStart="@dimen/dp15"
                 android:layout_marginEnd="@dimen/dp15">
@@ -203,8 +202,9 @@
                       android:gravity="start"
                       android:hint="Enter Customer Address"
                       android:maxLines="3"
-                      android:minHeight="@dimen/dp100"
-                      android:textColorHint="@color/colorPrimaryDark"
+                      android:minHeight="@dimen/dp30"
+                      android:textColor="@color/black"
+                      android:textColorHint="@color/black"
                       android:textSize="14sp" />
 
 
@@ -221,7 +221,7 @@
                 android:layout_marginTop="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp30"
                 android:layout_marginBottom="@dimen/dp20"
-                android:background="@drawable/round_corner_color"
+                android:background="@drawable/round_box_profile"
                 android:minHeight="@dimen/dp50">
 
                 <TextView
@@ -229,7 +229,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:fontFamily="@font/montserrat_regular"
+                    android:fontFamily="@font/montserrat_medium"
                     android:text="@string/save"
                     android:textColor="@color/white"
                     android:textSize="16sp" />

@@ -18,8 +18,8 @@
             android:background="@drawable/round_box_header_corner">
 
             <ImageView
-                android:layout_width="@dimen/dp20"
-                android:layout_height="@dimen/dp20"
+                android:layout_width="@dimen/dp15"
+                android:layout_height="@dimen/dp15"
                 android:id="@+id/iv_back"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/dp10"
@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/montserrat_regular"
                 android:text="Select Product"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -50,7 +50,7 @@
                 android:layout_marginTop="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp20"
-                android:background="@drawable/round_corner_color"
+                android:background="@drawable/round_box_profile"
                 android:minHeight="@dimen/dp50">
 
                 <TextView
@@ -71,8 +71,8 @@
                 android:layout_height="@dimen/dp100"
                 app:cardCornerRadius="5dp"
                 android:visibility="gone"
-                android:layout_marginStart="@dimen/dp30"
-                android:layout_marginEnd="@dimen/dp30"
+                android:layout_marginStart="@dimen/dp25"
+                android:layout_marginEnd="@dimen/dp25"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/cv_product_image">
 
@@ -97,11 +97,11 @@
                 android:layout_marginTop="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp20"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/montserrat_regular"
                 android:padding="@dimen/dp5"
                 android:layout_centerHorizontal="true"
                 android:text="@string/product_name"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <LinearLayout
@@ -120,10 +120,10 @@
                     android:layout_margin="@dimen/dp5"
                     android:layout_marginStart="@dimen/dp5"
                     android:layout_marginEnd="@dimen/dp5"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/montserrat_regular"
                     android:padding="@dimen/dp5"
                     android:text="Product Price"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <RelativeLayout
@@ -134,21 +134,22 @@
                     android:layout_gravity="start"
                     android:layout_marginStart="@dimen/dp10"
                 android:layout_height="wrap_content"
-                android:background="@drawable/round_box_corner">
+                android:background="@drawable/round_box_profile_sec">
 
 
-                <EditText
-                    android:id="@+id/et_price"
-                    android:singleLine="true"
-                    android:backgroundTint="@color/transparent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:hint="Product Price"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    <EditText
+                        android:id="@+id/et_price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/transparent"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:gravity="center"
+                        android:hint="Product Price"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
                 </RelativeLayout>
 
 
@@ -168,16 +169,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                    android:layout_margin="@dimen/dp5"
-                    android:fontFamily="@font/montserrat_medium"
+                    android:fontFamily="@font/montserrat_regular"
                     android:padding="@dimen/dp5"
                     android:text="Product Quantity"
                     android:layout_centerVertical="true"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_alignParentEnd="true"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/dp150"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="5dp"
                     android:layout_marginStart="@dimen/dp30"
@@ -188,40 +189,44 @@
                     <RelativeLayout
                         android:layout_marginEnd="@dimen/dp10"
                         android:layout_marginStart="@dimen/dp10"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="@dimen/dp50">
-
-                      <ImageView
-                          android:layout_width="@dimen/dp20"
-                          android:layout_height="@dimen/dp20"
-                          android:layout_centerVertical="true"
-                          android:layout_marginStart="@dimen/dp5"
-                          android:layout_marginEnd="@dimen/dp5"
-                          android:id="@+id/iv_minus"
-                          android:gravity="center"
-                          android:src="@drawable/minusbtn"/>
 
                         <TextView
                             android:layout_marginStart="@dimen/dp5"
                             android:layout_marginEnd="@dimen/dp5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
+                            android:layout_centerInParent="true"
                             android:text="13"
+                            android:gravity="center"
                             android:textColor="@color/black"
-                            android:fontFamily="@font/montserrat_medium"
-                            android:layout_toEndOf="@+id/iv_minus"
+                            android:fontFamily="@font/montserrat_regular"
                             android:id="@+id/tv_number"
                             android:textSize="18sp"/>
 
+
+                      <ImageView
+                          android:layout_toStartOf="@+id/tv_number"
+                          android:layout_width="@dimen/dp15"
+                          android:layout_height="@dimen/dp15"
+                          android:layout_centerVertical="true"
+                          android:layout_marginStart="@dimen/dp5"
+                          android:layout_marginEnd="@dimen/dp15"
+                          android:id="@+id/iv_minus"
+                          android:gravity="center"
+                          android:src="@drawable/minusbtn"/>
+
+
+
                         <ImageView
-                            android:layout_marginStart="@dimen/dp5"
+                            android:layout_marginStart="@dimen/dp15"
                             android:layout_marginEnd="@dimen/dp5"
                             android:id="@+id/iv_plus"
                             android:src="@drawable/plusbtn"
                             android:layout_toEndOf="@+id/tv_number"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
                             android:layout_centerVertical="true" />
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -237,7 +242,7 @@
                 android:layout_marginTop="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp20"
-                android:background="@drawable/round_corner_color"
+                android:background="@drawable/round_box_profile"
                 android:minHeight="@dimen/dp50">
 
                 <TextView
@@ -246,14 +251,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="Add"
+                    android:text="Add Product"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
-
-
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
-
-
 </androidx.cardview.widget.CardView>

@@ -16,12 +16,11 @@
             android:layout_width="@dimen/dp20"
             android:layout_height="@dimen/dp20"
             android:id="@+id/iv_back"
-            android:visibility="gone"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dp10"
             android:layout_marginEnd="@dimen/dp10"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/cancel"/>
+            android:src="@drawable/back_icon"
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -29,10 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:singleLine="true"
-            android:fontFamily="@font/montserrat_medium"
+            android:fontFamily="@font/montserrat_regular"
             android:text="Select Delivery Boy To Assign Order"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="16sp" />
 
     </RelativeLayout>
 
@@ -54,11 +53,11 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dp25"
             android:layout_marginBottom="@dimen/dp20"
-            android:background="@drawable/round_corner_color"
+            android:background="@drawable/round_box_profile"
             android:fontFamily="@font/montserrat_medium"
             android:gravity="center"
             android:minWidth="@dimen/dp100"
-            android:minHeight="35dp"
+            android:minHeight="45dp"
             android:text="Done"
             android:textColor="@color/white"
             android:textSize="12sp" />

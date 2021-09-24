@@ -10,6 +10,7 @@ import com.app.aarna.model.ProductDataResponce;
 import com.app.aarna.model.ProductTypeData;
 import com.app.aarna.model.ProductTypeDataList;
 import com.app.aarna.model.ProfileResponce;
+import com.app.aarna.model.deliverylist.DeleviryBoyOrderResponceData;
 import com.app.aarna.model.deliverylist.DeliveryBoyOrderResponce;
 import com.app.aarna.model.orderlist.OrderlistResponce;
 import com.app.aarna.model.singledayorder.Single_Day_Order_Place_Responce;
@@ -129,7 +130,8 @@ public interface APIService {
             @Field("customer_id") String customer_id,
             @Field("grand_total") String grand_total,
             @Field("order_date") String order_date,
-            @Field("product") String product
+            @Field("product") String product,
+            @Field("order_id") String order_id
     );
 
     @POST("customer_pay")
@@ -147,21 +149,21 @@ public interface APIService {
             @Field("status") String status
     );
 
-    @POST("multiDay_place_order")
+    @POST("multiDay_order_set")
     @FormUrlEncoded
     Call<Single_Day_Order_Place_Responce> multiDay_place_order(
             @Field("customer_id") String customer_id,
             @Field("grand_total") String grand_total,
             @Field("order_date") String order_date,
-            @Field("product") String product
+            @Field("product") String product,
+            @Field("order_id") String order_id
     );
 
-    @POST("multiDay_assigndeliveryBoy_changeStatus")
+    @POST("multiDay_assigndeliveryBoy")
     @FormUrlEncoded
     Call<DeliveryBoyResponce> multiDay_assigndeliveryBoy_changeStatus(
             @Field("order_id") String order_id,
-            @Field("delivery_boy_id") String delivery_boy_id,
-            @Field("status") String status
+            @Field("delivery_boy_id") String delivery_boy_id
     );
 
 
@@ -179,7 +181,7 @@ public interface APIService {
 
     @POST("deliveryboy_order_list")
     @FormUrlEncoded
-    Call<DeliveryBoyOrderResponce> getdeliveryboyorderlist(
+    Call<DeleviryBoyOrderResponceData> getdeliveryboyorderlist(
             @Field("delivery_boy_id") String user_id
     );
 
@@ -195,6 +197,26 @@ public interface APIService {
     Call<CustomerPaymentResponce> customer_pay_list(
             @Field("customer_id") String customer_id
     );
+
+
+    @POST("multiDay_place_order")
+    @FormUrlEncoded
+    Call<Single_Day_Order_Place_Responce> multiDay_place(
+            @Field("multi_order_id") String multi_order_id,
+            @Field("customer_id") String customer_id,
+            @Field("grand_total") String grand_total,
+            @Field("order_date") String order_date,
+            @Field("product") String product,
+            @Field("delivery_boy_id") String delivery_boy_id
+    );
+
+    @POST("multiDay_delete")
+    @FormUrlEncoded
+    Call<DeliveryBoyOrderResponce> multiDay_delete(
+            @Field("multi_order_id") String multi_order_id
+    );
+
+
 
 
 

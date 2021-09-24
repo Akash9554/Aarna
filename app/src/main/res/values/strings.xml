@@ -59,6 +59,9 @@
     <string name="change_date">Change Date</string>
     <string name="customer_name">Customer Name</string>
     <string name="customer_number">Customer Number</string>
+    <string name="edit_order">Edit Order</string>
+    <string name="customer_address">Customer Address :</string>
+    <string name="change_delivery_boy">Change Delivery Boy</string>
 
 
 </resources>

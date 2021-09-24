@@ -81,6 +81,14 @@ public class ProfileDetailActivity extends AppCompatActivity implements IApiCall
     TextView tv_amountPaid;
     @BindView(R.id.tv_amount)
     TextView tv_amount;
+    @BindView(R.id.rl_order_detail)
+    RelativeLayout rl_order_detail;
+    @BindView(R.id.rl_pay_bill)
+    RelativeLayout rl_pay_bill;
+    @BindView(R.id.rl_paid_amount_detail)
+    RelativeLayout rl_paid_amount_detail;
+    @BindView(R.id.view_email)
+    View view_line;
     String cus_name="";
     String cus_number="";
     String advance_amount="";
@@ -99,13 +107,25 @@ public class ProfileDetailActivity extends AppCompatActivity implements IApiCall
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_detail);
         ButterKnife.bind(this);
-        Intent intent=new Intent();
+        Intent intent=getIntent();
         cus_id=intent.getStringExtra("cus_id");
         activity_type=intent.getStringExtra("activity_type");
         if (activity_type.equals("2")){
             rlProfile.setVisibility(View.GONE);
             rl_email.setVisibility(View.GONE);
             rl_save.setVisibility(View.GONE);
+            view_line.setVisibility(View.GONE);
+            rl_order_detail.setVisibility(View.VISIBLE);
+            rl_paid_amount_detail.setVisibility(View.VISIBLE);
+            rl_pay_bill.setVisibility(View.VISIBLE);
+        }else {
+            rlProfile.setVisibility(View.VISIBLE);
+            rl_email.setVisibility(View.VISIBLE);
+            rl_save.setVisibility(View.VISIBLE);
+            view_line.setVisibility(View.VISIBLE);
+            rl_order_detail.setVisibility(View.GONE);
+            rl_paid_amount_detail.setVisibility(View.GONE);
+            rl_pay_bill.setVisibility(View.GONE);
         }
         getprofile();
     }
@@ -133,8 +153,6 @@ public class ProfileDetailActivity extends AppCompatActivity implements IApiCall
                     total_amount=response.body().getData().get(0).getTotalAmount();
                     left_amount=response.body().getData().get(0).getLeftAmount();
                     advance_amount=response.body().getData().get(0).getAdvanceAmount();
-
-
                 }
             }
         }
@@ -252,7 +270,7 @@ public class ProfileDetailActivity extends AppCompatActivity implements IApiCall
     @OnClick(R.id.rl_pay_bill)
     void getpay(){
         FragmentManager fm = getSupportFragmentManager();
-        alreadyPayByCustomerTypeDialogFragment = alreadyPayByCustomerTypeDialogFragment.newInstance(ProfileDetailActivity.this,cus_id,"Profile",left_amount);
+        alreadyPayByCustomerTypeDialogFragment = alreadyPayByCustomerTypeDialogFragment.newInstance(ProfileDetailActivity.this,"",cus_id,"Profile",left_amount);
         alreadyPayByCustomerTypeDialogFragment.show(fm, "fragment_edit_name");
     }
 

@@ -43,7 +43,6 @@ public class ChooseOrderTypeDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
-        getDialog().setCancelable(false);
         View view = inflater.inflate(R.layout.chooseordertypedialoglayout, container, false);
         ButterKnife.bind(this, view);
         return view;

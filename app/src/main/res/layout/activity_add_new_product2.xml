@@ -13,8 +13,8 @@
         android:background="@color/colorPrimaryDark">
 
         <ImageView
-            android:layout_width="@dimen/dp20"
-            android:layout_height="@dimen/dp20"
+            android:layout_width="@dimen/dp15"
+            android:layout_height="@dimen/dp15"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dp10"
             android:id="@+id/iv_back"
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_new_product"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textColor="@color/white"
             android:layout_centerInParent="true"
             android:fontFamily="@font/montserrat_medium"/>
@@ -50,7 +50,7 @@
                 android:layout_marginTop="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp20"
-                android:background="@drawable/round_corner_color"
+                android:background="@drawable/round_box_profile"
                 android:minHeight="@dimen/dp50">
 
                 <TextView
@@ -62,8 +62,6 @@
                     android:text="@string/select_product_type"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
-
-
             </RelativeLayout>
 
             <RelativeLayout
@@ -86,7 +84,8 @@
                         android:padding="@dimen/dp5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@color/colorPrimaryDark"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/place_holder"
                         android:id="@+id/iv_product"
                         android:layout_centerHorizontal="true" />
 
@@ -104,7 +103,7 @@
                     android:fontFamily="@font/montserrat_medium"
                     android:padding="@dimen/dp5"
                     android:text="@string/product_name"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
 
@@ -120,7 +119,7 @@
                     android:fontFamily="@font/montserrat_medium"
                     android:padding="@dimen/dp5"
                     android:text="@string/product_image"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <androidx.cardview.widget.CardView
@@ -138,8 +137,9 @@
                         android:padding="@dimen/dp5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@color/colorPrimaryDark"
+                        android:src="@drawable/place_holder"
                         android:id="@+id/iv_product_img"
+                        android:scaleType="fitXY"
                         android:layout_centerHorizontal="true" />
 
                 </androidx.cardview.widget.CardView>
@@ -156,14 +156,14 @@
                     android:fontFamily="@font/montserrat_medium"
                     android:padding="@dimen/dp5"
                     android:text="@string/product_name"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/black"
                     android:textSize="14sp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/rl_product_name"
-                    android:background="@drawable/round_box_corner_for_edittext"
+                    android:background="@drawable/round_box_profile_th"
                     android:layout_below="@+id/tv_product_na"
                     android:layout_marginStart="@dimen/dp15"
                     android:layout_marginEnd="@dimen/dp15">
@@ -180,10 +180,12 @@
                         android:fontFamily="@font/montserrat_regular"
                         android:gravity="start"
                         android:hint="@string/enter_product_name"
-                        android:maxLines="3"
-                        android:minHeight="@dimen/dp100"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:minHeight="@dimen/dp30"
                         android:padding="@dimen/dp5"
-                        android:textColorHint="@color/colorPrimaryDark"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
                         android:textSize="14sp" />
                 </RelativeLayout>
 
@@ -202,14 +204,14 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="Product Description"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
                 <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rl_product_description"
-                android:background="@drawable/round_box_corner_for_edittext"
+                android:background="@drawable/round_box_profile_th"
                 android:layout_below="@+id/tv_product_description"
                 android:layout_marginStart="@dimen/dp15"
                 android:layout_marginEnd="@dimen/dp15">
@@ -224,8 +226,9 @@
                         android:gravity="start"
                         android:hint="@string/enter_about_product"
                         android:maxLines="3"
-                        android:minHeight="@dimen/dp100"
-                        android:textColorHint="@color/colorPrimaryDark"
+                        android:minHeight="@dimen/dp30"
+                        android:textColorHint="@color/black"
+                        android:textColor="@color/black"
                         android:textSize="14sp" />
 
                 </RelativeLayout>
@@ -244,14 +247,14 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:padding="@dimen/dp5"
                 android:text="@string/product_quantity"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
                  <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/rl_product_qty"
-                android:background="@drawable/round_box_corner_for_edittext"
+                android:background="@drawable/round_box_profile_th"
                 android:layout_below="@+id/tv_product_qty"
                 android:layout_marginStart="@dimen/dp15"
                 android:layout_marginEnd="@dimen/dp15">
@@ -265,9 +268,11 @@
                          android:padding="@dimen/dp5"
                          android:layout_margin="@dimen/dp5"
                          android:hint="@string/enter_product_quantity"
-                         android:maxLines="3"
-                         android:minHeight="@dimen/dp100"
-                         android:textColorHint="@color/colorPrimaryDark"
+                         android:maxLines="1"
+                         android:inputType="number"
+                         android:minHeight="@dimen/dp30"
+                         android:textColor="@color/black"
+                         android:textColorHint="@color/black"
                          android:textSize="14sp" />
 
                  </RelativeLayout>
@@ -282,7 +287,7 @@
                 android:layout_marginTop="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginBottom="@dimen/dp20"
-                android:background="@drawable/round_corner_color"
+                android:background="@drawable/round_box_profile"
                 android:minHeight="@dimen/dp50">
 
                 <TextView

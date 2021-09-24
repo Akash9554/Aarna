@@ -41,30 +41,33 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
                 android:layout_below="@+id/iv_customer"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/montserrat_regular"
                 android:singleLine="true"
+                android:textSize="14sp"
                 android:layout_marginStart="@dimen/dp10"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/black" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_number"
                 android:singleLine="true"
+                android:textSize="14sp"
                 android:layout_marginStart="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp5"
-                android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
                 android:layout_below="@+id/tv_customer_name"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_email"
                 android:maxLines="3"
+                android:textSize="14sp"
                 android:visibility="gone"
                 android:layout_marginStart="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp5"
-                android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
                 android:layout_below="@+id/tv_number"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -74,18 +77,27 @@
                 android:layout_marginStart="@dimen/dp10"
                 android:layout_marginBottom="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp5"
-                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/montserrat_regular"
                 android:layout_below="@+id/tv_email"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp5"
-                android:layout_below="@+id/tv_password">
+                android:layout_below="@+id/tv_password"
+                android:layout_marginBottom="@dimen/dp5">
+
+                <View
+                    android:layout_width="5dp"
+                    android:id="@+id/view_line"
+                    android:layout_centerInParent="true"
+                    android:layout_height="@dimen/dp30"/>
+
                 <RelativeLayout
+                    android:layout_toStartOf="@+id/view_line"
                     android:id="@+id/rl_order_list"
-                    android:layout_width="120dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dp10">
 
@@ -93,21 +105,23 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/round_corner_color"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:background="@drawable/round_box_profile"
+                        android:fontFamily="@font/montserrat_regular"
                         android:gravity="center"
                         android:minHeight="35dp"
                         android:text="Profile"
                         android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:textSize="14sp" />
 
                 </RelativeLayout>
+
                 <RelativeLayout
+                    android:layout_toEndOf="@+id/view_line"
                     android:id="@+id/rl_place_order"
-                    android:layout_width="120dp"
-                    android:layout_marginEnd="@dimen/dp10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_height="wrap_content">
+                    android:layout_marginEnd="@dimen/dp10">
 
 
                     <TextView
@@ -115,14 +129,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:background="@drawable/round_corner_color"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:background="@drawable/round_box_profile"
+                        android:fontFamily="@font/montserrat_regular"
                         android:gravity="center"
                         android:minWidth="@dimen/dp100"
                         android:minHeight="35dp"
                         android:text="@string/place_order"
                         android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:textSize="14sp" />
 
                 </RelativeLayout>
             </RelativeLayout>

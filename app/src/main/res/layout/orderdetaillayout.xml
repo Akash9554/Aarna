@@ -7,14 +7,10 @@
     app:cardCornerRadius="5dp"
     android:id="@+id/cv_product">
 
-
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/round_box_corner_for_mainmenu">
-
-
         <ImageView
             android:layout_width="@dimen/dp20"
             android:layout_height="@dimen/dp20"
@@ -45,9 +41,10 @@
             android:id="@+id/tv_customer_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:minWidth="@dimen/dp150"
             android:text="Customer Name : "
             android:textColor="@color/black"
-            android:fontFamily="@font/montserrat_regular"
+            android:fontFamily="@font/montserrat_medium"
             android:textSize="14sp"/>
 
             <TextView
@@ -76,6 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Customer Number : "
+                android:minWidth="@dimen/dp150"
                 android:textColor="@color/black"
                 android:fontFamily="@font/montserrat_regular"
                 android:textSize="14sp"/>
@@ -104,6 +102,7 @@
             <TextView
                 android:id="@+id/tv_customer_address_text"
                 android:layout_width="wrap_content"
+                android:minWidth="@dimen/dp150"
                 android:layout_height="wrap_content"
                 android:text="Customer Address : "
                 android:textColor="@color/black"
@@ -175,19 +174,21 @@
         <ImageView
             android:id="@+id/iv_product"
             android:layout_width="@dimen/dp50"
+            android:visibility="gone"
             android:layout_height="@dimen/dp50"
             android:layout_below="@+id/rl_price"
             android:layout_marginStart="@dimen/dp5"
             android:layout_marginTop="@dimen/dp5"
             android:layout_marginEnd="@dimen/dp5"
-            android:src="@drawable/avatar"
-            android:layout_marginBottom="@dimen/dp5" />
+            android:layout_marginBottom="@dimen/dp5"
+            android:src="@drawable/avatar" />
 
         <RelativeLayout
             android:layout_toEndOf="@+id/iv_product"
             android:layout_marginEnd="@dimen/dp5"
             android:layout_marginStart="@dimen/dp5"
             android:layout_marginTop="@dimen/dp5"
+            android:visibility="gone"
             android:layout_below="@+id/rl_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -222,6 +223,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp5"
+            android:visibility="gone"
             android:layout_marginBottom="@dimen/dp5"
             android:id="@+id/rl_boy_number">
 
@@ -255,6 +257,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp5"
+            android:visibility="gone"
             android:layout_marginBottom="@dimen/dp5"
             android:id="@+id/rl_order_data">
 
@@ -279,7 +282,33 @@
                 android:textSize="14sp"/>
 
 
+
+
+
         </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/rl_order_data"
+            android:id="@+id/rl_change_delivery_boy"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp50"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/round_box_header_corner_delivery"
+            android:minHeight="@dimen/dp50">
+
+
+
+            <TextView
+                android:id="@+id/tv_change_deleviry_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/change_delivery_boy"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
 
 
 </RelativeLayout>

@@ -20,9 +20,19 @@
     <ImageView
         android:layout_width="@dimen/dp25"
         android:layout_height="@dimen/dp25"
+        android:src="@drawable/iv_edit"
+        android:id="@+id/iv_edit"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/dp10"/>
+
+    <ImageView
+        android:layout_width="@dimen/dp25"
+        android:layout_height="@dimen/dp25"
         android:src="@drawable/delete__1_"
         android:id="@+id/iv_delete"
-        android:layout_marginTop="@dimen/dp10"
+        android:layout_below="@+id/iv_edit"
+        android:layout_marginTop="@dimen/dp5"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/dp10"/>
 
@@ -36,8 +46,7 @@
         android:layout_margin="@dimen/dp5"
         android:fontFamily="@font/montserrat_medium"
         android:singleLine="true"
-        android:text="Milk"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/black" />
 
     <LinearLayout
         android:id="@+id/ll_price_per"
@@ -54,16 +63,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Price - "
+            android:minWidth="@dimen/dp50"
             android:singleLine="true"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/black"
             android:fontFamily="@font/montserrat_medium" />
 
         <TextView
             android:id="@+id/tv_price"
             android:layout_weight="1"
             android:layout_marginStart="@dimen/dp5"
-            android:text="@string/milk_1_l"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:textColor="@color/black"
@@ -86,15 +95,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Qty - "
+            android:minWidth="@dimen/dp50"
             android:singleLine="true"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/black"
             android:fontFamily="@font/montserrat_medium" />
 
         <TextView
             android:id="@+id/tv_qty"
             android:layout_weight="1"
             android:layout_marginStart="@dimen/dp5"
-            android:text="@string/milk_1_l"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:singleLine="true"
@@ -117,7 +126,8 @@
             android:layout_height="wrap_content"
             android:text="Total - "
             android:singleLine="true"
-            android:textColor="@color/colorPrimary"
+            android:minWidth="@dimen/dp50"
+            android:textColor="@color/black"
             android:fontFamily="@font/montserrat_medium" />
 
         <TextView
@@ -125,7 +135,7 @@
             android:layout_weight="1"
             android:layout_marginStart="@dimen/dp5"
             android:text="@string/milk_1_l"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:gravity="end"

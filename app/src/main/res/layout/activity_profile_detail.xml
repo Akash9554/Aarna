@@ -13,8 +13,8 @@
         android:background="@color/colorPrimaryDark">
 
         <ImageView
-            android:layout_width="@dimen/dp20"
-            android:layout_height="@dimen/dp20"
+            android:layout_width="@dimen/dp15"
+            android:layout_height="@dimen/dp15"
             android:id="@+id/iv_back"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/dp10"
@@ -41,7 +41,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-80dp"
             android:layout_marginBottom="@dimen/dp40">
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
@@ -54,13 +53,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/dp100">
+                        android:layout_marginTop="@dimen/dp30">
                         <RelativeLayout
                             android:layout_width="180dp"
                             android:layout_height="180dp">
                             <RelativeLayout
-                                android:layout_width="@dimen/dp150"
-                                android:layout_height="@dimen/dp150"
+                                android:layout_width="@dimen/dp160"
+                                android:layout_height="@dimen/dp160"
                                 android:layout_centerHorizontal="true"
                                 android:layout_centerVertical="true">
                                 <androidx.cardview.widget.CardView
@@ -89,7 +88,8 @@
                                 android:layout_alignParentBottom="true"
                                 android:backgroundTint="@color/colorPrimaryDark"
                                 android:background="@drawable/work_bg"
-                                android:layout_margin="@dimen/dp30">
+                                android:layout_margin="@dimen/dp25">
+
 
                                 <ImageView
                                     android:layout_width="@dimen/dp5"
@@ -120,6 +120,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Name"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:textColor="@color/black"
                                         android:layout_centerVertical="true"
                                         android:layout_marginStart="@dimen/dp5"
@@ -133,11 +134,11 @@
                                         android:id="@+id/etName"
                                         android:singleLine="true"
                                         android:maxLines="1"
+                                        android:textColor="@color/black"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:layout_centerVertical="true"
-                                      
                                         android:background="@null"
                                         tools:text="Ujjawal Arya"
-                                      
                                         android:minWidth="@dimen/dp100"
                                         />
 
@@ -152,11 +153,13 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:minHeight="@dimen/dp50"
-                                    android:padding="@dimen/dp15">
+                                    android:padding="@dimen/dp15"
+                                    android:id="@+id/rl_email">
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Email"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:textColor="@color/black"
                                         android:layout_centerVertical="true"
                                         android:layout_marginStart="@dimen/dp5"
@@ -167,6 +170,8 @@
                                         android:layout_alignParentEnd="true"
                                         android:layout_height="wrap_content"
                                         android:gravity="end"
+                                        android:textColor="@color/black"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:id="@+id/etEmail"
                                         android:singleLine="true"
                                         android:maxLines="1"
@@ -177,6 +182,7 @@
 
                                 </RelativeLayout>
                                 <View
+                                    android:id="@+id/view_email"
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/dp1"
                                     android:layout_marginStart="@dimen/dp15"
@@ -186,20 +192,22 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:minHeight="@dimen/dp50"
-                                    android:id="@+id/rl_email"
                                     android:padding="@dimen/dp15">
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Address"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:textColor="@color/black"
                                         android:layout_centerVertical="true"
                                         android:layout_marginStart="@dimen/dp5"
                                         android:layout_marginEnd="@dimen/dp5" />
 
                                     <EditText
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:layout_width="wrap_content"
                                         android:minWidth="@dimen/dp100"
+                                        android:textColor="@color/black"
                                         android:layout_alignParentEnd="true"
                                         android:layout_height="wrap_content"
                                         android:gravity="end"
@@ -232,6 +240,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
                                         android:textColor="@color/black"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:layout_marginStart="@dimen/dp5"
                                         android:layout_marginEnd="@dimen/dp5"
                                         android:text="Phone" />
@@ -239,6 +248,8 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="end"
+                                        android:textColor="@color/black"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:layout_alignParentEnd="true"
                                         android:layout_centerVertical="true"
                                         android:id="@+id/etPhone"
@@ -270,18 +281,20 @@
                                         android:textColor="@color/black"
                                         android:layout_marginStart="@dimen/dp5"
                                         android:layout_marginEnd="@dimen/dp5"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:text="Total Bill" />
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="end"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:layout_alignParentEnd="true"
                                         android:layout_centerVertical="true"
                                         android:id="@+id/tv_amount"
                                         android:singleLine="true"
                                         android:maxLines="1"
                                         android:textColor="@color/black"
-                                        tools:text="98878798998" />
+                                        tools:text="123" />
 
                                 </RelativeLayout>
                                 <View
@@ -304,19 +317,21 @@
                                         android:layout_centerVertical="true"
                                         android:textColor="@color/black"
                                         android:layout_marginStart="@dimen/dp5"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:layout_marginEnd="@dimen/dp5"
                                         android:text="Amount Paid" />
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="end"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:textColor="@color/black"
                                         android:layout_alignParentEnd="true"
                                         android:layout_centerVertical="true"
                                         android:id="@+id/tv_amountPaid"
                                         android:singleLine="true"
                                         android:maxLines="1"
-                                        tools:text="98878798998" />
+                                        tools:text="1212" />
 
                                 </RelativeLayout>
                                 <View
@@ -338,6 +353,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
                                         android:textColor="@color/black"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:layout_marginStart="@dimen/dp5"
                                         android:layout_marginEnd="@dimen/dp5"
                                         android:text="Left Ammount" />
@@ -345,6 +361,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:gravity="end"
+                                        android:fontFamily="@font/montserrat_regular"
                                         android:layout_alignParentEnd="true"
                                         android:layout_centerVertical="true"
                                         android:id="@+id/tv_left_amount"
@@ -362,7 +379,6 @@
                                     android:background="@color/black"
                                     android:layout_marginTop="@dimen/dp2"
                                     android:layout_marginBottom="@dimen/dp2"/>
-
                                 <RelativeLayout
                                     android:id="@+id/rl_save"
                                     android:layout_width="match_parent"
@@ -370,9 +386,8 @@
                                     android:layout_marginStart="@dimen/dp30"
                                     android:layout_marginTop="@dimen/dp20"
                                     android:layout_marginEnd="@dimen/dp30"
-                                    android:visibility="gone"
                                     android:layout_marginBottom="@dimen/dp20"
-                                    android:background="@drawable/round_corner_color"
+                                    android:background="@drawable/round_box_profile"
                                     android:minHeight="@dimen/dp50">
 
                                     <TextView
@@ -393,7 +408,7 @@
                                     android:layout_marginTop="@dimen/dp5"
                                     android:layout_marginEnd="@dimen/dp30"
                                     android:layout_marginBottom="@dimen/dp5"
-                                    android:background="@drawable/round_corner_color"
+                                    android:background="@drawable/round_box_profile"
                                     android:minHeight="@dimen/dp50">
 
                                     <TextView
@@ -413,7 +428,7 @@
                                     android:layout_marginTop="@dimen/dp5"
                                     android:layout_marginEnd="@dimen/dp30"
                                     android:layout_marginBottom="@dimen/dp5"
-                                    android:background="@drawable/round_corner_color"
+                                    android:background="@drawable/round_box_profile"
                                     android:minHeight="@dimen/dp50">
 
                                     <TextView
@@ -433,7 +448,7 @@
                                     android:layout_marginTop="@dimen/dp5"
                                     android:layout_marginEnd="@dimen/dp30"
                                     android:layout_marginBottom="@dimen/dp5"
-                                    android:background="@drawable/round_corner_color"
+                                    android:background="@drawable/round_box_profile"
                                     android:minHeight="@dimen/dp50">
 
                                     <TextView
@@ -445,8 +460,6 @@
                                         android:textColor="@color/white"
                                         android:textSize="16sp" />
                                 </RelativeLayout>
-
-
                             </LinearLayout>
                         </RelativeLayout>
                 </RelativeLayout>

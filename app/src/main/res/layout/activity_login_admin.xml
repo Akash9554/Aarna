@@ -49,7 +49,7 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:text="@string/login"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -63,8 +63,8 @@
 
                 <ImageView
                     android:id="@+id/iv_user_icon"
-                    android:layout_width="@dimen/dp25"
-                    android:layout_height="@dimen/dp25"
+                    android:layout_width="@dimen/dp20"
+                    android:layout_height="@dimen/dp20"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="@dimen/dp15"
@@ -81,6 +81,7 @@
                     android:singleLine="true"
                     android:inputType="textEmailAddress"
                     android:paddingEnd="@dimen/dp20"
+                    android:maxLines="1"
                     android:layout_centerVertical="true"
                     android:textColor="@color/white"
                     android:id="@+id/et_username"
@@ -103,8 +104,8 @@
                 android:layout_below="@+id/rl_et_email">
 
                 <ImageView
-                    android:layout_width="@dimen/dp25"
-                    android:layout_height="@dimen/dp25"
+                    android:layout_width="@dimen/dp20"
+                    android:layout_height="@dimen/dp20"
                     android:layout_centerVertical="true"
                     android:src="@drawable/pad_lock"
                     android:id="@+id/iv_password_icon"
@@ -112,8 +113,8 @@
                     android:layout_marginEnd="@dimen/dp15"/>
 
                 <ImageView
-                    android:layout_width="@dimen/dp25"
-                    android:layout_height="@dimen/dp25"
+                    android:layout_width="@dimen/dp20"
+                    android:layout_height="@dimen/dp20"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
                     android:src="@drawable/eye_close"
@@ -135,6 +136,7 @@
                     android:layout_centerVertical="true"
                     android:textColor="@color/white"
                     android:id="@+id/et_password"
+                    android:maxLines="1"
                     android:textColorHint="@color/white"
                     android:backgroundTint="@color/transparent"
                     android:layout_centerInParent="true"

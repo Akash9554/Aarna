@@ -182,6 +182,7 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
                 intent.putExtra("id",cus_id);
                 intent.putExtra("name",cus_name);
                 intent.putExtra("number",cus_number);
+                intent.putExtra("order_type","add");
                 startActivityForResult(intent, 1);
             }else {
                 Intent intent = new Intent(CustomerListActivity.this, OrderListActivity.class);
@@ -189,6 +190,7 @@ public class CustomerListActivity extends AppCompatActivity implements IRecycler
                 intent.putExtra("id",cus_id);
                 intent.putExtra("name",cus_name);
                 intent.putExtra("number",cus_number);
+                intent.putExtra("order_type","add");
                 startActivityForResult(intent, 1);
             }
 

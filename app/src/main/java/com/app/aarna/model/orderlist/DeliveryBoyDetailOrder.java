@@ -1,9 +1,12 @@
 package com.app.aarna.model.orderlist;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DeliveryBoyDetailOrder {
+public class DeliveryBoyDetailOrder implements Parcelable {
     @SerializedName("id")
     @Expose
     private String id;
@@ -40,6 +43,33 @@ public class DeliveryBoyDetailOrder {
     @SerializedName("left_amount")
     @Expose
     private String leftAmount;
+
+    protected DeliveryBoyDetailOrder(Parcel in) {
+        id = in.readString();
+        name = in.readString();
+        email = in.readString();
+        image = in.readString();
+        address = in.readString();
+        phone = in.readString();
+        userType = in.readString();
+        createdAt = in.readString();
+        status = in.readString();
+        totalAmount = in.readString();
+        advanceAmount = in.readString();
+        leftAmount = in.readString();
+    }
+
+    public static final Creator<DeliveryBoyDetailOrder> CREATOR = new Creator<DeliveryBoyDetailOrder>() {
+        @Override
+        public DeliveryBoyDetailOrder createFromParcel(Parcel in) {
+            return new DeliveryBoyDetailOrder(in);
+        }
+
+        @Override
+        public DeliveryBoyDetailOrder[] newArray(int size) {
+            return new DeliveryBoyDetailOrder[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -135,5 +165,26 @@ public class DeliveryBoyDetailOrder {
 
     public void setLeftAmount(String leftAmount) {
         this.leftAmount = leftAmount;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(name);
+        parcel.writeString(email);
+        parcel.writeString(image);
+        parcel.writeString(address);
+        parcel.writeString(phone);
+        parcel.writeString(userType);
+        parcel.writeString(createdAt);
+        parcel.writeString(status);
+        parcel.writeString(totalAmount);
+        parcel.writeString(advanceAmount);
+        parcel.writeString(leftAmount);
     }
 }

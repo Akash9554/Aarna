@@ -1,12 +1,15 @@
 package com.app.aarna.model.orderlist;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class OrderListData implements Serializable {
+public class OrderListData implements Parcelable {
     @SerializedName("id")
     @Expose
     private String id;
@@ -40,6 +43,30 @@ public class OrderListData implements Serializable {
     @SerializedName("product_list")
     @Expose
     private ArrayList<ProductOrder> productList = null;
+
+    public OrderListData(Parcel in) {
+        id = in.readString();
+        customerId = in.readString();
+        deliveryBoyId = in.readString();
+        orderDate = in.readString();
+        orderType = in.readString();
+        grandTotal = in.readString();
+        createdAt = in.readString();
+        status = in.readString();
+    }
+    public OrderListData(){}
+
+    public static final Creator<OrderListData> CREATOR = new Creator<OrderListData>() {
+        @Override
+        public OrderListData createFromParcel(Parcel in) {
+            return new OrderListData(in);
+        }
+
+        @Override
+        public OrderListData[] newArray(int size) {
+            return new OrderListData[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -127,5 +154,22 @@ public class OrderListData implements Serializable {
 
     public void setProductList(ArrayList<ProductOrder> productList) {
         this.productList = productList;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(customerId);
+        parcel.writeString(deliveryBoyId);
+        parcel.writeString(orderDate);
+        parcel.writeString(orderType);
+        parcel.writeString(grandTotal);
+        parcel.writeString(createdAt);
+        parcel.writeString(status);
     }
 }

@@ -105,8 +105,6 @@ public class AddDeliveryBoyActivity extends AppCompatActivity implements IApiCal
             et_delivery_boy_name.setText(intent.getStringExtra("div_name"));
             et_delivery_boy_email.setText(intent.getStringExtra("div_email"));
             Glide.with(this).load(intent.getStringExtra("div_image")).apply(new RequestOptions()).centerCrop().into(iv_delivery_boy);
-
-
         }else {
             et_delivery_boy_password.setVisibility(View.VISIBLE);
             tv_delivery_boy_password.setVisibility(View.VISIBLE);

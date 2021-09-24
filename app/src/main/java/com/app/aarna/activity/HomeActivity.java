@@ -41,7 +41,10 @@ public class HomeActivity extends AppCompatActivity implements MyInterface {
 
     @OnClick(R.id.cv_profile)
     void get_all_Profile(){
-        getActivityCall(CustomerHomeActivity.class);
+        Intent intent = new Intent(HomeActivity.this, ProfileDetailActivity.class);
+        intent.putExtra("activity_type", "1");
+        intent.putExtra("cus_id","1");
+        startActivity(intent);
     }
 
     @OnClick(R.id.cv_add_new_product)
@@ -51,7 +54,7 @@ public class HomeActivity extends AppCompatActivity implements MyInterface {
 
     @OnClick(R.id.cv_bill)
     void get_all_Bill(){
-        getActivityCall(RecordListActivity.class);
+        getActivityCall(CustomerHomeActivity.class);
     }
 
     public void getActivityCall(Class activity_call){

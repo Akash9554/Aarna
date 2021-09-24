@@ -10,6 +10,10 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box_corner_for_edittext.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box_corner_for_mainmenu.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box_header_corner.xml" value="0.2203125" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box_header_corner_delivery.xml" value="0.2203125" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box_profile.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box_profile_sec.xml" value="0.20555555555555555" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_box_profile_th.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_corner.xml" value="0.2203125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/drawable/round_corner_color.xml" value="0.1953125" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_add_delivery_boy.xml" value="0.22" />
@@ -28,21 +32,21 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_new_customer.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_order_list.xml" value="0.22" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_payment_history.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_payment_history.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_product_list.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_profile_detail.xml" value="0.2" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_profile_detail.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_record_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_select_delivery_boy.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/activity_splash_screen.xml" value="0.22" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/addedproductlistforcustomerlayout.xml" value="0.18541666666666667" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/alertdialoglayout.xml" value="0.22" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/alreadypayedbycustomertypedialoglayout.xml" value="0.2" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/alertdialoglayout.xml" value="0.33" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/alreadypayedbycustomertypedialoglayout.xml" value="0.22" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/chooseordertypedialoglayout.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/custom_loader.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/customer_list_view.xml" value="0.25" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/customeralllistlayout.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/delivery_boy_list_view.xml" value="0.22" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/deliveryboyorderdetaillayout.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/deliveryboyorderdetaillayout.xml" value="0.22" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/deliveryboytypelistdialog.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/orderdetaillayout.xml" value="0.2" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/Aarna/app/src/main/res/layout/orderproductitemlayout.xml" value="0.25" />

@@ -10,17 +10,17 @@
         style="@style/CardView.Light"
         android:background="@color/semitransparent"
         android:layout_centerInParent="true"
-        app:cardCornerRadius="20dp">
+        app:cardCornerRadius="5dp">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/round_box_corner">
+            android:background="@drawable/round_box_profile_sec">
 
 
             <ImageView
                 android:id="@+id/ivAlert"
-                android:layout_width="@dimen/dp100"
-                android:layout_height="@dimen/dp100"
+                android:layout_width="@dimen/dp120"
+                android:layout_height="@dimen/dp120"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/dp30"
                 android:src="@drawable/app_logo"
@@ -36,11 +36,11 @@
                 android:layout_marginLeft="@dimen/dp20"
                 android:layout_marginEnd="@dimen/dp20"
                 android:layout_marginRight="@dimen/dp20"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/montserrat_regular"
                 android:gravity="center"
                 android:text="@string/choose_order_type"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,8 +62,8 @@
                         android:layout_height="wrap_content"
                         android:minHeight="35dp"
                         android:text="@string/single_day_order"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/montserrat_regular"
                         android:minWidth="@dimen/dp100"
                         android:layout_marginTop="@dimen/dp25"
                         android:layout_marginBottom="@dimen/dp20"
@@ -87,8 +87,8 @@
                         android:layout_height="wrap_content"
                         android:minHeight="35dp"
                         android:text="@string/multi_day_order"
-                        android:textSize="12sp"
-                        android:fontFamily="@font/montserrat_medium"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/montserrat_regular"
                         android:minWidth="@dimen/dp100"
                         android:layout_marginTop="@dimen/dp25"
                         android:layout_marginBottom="@dimen/dp20"

@@ -42,12 +42,14 @@ public class AlreadyPayByCustomerTypeDialogFragment extends DialogFragment imple
     TextView tvMsg;
     static String Amount_pay;
     String entered_amount="";
+    static String cus_id;
 
 
-    public AlreadyPayByCustomerTypeDialogFragment newInstance(Context context, String order_id, String order,String Amount) {
+    public AlreadyPayByCustomerTypeDialogFragment newInstance(Context context, String order_id,String cus_ids, String order,String Amount) {
         AlreadyPayByCustomerTypeDialogFragment alertDialog = new AlreadyPayByCustomerTypeDialogFragment();
         contexts=context;
         id=order_id;
+        cus_id=cus_ids;
         order_types=order;
         Amount_pay=Amount;
         return alertDialog;
@@ -57,9 +59,11 @@ public class AlreadyPayByCustomerTypeDialogFragment extends DialogFragment imple
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
-        getDialog().setCancelable(false);
         View view = inflater.inflate(R.layout.alreadypayedbycustomertypedialoglayout, container, false);
         ButterKnife.bind(this, view);
+        if (order_types.equals("Profile")){
+            getDialog().setCancelable(false);
+        }
         tvMsg.setText("Total Amount To Pay"+" "+Amount_pay);
         return view;
     }
@@ -73,7 +77,7 @@ public class AlreadyPayByCustomerTypeDialogFragment extends DialogFragment imple
         } else {
             entered_amount=et_amount.getText().toString();
             FunctionHelper.disable_user_Intration(contexts, getString(R.string.loading), getChildFragmentManager());
-            ApiCall.getInstance(contexts).customer_pay(id, entered_amount, this);
+            ApiCall.getInstance(contexts).customer_pay(cus_id, entered_amount, this);
         }
     }
 

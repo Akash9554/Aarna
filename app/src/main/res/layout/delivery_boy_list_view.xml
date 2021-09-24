@@ -41,10 +41,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
                 android:layout_below="@+id/iv_delivery_man"
-                android:fontFamily="@font/montserrat_medium"
+                android:fontFamily="@font/montserrat_regular"
                 android:singleLine="true"
+                android:textSize="14sp"
                 android:layout_marginStart="@dimen/dp10"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/black" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,28 +53,31 @@
                 android:singleLine="true"
                 android:layout_marginStart="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp5"
-                android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat_regular"
                 android:layout_below="@+id/tv_delivery_man_name"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_email"
                 android:maxLines="3"
+                android:textSize="14sp"
                 android:layout_marginStart="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp5"
-                android:textColor="@color/colorPrimary"
-                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
                 android:layout_below="@+id/tv_number"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_password"
                 android:maxLines="3"
+                android:textSize="14sp"
                 android:layout_marginStart="@dimen/dp10"
                 android:layout_marginBottom="@dimen/dp10"
                 android:layout_marginTop="@dimen/dp5"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/black"
                 android:fontFamily="@font/montserrat_regular"
                 android:layout_below="@+id/tv_email"/>
         </RelativeLayout>

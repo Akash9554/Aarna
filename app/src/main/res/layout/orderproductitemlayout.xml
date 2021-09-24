@@ -44,8 +44,8 @@
             android:id="@+id/tv_assigned_boy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="@dimen/dp50"
             android:text="Qty : "
+            android:minWidth="@dimen/dp50"
             android:textColor="@color/black"
             android:fontFamily="@font/montserrat_medium"
             android:textSize="14sp"/>
